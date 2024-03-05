@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
-  def method_name_params
-    params.require(:method_name).permit(:status, :walk_id)
+  def booking_params
+    params.require(:booking).permit(:status, :walk_id)
   end
 end
