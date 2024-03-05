@@ -55,6 +55,6 @@ class WalksController < ApplicationController
   end
 
   def walk_params
-    params.require(:walk).permit(:name, :description, :date, :duration, :picture, :constraint)
+    params.require(:walk).permit(:name, :description, :date, :photo, :duration, :picture, :constraint)
   end
 end
