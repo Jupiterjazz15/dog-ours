@@ -2,16 +2,7 @@ class WalksController < ApplicationController
   before_action :set_walk, only: %i[show edit update destroy]
 
   def index
-<<<<<<< HEAD
-    authorize @walk
-    @walks = Walk.all
-      if params[:query].present?
-        sql_subquery = "starting_point ILIKE :query"
-        @walks = @walks.where(sql_subquery, query: "%#{params[:query]}%")
-      end
-=======
     @walks = policy_scope(Walk)
->>>>>>> origin
   end
 
   def new
