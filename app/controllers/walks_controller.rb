@@ -1,24 +1,23 @@
 class WalksController < ApplicationController
   before_action :set_walk, only: %i[show edit update destroy]
-  before_action :authenticate_user!, only: %i[new create destroy edit update]
+
   def index
-    authorize @walk
-    @walks = Walk.all
+    @walks = policy_scope(Walk)
   end
 
   def new
-    authorize @walk
     @walk = Walk.new
+    authorize @walk
   end
 
   def show
-    authorize @walk
     @walk = Walk.find(params[:id])
+    authorize @walk
   end
 
   def create
-    authorize @walk
     @walk = Walk.new(walk_params)
+    authorize @walk
     if @walk.save
       redirect_to walk_path(@walk)
     else
@@ -27,13 +26,13 @@ class WalksController < ApplicationController
   end
 
   def edit
-    authorize @walk
     @walk = Walk.find(params[:id])
+    authorize @walk
   end
 
   def update
-    authorize @walk
     @walk = Walk.find(params[:id])
+    authorize @walk
     @walk.update(walk_params)
     if @walk.save
       redirect_to walk_path(@walk)
@@ -43,8 +42,8 @@ class WalksController < ApplicationController
   end
 
   def destroy
-    authorize @walk
     @walk = Walk.find(params[:id])
+    authorize @walk
     @walk.destroy
     redirect_to walks_path
   end
