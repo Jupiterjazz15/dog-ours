@@ -1,8 +1,8 @@
 class BookingsController < ApplicationController
-  def create
+  def index
   end
 
-  def edit
+  def show
   end
 
   def destroy
