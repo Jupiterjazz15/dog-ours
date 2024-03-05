@@ -1,9 +1,9 @@
 require 'csv'
 
-User.delete_all
-Tag.delete_all
-UserTag.delete_all
-Breed.delete_all
+User.destroy_all
+Tag.destroy_all
+UserTag.destroy_all
+Breed.destroy_all
 
 p "Users deleted"
 p "Tags deleted"
@@ -36,5 +36,19 @@ UserTag.create!(user: User.first, tag: Tag.take)
 csv_file_path = Rails.root.join('lib', 'seeds', 'fci-breeds.csv')
 CSV.foreach(csv_file_path, headers: true) do |row|
   Breed.create!(content: row['name'])
-  p "Breed #{Breed.count} created"
 end
+p "Breed #{Breed.count} created"
+
+birth_date1 = Date.new(2020, 8, 15)
+birth_date2 = Date.new(2022, 10, 10)
+start_time1 = DateTime.new(2024,03,25,12,34)
+start_time2 = DateTime.new(2024,03,25,12,34)
+
+Dog.create!(name: "Charlie", description: "The funniest dog in the world", birth_date: birth_date1, constraint: "Doesn't like small dogs", picture: "https://img.20mn.fr/2c2xoZqdQhu84Dmhb8ci9Sk/1444x920_media" , fun_fact: "The best swimmer you have ever seen !!",size: "large", breed_id: Breed.take.id, user_id: User.first.id)
+
+Dog.create!(name: "Molly", description: "Lovely, cute and very friendly", birth_date: birth_date2, constraint: "None", picture: "https://cdn.britannica.com/35/233235-050-8DED07E3/Pug-dog.jpg" , fun_fact: "She loves to wear costume",size: "small", breed_id: Breed.take.id, user_id: User.second.id)
+
+Walk.create!(starting_point: "24 Rue de Varenne, 75007, Paris", duration: "20 min", start_time: start_time1, difficulty: "medium", description: "A walk that I like since we can walk in large streets and we can stop in a park." , frequency: "every week",number_of_participant: "2", user_id: User.second.id, longitude: 48.85394251078765, latitude: 2.324669154969887)
+
+Walk.create!(starting_point: "45 Rue des Alouettes, 75019, Paris", duration: "30 min", start_time: start_time2, difficulty: "medium", description: "A walk in les Buttes-Chaumont" , frequency: "every day", number_of_participant: "1", user_id: User.first.id, longitude: 48.8793583169614 , latitude: 2.385697451774964)
+
