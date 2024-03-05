@@ -36,5 +36,5 @@ UserTag.create!(user: User.first, tag: Tag.take)
 csv_file_path = Rails.root.join('lib', 'seeds', 'fci-breeds.csv')
 CSV.foreach(csv_file_path, headers: true) do |row|
   Breed.create!(content: row['name'])
-  p "Breed #{Breed.count} created"
 end
+p "Breed #{Breed.count} created"
