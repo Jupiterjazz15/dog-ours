@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :dogs, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  accepts_nested_attributes_for :dogs
 end
