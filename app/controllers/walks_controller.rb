@@ -2,18 +2,22 @@ class WalksController < ApplicationController
   before_action :set_walk, only: %i[show edit update destroy]
   before_action :authenticate_user!, only: %i[new create destroy edit update]
   def index
+    authorize @walk
     @walks = Walk.all
   end
 
   def new
+    authorize @walk
     @walk = Walk.new
   end
 
   def show
+    authorize @walk
     @walk = Walk.find(params[:id])
   end
 
   def create
+    authorize @walk
     @walk = Walk.new(walk_params)
     if @walk.save
       redirect_to walk_path(@walk)
@@ -23,10 +27,12 @@ class WalksController < ApplicationController
   end
 
   def edit
+    authorize @walk
     @walk = Walk.find(params[:id])
   end
 
   def update
+    authorize @walk
     @walk = Walk.find(params[:id])
     @walk.update(walk_params)
     if @walk.save
@@ -37,6 +43,7 @@ class WalksController < ApplicationController
   end
 
   def destroy
+    authorize @walk
     @walk = Walk.find(params[:id])
     @walk.destroy
     redirect_to walks_path

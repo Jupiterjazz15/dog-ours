@@ -2,14 +2,17 @@ class DogsController < ApplicationController
   before_action :set_dog, only: %i[show edit update destroy]
   before_action :authenticate_user!, only: %i[new create edit update destroy]
   def new
+    authorize @dog
     @dog = Dog.new
   end
 
   def show
+    authorize @dog
     @dog = Dog.find(params[:id])
   end
 
   def create
+    authorize @dog
     @dog = Dog.new(dog_params)
     if @dog.save
       redirect_to dashboard_path(@dog)
@@ -19,10 +22,12 @@ class DogsController < ApplicationController
   end
 
   def edit
+    authorize @dog
     @dog = Dog.find(params[:id])
   end
 
   def update
+    authorize @dog
     @dog = Dog.find(params[:id])
     @dog.update(dog_params)
     if @dog.save
@@ -33,6 +38,7 @@ class DogsController < ApplicationController
   end
 
   def destroy
+    authorize @dog
     @dog = Dog.find(params[:id])
     @dog.destroy
     redirect_to dogs_path
