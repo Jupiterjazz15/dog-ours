@@ -2,19 +2,10 @@
     <p><%= image_tag current_user.avatar, class: "avatar" %></p>
 
     <p><%= current_user.first_name %> <%= current_user.last_name %></p>
-    <p><%= link_to "Modifier le profil", dashboard_path(section: 'my profile') %> </p>
 
-
-    <div class="onglets">
-      <div style="padding-bottom: 1em;">
-      <%= link_to "My future walks", dashboard_path(section: 'my future walks') %>
-      </div>
-      <div style="padding-bottom: 1em;">
-      <%= link_to "My bookings", dashboard_path(section: 'bookings') %>
-      </div>
-      <div style="padding-bottom: 1em;">
-      <%= link_to "My booking requests", dashboard_path(section: 'bookings request') %>
-      </div>
-    </div>
+    <p><%= link_to "Modifier mes informations", myprofile_path %> </p>
+    <p><%= link_to "Modifier les informations de mon chien", edit_dog_path(current_user.dogs.first.id) %> </p>
+    <p> <%= link_to "My walks", dashboard_path(section: 'my future walks') %></p>
+    <p> <%= link_to "Walks that I want to join", dashboard_path(section: 'bookings') %> </p>
 
 <%= render "shared/user_and_dogs_form" %>
