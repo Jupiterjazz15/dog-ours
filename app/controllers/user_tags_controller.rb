@@ -1,4 +1,5 @@
 class UserTagsController < ApplicationController
+
   def create
     @user_tag = UserTag.new(user_tag_params)
     if @user_tag.save
