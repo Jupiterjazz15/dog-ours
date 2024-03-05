@@ -4,6 +4,10 @@ class WalksController < ApplicationController
   def index
     authorize @walk
     @walks = Walk.all
+      if params[:query].present?
+        sql_subquery = "starting_point ILIKE :query"
+        @walks = @walks.where(sql_subquery, query: "%#{params[:query]}%")
+      end
   end
 
   def new
