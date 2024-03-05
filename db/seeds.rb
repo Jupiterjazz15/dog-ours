@@ -1,18 +1,13 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+require 'csv'
 
-User.destroy_all
-Tag.destroy_all
+User.delete_all
+Tag.delete_all
+UserTag.delete_all
+Breed.delete_all
 
 p "Users deleted"
 p "Tags deleted"
+p "Breeds deleted"
 
 users_data = [
   { first_name: "Antoine", last_name: "Lebeau", phone_number: "123-456-7890", avatar: "https://ca.slack-edge.com/T02NE0241-U06DG7195EE-41fa3d1f8d29-512", email: "antoine@test.com", password: "testpassword" },
@@ -37,3 +32,9 @@ p "You have created #{Tag.count} tags"
 
 UserTag.create!(user: User.first, tag: Tag.take)
 UserTag.create!(user: User.first, tag: Tag.take)
+
+csv_file_path = Rails.root.join('lib', 'seeds', 'fci-breeds.csv')
+CSV.foreach(csv_file_path, headers: true) do |row|
+  Breed.create!(content: row['name'])
+  p "Breed #{Breed.count} created"
+end
