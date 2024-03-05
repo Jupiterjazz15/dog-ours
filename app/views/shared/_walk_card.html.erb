@@ -1,0 +1,10 @@
+<div class="container">
+  <% @walks.each do |walk| %>
+    <div class="walk-card">
+      <p><%= walk.description %></p>
+      <p>Location: <%= walk.starting_point %></p>
+      <p>Duration: <%= walk.duration %></p>
+      <p>Time: <%= walk.start_time %></p>
+    </div>
+  <% end %>
+</div>
