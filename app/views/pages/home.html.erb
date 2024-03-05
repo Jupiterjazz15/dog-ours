@@ -5,13 +5,11 @@
     <h1>Dogs our</h1>
     <h3>Walk with me</h3>
 <!-- NAVBAR-->
-    <div class="d-flex bar">
-      <button class="btn btn-light search-bar"></button> <!-- PLACE DE LA SEARCHBAR (class search-bar) -->
-      <button class="btn btn-secondary submit">Search</button> <!-- BUTTON SUBMIT DE LA SEARCHBAR (class submit) -->
+    <div class="bar">
+      <%= render "partiales/searchbar" %>
     </div>
   </div>
 
-<%= render "partiales/searchbar" %>
 
 <!-- INTRODUCTION -->
 <div class="container introduction">
