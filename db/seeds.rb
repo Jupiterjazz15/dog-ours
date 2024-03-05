@@ -1,13 +1,17 @@
 require 'csv'
 
-User.destroy_all
-Tag.destroy_all
-UserTag.destroy_all
 Breed.destroy_all
-
-p "Users deleted"
-p "Tags deleted"
 p "Breeds deleted"
+Tag.destroy_all
+p "Tags deleted"
+UserTag.destroy_all
+p "UserTags deleted"
+Walk.destroy_all
+p "Walks deleted"
+Dog.destroy_all
+p "Dogs deleted"
+User.destroy_all
+p "Users deleted"
 
 users_data = [
   { first_name: "Antoine", last_name: "Lebeau", phone_number: "123-456-7890", avatar: "https://ca.slack-edge.com/T02NE0241-U06DG7195EE-41fa3d1f8d29-512", email: "antoine@test.com", password: "testpassword" },
@@ -51,4 +55,3 @@ Dog.create!(name: "Molly", description: "Lovely, cute and very friendly", birth_
 Walk.create!(starting_point: "24 Rue de Varenne, 75007, Paris", duration: "20 min", start_time: start_time1, difficulty: "medium", description: "A walk that I like since we can walk in large streets and we can stop in a park." , frequency: "every week",number_of_participant: "2", user_id: User.second.id, longitude: 48.85394251078765, latitude: 2.324669154969887)
 
 Walk.create!(starting_point: "45 Rue des Alouettes, 75019, Paris", duration: "30 min", start_time: start_time2, difficulty: "medium", description: "A walk in les Buttes-Chaumont" , frequency: "every day", number_of_participant: "1", user_id: User.first.id, longitude: 48.8793583169614 , latitude: 2.385697451774964)
-
