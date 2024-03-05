@@ -1,9 +1,9 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[show edit update destroy]
-  before_action :authenticate_user!, only: %i[new create destroy]
 
   def create
     @booking = Booking.new(booking_params)
+    authorize @booking
     @booking.user = current_user
     @booking.walk = Walk.find(params[:walk_id])
     @booking.walk = @walk
@@ -15,8 +15,8 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    authorize @booking
     @booking = Booking.find(params[:id])
+    authorize @booking
     @booking.destroy
     redirect_to bookings_path(@booking) # redirect to the dashboard view page to determine
   end
