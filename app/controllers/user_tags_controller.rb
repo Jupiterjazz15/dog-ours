@@ -1,9 +1,11 @@
 class UserTagsController < ApplicationController
-  
   def create
     @user_tag = UserTag.new(user_tag_params)
-    @user_tag.save
-    redirect_to user_path(@user_tag.user)
+    if @user_tag.save
+      redirect_to user_path(@user_tag.user)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy

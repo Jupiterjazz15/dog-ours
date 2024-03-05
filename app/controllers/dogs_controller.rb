@@ -1,9 +1,6 @@
 class DogsController < ApplicationController
   before_action :set_dog, only: %i[show edit update destroy]
-  def index
-    @dogs = Dog.all
-  end
-
+  before_action :authenticate_user!, only: %i[new create edit update destroy]
   def new
     @dog = Dog.new
   end
@@ -14,8 +11,11 @@ class DogsController < ApplicationController
 
   def create
     @dog = Dog.new(dog_params)
-    @dog.save
-    redirect_to dog_path(@dog)
+    if @dog.save
+      redirect_to dashboard_path(@dog)
+    else
+      render :new # render the new.html.erb
+    end
   end
 
   def edit
@@ -25,7 +25,11 @@ class DogsController < ApplicationController
   def update
     @dog = Dog.find(params[:id])
     @dog.update(dog_params)
-    redirect_to dog_path(@dog)
+    if @dog.save
+      redirect_to dog_path(@dog) # redirect to the dog view page
+    else
+      render :edit, status: :unprocessable_entity # render the edit.html.erb determine the best path to take
+    end
   end
 
   def destroy
