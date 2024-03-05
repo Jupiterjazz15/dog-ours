@@ -13,9 +13,11 @@ class DogsController < ApplicationController
 
   def create
     @dog = Dog.new(dog_params)
+    @dog.user = current_user
+    @dog.breed = Breed.find_by(content: params[:dog][:breed_id])
     authorize @dog
-    if @dog.save
-      redirect_to dashboard_path(@dog)
+    if @dog.save!
+      redirect_to dog_path(@dog)
     else
       render :new # render the new.html.erb
     end
@@ -51,6 +53,6 @@ class DogsController < ApplicationController
   end
 
   def dog_params
-    params.require(:dog).permit(:name, :description, :birth_date, :photo, :breed_id, :size, :picture, :fun_fact, :constraint)
+    params.require(:dog).permit(:name, :description, :birth_date, :photo, :size, :fun_fact, :constraint, :breed_id)
   end
 end

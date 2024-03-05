@@ -17,6 +17,7 @@ class WalksController < ApplicationController
 
   def create
     @walk = Walk.new(walk_params)
+    @walk.user = current_user
     authorize @walk
     if @walk.save
       redirect_to walk_path(@walk)
@@ -55,6 +56,6 @@ class WalksController < ApplicationController
   end
 
   def walk_params
-    params.require(:walk).permit(:name, :description, :date, :photo, :duration, :picture, :constraint)
+    params.require(:walk).permit(:starting_point, :difficulty, :description, :start_time, :duration, :frequency, :number_of_participant)
   end
 end
