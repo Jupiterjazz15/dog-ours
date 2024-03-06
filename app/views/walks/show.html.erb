@@ -6,3 +6,15 @@
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
+<% if policy(@walk).edit? %>
+<div>
+  <%= link_to "Edit", edit_walk_path, class: "btn btn-outline-warning"%>
+</div>
+<% end %>
+<% if policy(@walk).destroy? %>
+<div>
+  <%= link_to walk_path(@walk), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-outline-danger" do  %>
+    <i class="fas fa-trash-alt"></i>
+  <% end %>
+</div>
+<% end %>

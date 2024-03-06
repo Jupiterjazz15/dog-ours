@@ -3,3 +3,16 @@
 
 
 <%= cl_image_tag @dog.photo.key, height: 300, width: 400, crop: :fill %>
+
+<% if policy(@dog).edit? %>
+<div>
+  <%= link_to "Edit", edit_dog_path, class: "btn btn-outline-warning" %>
+</div>
+<% end %>
+<% if policy(@dog).destroy? %>
+<div>
+  <%= link_to dog_path(@dog), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"}, class: "btn btn-outline-danger" do %>
+  <i class="fas fa-trash-alt"></i>
+  <% end %>
+</div>
+<% end %>

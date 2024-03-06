@@ -2,6 +2,7 @@ class WalksController < ApplicationController
   before_action :set_walk, only: %i[show edit update destroy]
 
   def index
+    @walks = Walk.all
     @walks = policy_scope(Walk)
     @markers = @walks.geocoded.map do |walk|
       {
@@ -61,9 +62,8 @@ class WalksController < ApplicationController
   end
 
   def destroy
-    @walk = Walk.find(params[:id])
-    authorize @walk
     @walk.destroy
+    authorize @walk
     redirect_to walks_path
   end
 

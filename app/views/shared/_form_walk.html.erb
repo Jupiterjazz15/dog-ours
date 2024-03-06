@@ -14,6 +14,10 @@
     <%= f.input :description, label: false, placeholder: "description" %>
     <%= f.input :frequency, label: false, placeholder: "frequency" %>
     <%= f.input :number_of_participant, label: false, placeholder: "number of participant"%>
-    <%= f.submit class: "btn btn-outline-secondary" %>
+    <% if local_assigns[:for_walk] %>
+    <%= f.submit class: "btn btn-outline-primary" %>
+    <% else %>
+    <%= f.submit class: "btn btn-outline-warning" %>
+    <% end %>
   </div>
 <% end  %>
