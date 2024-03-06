@@ -1,5 +1,38 @@
-<h1>Walks#show</h1>
+<div class="banner-index">
+  <button class="back-arrow"><i class="fa-solid fa-arrow-left"></i></button>
+  <div class="d-flex justify-content-center">
+    <h2>Walk details</h2>
+  </div>
+</div>
 
+<div class="container">
+  <div class="show-content">
+    <div class="avatar-name">
+      <img src="<%= @walk.user.avatar %>"> <%= @walk.user.first_name %>
+    </div>
+    <div class="principals-info d-flex">
+      <div class="dog-pic col-5">
+
+      </div>
+      <div class="info-walk col-7">
+        <p><i class="fa-solid fa-location-pin"></i> <%= @walk.starting_point %></p>
+        <p><i class="fa-regular fa-clock"></i> <%= @walk.start_time %></p>
+        <p><i class="fa-solid fa-hourglass-start"></i> <%= @walk.duration %>min</p>
+      </div>
+    </div>
+    <div class="info-dog">
+      <p><i class="fa-solid fa-ruler-vertical"></i></p>
+      <p><i class="fa-solid fa-dog"></i></p>
+    </div>
+    <div class="walk-description">
+      <p><%= @walk.description %></i></p>
+      <br>
+      <p><em>Fun fact :</em></p>
+    </div>
+    <div class="map-vision">
+      <h2>See on the map</h2>
+    </div>
+  </div>
 
 <div id="map-container" class="rounded shadow map_integration"
   data-controller="map"
