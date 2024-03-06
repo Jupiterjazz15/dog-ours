@@ -5,7 +5,5 @@
 
     <p><%= link_to "Modifier mes informations", myprofile_path %> </p>
     <p><%= link_to "Modifier les informations de mon chien", edit_dog_path(current_user.dogs.first.id) %> </p>
-    <p> <%= link_to "My walks", dashboard_path(section: 'my future walks') %></p>
-    <p> <%= link_to "Walks that I want to join", dashboard_path(section: 'bookings') %> </p>
+    <p><%= link_to "My walks", mywalks_path %></p>
 
-<%= render "shared/user_and_dogs_form" %>
