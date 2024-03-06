@@ -1,5 +1,5 @@
 class Dog < ApplicationRecord
-  SIZES = %w[small medium large]
+  SIZES = %w[Small Medium Large]
   belongs_to :breed
   belongs_to :user
   has_one_attached :photo
