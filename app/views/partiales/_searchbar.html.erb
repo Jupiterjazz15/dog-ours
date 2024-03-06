@@ -1,0 +1,9 @@
+<div class="col-sm-8 ">
+        <%= form_with url: walks_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+                params[:query],
+                class: "search-bar",
+                placeholder: "Where do you want to start your walk?"%>
+          <%= submit_tag "Search", name: "", class: "btn btn-secondary submit" %>
+        <% end %>
+</div>
