@@ -1,12 +1,33 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.navbar-bottom {
+  font-size: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: whitesmoke;
+  border-top: solid 1px grey;/* Change the background color as needed */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /* This spreads out the logos evenly */
+  align-items: center;
+  height: 80px; /* Adjust height as needed */
+  z-index: 1000;
+  justify-items: center; /* Ensures navbar stays on top of other content */
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar-bottom a {
+  color: gray; /* Change text color as needed */
+  text-decoration: none; /* Removes underline from links */
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-bottom img {
+  width: 40px; /* Adjust the size of your logos as needed */
+  height: auto;
+}
+
+.navbar-bottom p {
+  font-size: 8px;
+  margin-top: 1em;
+}
+
+.navbar-bottom .fa-solid {
+  text-align: center;
 }

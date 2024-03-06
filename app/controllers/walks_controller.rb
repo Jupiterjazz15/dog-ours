@@ -4,6 +4,19 @@ class WalksController < ApplicationController
   def index
     @walks = Walk.all
     @walks = policy_scope(Walk)
+    @walks = Walk.all # select * from walks
+
+    if params[:query].present?
+      sql_subquery = "starting_point ILIKE :query"
+      @walks = @walks.where(sql_subquery, { query: "%#{params[:query]}%" })
+    end
+
+    if params[:start_time].present?
+      start_date = Date.parse(params[:start_time])
+      end_date = start_date.end_of_day
+      @walks = @walks.where(start_time: start_date..end_date)
+    end
+
     @markers = @walks.geocoded.map do |walk|
       {
         lat: walk.latitude,
