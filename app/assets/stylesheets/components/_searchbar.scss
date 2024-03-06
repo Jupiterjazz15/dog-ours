@@ -13,5 +13,14 @@
   .submit {
     border-radius: 0 24px 24px 0;
     padding-block: 0;
+    background-color: grey;
+  }
+
+  .search-bar-date {
+    font-size: 15px;
+    height: 36px;
+    border: none;
+    padding: 0.75em;
+    color: grey;
   }
 }
