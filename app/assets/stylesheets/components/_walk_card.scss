@@ -6,3 +6,16 @@
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease-in-out;
 }
+.avatar-name {
+  padding-bottom: 1em;
+  margin-left: 0.25em;
+
+  img {
+    height: 36px;
+    border-radius: 50%;
+  }
+}
+
+.walk-card-content {
+  margin-left: 1em;
+}

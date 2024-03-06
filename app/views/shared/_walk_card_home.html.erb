@@ -1,0 +1,16 @@
+<div class="container walks-card">
+  <% random_walk = @walks.sample %>
+  <div class="walk-card">
+    <div class="card-head d-flex justify-content-between">
+      <div class="avatar-name">
+        <img src="<%= random_walk.user.avatar %>"> <%= random_walk.user.first_name %>
+      </div>
+      <p><i class="fa-solid fa-hourglass-start"></i> <%= random_walk.duration %>min</p>
+    </div>
+    <div class="walk-card-content">
+      <p><i class="fa-solid fa-location-pin"></i> <%= random_walk.starting_point %></p>
+      <p><i class="fa-regular fa-clock"></i> <%= random_walk.start_time %></p>
+      <p><i class="fa-solid fa-dog"></i></p>
+    </div>
+  </div>
+</div>
