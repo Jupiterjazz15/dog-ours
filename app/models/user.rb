@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :walks, dependent: :destroy
   has_many :booked_walks, through: :bookings, class_name: 'Walk'
   has_many :dogs, dependent: :destroy
+  has_one_attached :photo
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
