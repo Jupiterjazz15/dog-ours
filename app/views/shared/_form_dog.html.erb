@@ -9,6 +9,10 @@
     <%= f.input :size, collection: Dog::SIZES, label: "Size", placeholder: "size" %>
     <%= f.input :breed, collection: Breed.all, input_html: { data: { controller: "autocomplete" } } %>
     <%= f.input :photo, as: :file, label: false, placeholder: "image" %>
+    <% if local_assigns[:for_dog] %>
     <%= f.submit class: "btn btn-outline-secondary" %>
+    <% else %>
+    <%= f.submit class: "btn btn-outline-dark" %>
+    <% end %>
   </div>
 <% end  %>
