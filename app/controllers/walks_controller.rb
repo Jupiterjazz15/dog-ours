@@ -3,6 +3,12 @@ class WalksController < ApplicationController
 
   def index
     @walks = policy_scope(Walk)
+    @walks = Walk.all
+      if params[:query].present?
+        sql_subquery = "starting_point ILIKE :query"
+        @walks = @walks.where(sql_subquery, query: "%#{params[:query]}%")
+      end
+
     @markers = @walks.geocoded.map do |walk|
       {
         lat: walk.latitude,
