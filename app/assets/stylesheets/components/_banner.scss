@@ -11,35 +11,17 @@
 }
 
 h1 {
-color: white;
-text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-font-size: 50px;
-font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 50px;
+  font-weight: bold;
 }
 
 h3 {
-font-size: 22px;
-color: white;
-opacity: .9;
-text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-padding-bottom: 1em;
-margin: 0;
-}
-
-.bar {
-  height: 36px;
-
-  .search-bar {
-    width: 100%;
-    border-radius: 24px 0 0 24px;
-    font-size: 15px;
-    height: 36px;
-    border: none;
-    padding: 0.75em;
-  }
-
-  .submit {
-    border-radius: 0 24px 24px 0;
-    padding-block: 0;
-  }
+  font-size: 22px;
+  color: white;
+  opacity: .9;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  padding-bottom: 1em;
+  margin: 0;
 }

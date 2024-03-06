@@ -7,7 +7,7 @@
         <%= ff.input :description %>
         <%= ff.input :birth_date %>
         <%= ff.input :constraint %>
-        <%= f.input :photo, as: :file %>
+        <%= ff.input :photo, as: :file %>
         <%= ff.input :fun_fact %>
         <%= ff.input :size %>
         <%= ff.association :breed, collection: Breed.all.pluck(:content)%>

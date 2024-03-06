@@ -1,2 +1,14 @@
-<h1>Walks#index</h1>
-<p>Find me in app/views/walks/index.html.erb</p>
+<div class="banner-index">
+  <button class="back-arrow"><i class="fa-solid fa-arrow-left"></i></button>
+  <div class="d-flex justify-content-center">
+    <h2>Results</h2>
+  </div>
+</div>
+
+<div class="container">
+  <div class="bar">
+    <%= render "partiales/searchbar" %>
+  </div>
+</div>
+
+<%= render "shared/walk_card_index" %>
