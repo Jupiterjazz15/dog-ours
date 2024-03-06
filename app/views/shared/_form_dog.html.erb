@@ -1,0 +1,18 @@
+<!-- Add all the fields into the form after -->
+<%= simple_form_for (@dog) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :name, label: false, placeholder: "Name" %>
+    <%= f.input :description, label: false, placeholder: "description" %>
+    <%= f.input :birth_date, label: false, placeholder: "birth_date" %>
+    <%= f.input :constraint, label: false, placeholder: "constraint" %>
+    <%= f.input :fun_fact, label: false, placeholder: "fun fact" %>
+    <%= f.input :size, collection: Dog::SIZES, label: "Size", placeholder: "size" %>
+    <%= f.association :breed, collection: Breed.all.pluck(:content) %>
+    <%= f.input :photo, as: :file, label: false, placeholder: "image" %>
+    <% if local_assigns[:for_dog] %>
+    <%= f.submit class: "btn btn-outline-secondary" %>
+    <% else %>
+    <%= f.submit class: "btn btn-outline-dark" %>
+    <% end %>
+  </div>
+<% end  %>

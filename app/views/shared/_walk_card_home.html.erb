@@ -9,7 +9,8 @@
     </div>
     <div class="walk-card-content">
       <p><i class="fa-solid fa-location-pin"></i> <%= random_walk.starting_point %></p>
-      <p><i class="fa-regular fa-clock"></i> <%= random_walk.start_time.strftime("%m/%e/%y - %H:%M") %></p>
+      <p><i class="fa-regular fa-clock"></i> <%= random_walk.start_time %></p>
+        <%= link_to "JOIN", walk_path(random_walk), class: "btn btn-outline-secondary"%>
       <p><i class="fa-solid fa-dog"></i></p>
     </div>
   </div>
