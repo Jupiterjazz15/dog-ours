@@ -1,15 +1,16 @@
+
 <div class="">
   <%= simple_form_for(current_user, url: user_registration_path, html: { method: :put }) do |f| %>
-    <%= f.error_notification %>
+        <%= f.error_notification %>
         <%= f.simple_fields_for :dogs do |ff| %>
         <%= ff.input :name %>
         <%= ff.input :description %>
         <%= ff.input :birth_date %>
-        <%= ff.input :constraint%>
-        <%= ff.input :picture %>
+        <%= ff.input :constraint %>
+        <%= f.input :photo, as: :file %>
         <%= ff.input :fun_fact %>
         <%= ff.input :size %>
-        <%= ff.input :breed_id %>
+        <%= ff.association :breed, collection: Breed.all.pluck(:content)%>
       <% end %>
     </div>
 
@@ -17,10 +18,3 @@
     <%= f.button :submit, "Update" %>
   </div>
 <% end %>
-
-<!-- Add all the fields into the form after -->
-<%# <%= simple_form_for(dog) do |f| %>
-  <%# <!-- [...] --> %>
-  <%# <%= f.input :photo, as: :file %>
-  <%# <!-- [...] --> %>
-<%# <% end %>
