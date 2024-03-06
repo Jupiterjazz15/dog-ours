@@ -4,6 +4,10 @@
                 params[:query],
                 class: "search-bar",
                 placeholder: "Where do you want to start your walk?"%>
+          <%= date_field_tag :start_time,
+                params[:start_time],
+                class: "search-bar",
+                placeholder: "When do you want to start your walk?"%>
           <%= submit_tag "Search", name: "", class: "btn btn-secondary submit" %>
         <% end %>
 </div>
