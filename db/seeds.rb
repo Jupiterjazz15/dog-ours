@@ -52,6 +52,6 @@ Dog.create!(name: "Charlie", description: "The funniest dog in the world", birth
 
 Dog.create!(name: "Molly", description: "Lovely, cute and very friendly", birth_date: birth_date2, constraint: "None", picture: "https://cdn.britannica.com/35/233235-050-8DED07E3/Pug-dog.jpg" , fun_fact: "She loves to wear costume",size: "small", breed_id: Breed.take.id, user_id: User.second.id)
 
-Walk.create!(starting_point: "24 Rue de Varenne, 75007, Paris", duration: "20 min", start_time: start_time1, difficulty: "medium", description: "A walk that I like since we can walk in large streets and we can stop in a park." , frequency: "every week",number_of_participant: "2", user_id: User.second.id, longitude: 48.85394251078765, latitude: 2.324669154969887)
+Walk.create!(starting_point: "24 Rue de Varenne, 75007, Paris", duration: "20 min", start_time: start_time1, difficulty: "medium", description: "A walk that I like since we can walk in large streets and we can stop in a park." , frequency: "every week",number_of_participant: "2", user_id: User.second.id)
 
-Walk.create!(starting_point: "45 Rue des Alouettes, 75019, Paris", duration: "30 min", start_time: start_time2, difficulty: "medium", description: "A walk in les Buttes-Chaumont" , frequency: "every day", number_of_participant: "1", user_id: User.first.id, longitude: 48.8793583169614 , latitude: 2.385697451774964)
+Walk.create!(starting_point: "45 Rue des Alouettes, 75019, Paris", duration: "30 min", start_time: start_time2, difficulty: "medium", description: "A walk in les Buttes-Chaumont" , frequency: "every day", number_of_participant: "1", user_id: User.first.id)

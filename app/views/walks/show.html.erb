@@ -33,4 +33,9 @@
       <h2>See on the map</h2>
     </div>
   </div>
+
+<div id="map-container" class="rounded shadow map_integration"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>

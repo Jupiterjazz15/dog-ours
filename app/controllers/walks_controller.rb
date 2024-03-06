@@ -3,6 +3,14 @@ class WalksController < ApplicationController
 
   def index
     @walks = policy_scope(Walk)
+    @markers = @walks.geocoded.map do |walk|
+      {
+        lat: walk.latitude,
+        lng: walk.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { walk: walk }),
+        marker_html: render_to_string(partial: "marker", locals: { walk: walk })
+      }
+    end
   end
 
   def new
@@ -13,6 +21,16 @@ class WalksController < ApplicationController
   def show
     @walk = Walk.find(params[:id])
     authorize @walk
+    if @walk.geocoded?
+      @markers = [
+        {
+          lat: @walk.latitude,
+          lng: @walk.longitude,
+          marker_html: render_to_string(partial: "marker", locals: { walk: @walk }),
+          info_window_html: render_to_string(partial: "info_window", locals: { walk: @walk })
+        }
+      ]
+    end
   end
 
   def create
