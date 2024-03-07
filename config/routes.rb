@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get "up" => "rails/health#show", as: :rails_health_check
   get "/dashboard", to: "pages#dashboard"
+  get 'breeds/autocomplete', to: 'breeds#autocomplete'
   get "/myprofile", to: "pages#myprofile"
   get "/mywalks", to: "pages#mywalks"
 

@@ -1,6 +1,7 @@
 <div class="container walks-card">
   <% link_to %>
   <% @walks.each do |walk| %>
+  <%= link_to(walk_path(walk)) do %>
     <div class="walk-card">
       <div class="card-head d-flex justify-content-between">
         <div class="avatar-name">
@@ -14,5 +15,6 @@
         <p><i class="fa-solid fa-dog"></i></p>
       </div>
     </div>
+  <% end %>
   <% end %>
 </div>
