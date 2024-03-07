@@ -1,11 +1,11 @@
 <!-- Avatar user & ses infos %> -->
-<p><%= image_tag current_user.avatar, class: "avatar" %></p>
+<p><%= cl_image_tag current_user.avatar.key, height: 80, width: 80, crop: :fill,  class: "avatar" %></p>
 <p><%= current_user.first_name %> <%= current_user.last_name %></p>
 <p><%= link_to "Modifier mes informations", myprofile_path %> </p>
 
 <!-- Avatar chien & ses infos %> -->
 <% if current_user.has_a_dog? %>
-<p><%= cl_image_tag current_user.dogs.first.photo.key, height: 40, width: 40, crop: :fill,  class: "avatar" %></p>
+<p><%= cl_image_tag current_user.dogs.first.photo.key, height: 80, width: 80, crop: :fill,  class: "avatar" %></p>
 <p><%= link_to "Modifier les informations de mon chien", edit_dog_path(current_user.dogs.first.id) %></p>
 <% else %>
   <%= link_to "Ajouter votre chien", new_dog_path %>
