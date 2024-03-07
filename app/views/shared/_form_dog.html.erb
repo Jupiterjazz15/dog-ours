@@ -1,9 +1,9 @@
 <!-- Add all the fields into the form after -->
-<%= simple_form_for (@dog) do |f| %>
+<%= simple_form_for @dog do |f| %>
   <div class="form-inputs" data-controller="autocomplete">
     <%= f.input :name, label: false, placeholder: "Name" %>
     <%= f.input :description, label: false, placeholder: "description" %>
-    <%= f.input :birth_date, label: false, placeholder: "birth_date" %>
+    <%= f.input :birth_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
     <%= f.input :constraint, label: false, placeholder: "constraint" %>
     <%= f.input :fun_fact, label: false, placeholder: "fun fact" %>
     <%= f.input :size, collection: Dog::SIZES, label: "Size", placeholder: "size" %>

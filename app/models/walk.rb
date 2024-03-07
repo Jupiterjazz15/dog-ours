@@ -6,7 +6,11 @@ class Walk < ApplicationRecord
   belongs_to :parent, foreign_key: :parent_id, class_name: 'Walk', optional: true
 
   has_many :bookings, dependent: :destroy
+<<<<<<< HEAD
   has_many :walks, foreign_key: :parent_id, class_name: "Walk"
+=======
+  has_many :walks, foreign_key: :parent_id, class_name: "Walk", dependent: :destroy
+>>>>>>> origin
 
   validates :difficulty, inclusion: { in: DIFFICULTIES }
   validates :frequency, inclusion: { in: FREQUENCIES }, allow_nil: true
