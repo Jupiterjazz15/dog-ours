@@ -7,9 +7,8 @@ class Walk < ApplicationRecord
 
   has_many :bookings, dependent: :destroy
   has_many :walks, foreign_key: :parent_id, class_name: "Walk"
-  
+
   validates :difficulty, inclusion: { in: DIFFICULTIES }
-  # Changement de :frequency en string (plus en boolean) + possibillité d'avoir nil si on ne veut pas mettre de récurrence
   validates :frequency, inclusion: { in: FREQUENCIES }, allow_nil: true
   # GeoCoder
   geocoded_by :starting_point

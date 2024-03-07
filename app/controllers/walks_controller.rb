@@ -93,7 +93,6 @@ class WalksController < ApplicationController
 
   def create_dependent_walks_for(walk)
     case walk.frequency
-    when "once" then return
     when "every day"
       13.times do |number|
         Walk.create(
@@ -126,6 +125,8 @@ class WalksController < ApplicationController
           parent: walk
         )
       end
+    else
+      @walk.save
     end
   end
 end

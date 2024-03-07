@@ -1,9 +1,9 @@
-<!-- Avatar user & ses infos %> -->
-<p><%= image_tag current_user.avatar, class: "avatar" %></p>
-<p><%= current_user.first_name %> <%= current_user.last_name %></p>
-<p><%= link_to "Modifier mes informations", myprofile_path %> </p>
-<!-- Avatar chien & ses infos %> -->
-<p><%= image_tag current_user.dogs.first.picture, class: "avatar" %></p>
-<p><%= link_to "Modifier les informations de mon chien", edit_dog_path(current_user.dogs.first.id) %></p>
-<!-- Infos des balades %> -->
-<p><%= link_to "My walks", mywalks_path %></p>
+  <!-- Avatar user & ses infos %> -->
+  <p><%= image_tag current_user.avatar, class: "avatar" %></p>
+  <p><%= current_user.first_name %> <%= current_user.last_name %></p>
+  <p><%= link_to "Modifier mes informations", myprofile_path %> </p>
+  <!-- Avatar chien & ses infos %> -->
+  <p><%= image_tag current_user.dogs.first.picture, class: "avatar" %></p>
+  <p><%= link_to "Modifier les informations de mon chien", edit_dog_path(current_user.dogs.first.id) %></p>
+  <!-- Infos des balades %> -->
+  <p><%= link_to "My walks", mywalks_path %></p>
