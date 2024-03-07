@@ -1,6 +1,11 @@
 class PagesController < ApplicationController
   def home
-    @walks = Walk.all
+    if user_signed_in?
+      @walks = Walk.all
+      render 'home'
+    else
+      render 'welcome'
+    end
   end
 
   def myprofile

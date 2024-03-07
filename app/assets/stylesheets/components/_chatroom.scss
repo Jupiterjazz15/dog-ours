@@ -1,29 +1,4 @@
-.show-content {
-  padding: 1em;
-  .dog-pic {
-    border-radius: 4px;
-    margin-right: 1em;
-    background-color: black;
-  }
-
-  .walk-description {
-    margin-top: 1em;
-  }
-
-  .map-vision {
-    margin-top: 2em;
-    text-align: center;
-  }
-
-  .info-dog {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 1em;
-    font-size: 28px;
-  }
-}
-
-.walk {
+.chatroom {
   background: white;
   margin-top: 9px;
   height: calc(100vh - 75px);
