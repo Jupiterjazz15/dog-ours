@@ -1,23 +1,21 @@
-<div class="container walks-card">
-  <% link_to %>
-  <% @walks.each do |walk| %>
-  <%= link_to(walk_path(walk)) do %>
-    <div class="walk-card">
-      <div class="card-head d-flex justify-content-between">
-        <div class="avatar-name">
-          <img src="<%= walk.user.avatar %>"> <%= walk.user.first_name %>
+<div class="container">
+  <div class="wrapper-index">
+      <% @walks.each do |walk| %>
+      <%= link_to(walk_path(walk)) do %>
+        <div class="walk-card">
+          <div class="card-head d-flex justify-content-between">
+            <div class="avatar-name">
+              <img src="<%= walk.user.avatar %>">
+            </div>
+            <p><i class="fa-solid fa-hourglass-start"></i> <%= walk.duration %>min</p>
+          </div>
+          <div class="walk-card-content">
+            <p><i class="fa-solid fa-location-pin"></i> <%= walk.starting_point %></p>
+            <p><i class="fa-regular fa-clock"></i> <%= walk.start_time.strftime("%e/%m - %H:%M") %></p>
+            <p><i class="fa-solid fa-dog"></i></p>
+          </div>
         </div>
-        <p><i class="fa-solid fa-hourglass-start"></i> <%= walk.duration %>min</p>
-      </div>
-      <div class="walk-card-content">
-        <p><i class="fa-solid fa-location-pin"></i> <%= walk.starting_point %></p>
-        <p><i class="fa-regular fa-clock"></i> <%= walk.start_time.strftime("%m/%e/%y - %H:%M") %></p>
-        <p><i class="fa-solid fa-dog"></i></p>
-      </div>
+        <% end %>
+      <% end %>
     </div>
-  <% end %>
-  <% end %>
-</div>
-
-
-
+  </div>

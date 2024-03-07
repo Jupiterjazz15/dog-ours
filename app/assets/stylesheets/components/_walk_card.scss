@@ -1,21 +1,36 @@
-.walk-card {
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease-in-out;
+.wrapper-index {
+  display: grid;
+  grid-gap: 20px; /* Adjust the space between cards */
+  grid-template-columns: 1fr 1fr; /* Creates a responsive card layout */
 }
-.avatar-name {
-  padding-bottom: 1em;
-  margin-left: 0.25em;
 
-  img {
-    height: 36px;
-    border-radius: 50%;
-  }
+.walk-card {
+  margin-top: 20px;
+  background: #FFF; /* Adjust to your desired card background color */
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out; /* Smooth transformation on hover */
+}
+
+.walk-card:hover {
+  transform: translateY(-10px); /* Raises the card slightly on hover */
+}
+
+.avatar-name img {
+  height: 50px; /* Adjust to fit your design */
+  border-radius: 50%;
+  margin-bottom: -36px; /* Half the image height to overlay it on the card content */
+  background: #FFF; /* Adjust to the background of the content area */
+  box-sizing: border-box;
+  border: 4px solid #FFF; /* Adjust to your card's background color */
+  position: relative;
+  z-index: 10;
 }
 
 .walk-card-content {
-  margin-left: 1em;
+  background: #F4F4F9; /* Adjust to your content area background color */
+  border-radius: 20px;
+  padding-top: 40px; /* Pushes the content down to make space for the avatar */
+  text-align: center; /* Centers the text if you prefer */
 }
