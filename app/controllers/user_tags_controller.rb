@@ -1,5 +1,5 @@
 class UserTagsController < ApplicationController
-
+  before_action :authenticate_user!
   def create
     @user_tag = UserTag.new(user_tag_params)
     if @user_tag.save
