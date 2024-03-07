@@ -11,8 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2024_03_07_113621) do
-ActiveRecord::Schema[7.1].define(version: 2024_03_06_155548) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -76,16 +74,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_06_155548) do
     t.index ["user_id"], name: "index_dogs_on_user_id"
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.string "content"
-    t.bigint "walk_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_messages_on_user_id"
-    t.index ["walk_id"], name: "index_messages_on_walk_id"
-  end
-
   create_table "tags", force: :cascade do |t|
     t.string "content"
     t.datetime "created_at", null: false
@@ -136,8 +124,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_06_155548) do
     t.float "latitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
     t.bigint "parent_id"
+    t.string "name"
     t.index ["parent_id"], name: "index_walks_on_parent_id"
     t.index ["user_id"], name: "index_walks_on_user_id"
   end
@@ -148,8 +136,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_06_155548) do
   add_foreign_key "bookings", "walks"
   add_foreign_key "dogs", "breeds"
   add_foreign_key "dogs", "users"
-  add_foreign_key "messages", "users"
-  add_foreign_key "messages", "walks"
   add_foreign_key "user_tags", "tags"
   add_foreign_key "user_tags", "users"
   add_foreign_key "walks", "users"
