@@ -1,5 +1,7 @@
 require 'csv'
 
+Message.destroy_all
+p "Messages deleted"
 Breed.destroy_all
 p "Breeds deleted"
 Tag.destroy_all
