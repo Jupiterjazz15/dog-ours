@@ -128,6 +128,8 @@ class WalksController < ApplicationController
           parent: walk
         )
       end
+    else
+      @walk.save
     end
   end
 end

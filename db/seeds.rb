@@ -1,5 +1,7 @@
 require 'csv'
 
+Message.destroy_all
+p "Messages deleted"
 Breed.destroy_all
 p "Breeds deleted"
 Tag.destroy_all
@@ -57,8 +59,8 @@ dog = Dog.create!(name: "Charlie", description: "The funniest dog in the world",
 file = URI.open("https://img.passeportsante.net/1200x675/2021-05-06/i106625-signes-bonne-sante-chien.webp")
 dog.photo.attach(io: file, filename: "dog.webp", content_type: "image/webp")
 
-file =  URI.open("https://cdn.britannica.com/35/233235-050-8DED07E3/Pug-dog.jpg")
 dog = Dog.create!(name: "Molly", description: "Lovely, cute and very friendly", birth_date: birth_date2, constraint: "None", fun_fact: "She loves to wear costume",size: "Small", breed_id: Breed.take.id, user_id: User.second.id)
+file =  URI.open("https://cdn.britannica.com/35/233235-050-8DED07E3/Pug-dog.jpg")
 dog.photo.attach(io: file, filename: "dog.webp", content_type: "image/webp")
 
 dog = Dog.create!(name: "Sam", description: "The funniest dog in the world", birth_date: birth_date1, constraint: "Doesn't like small dogs", fun_fact: "The best swimmer you have ever seen !!", size: "Large", breed_id: Breed.take.id, user_id: User.third.id)
