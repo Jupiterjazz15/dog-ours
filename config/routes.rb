@@ -13,10 +13,10 @@ Rails.application.routes.draw do
 
   resources :walks do
     resources :bookings, only: [:create]
+    resources :messages, only: [:create]
   end
   resources :user_tags, only: [:create, :destroy]
   resources :bookings, only: [:update, :destroy]
-
   # A NESTER : resources :reviews, only [:create, :update, :destroy]
   root to: "pages#home"
 end

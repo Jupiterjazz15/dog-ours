@@ -3,6 +3,9 @@ class Walk < ApplicationRecord
   FREQUENCIES = ["every day", "every week", "every two weeks", "every three weeks", "every month"]
   belongs_to :user
   has_many :bookings, dependent: :destroy
+  has_many :participants, through: :bookings, source: :user
+
+  has_many :messages
   validates :difficulty, inclusion: { in: DIFFICULTIES }
   # Changement de :frequency en string (plus en boolean) + possibillité d'avoir nil si on ne veut pas mettre de récurrence
   validates :frequency, inclusion: { in: FREQUENCIES }, allow_nil: true
