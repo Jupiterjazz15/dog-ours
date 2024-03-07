@@ -1,11 +1,12 @@
-<div class="container">
-  <div class="wrapper-index">
+<div class="fix_padding_navbar_bottom">
+  <div class="container">
+    <div class="wrapper-index">
       <% @walks.each do |walk| %>
       <%= link_to(walk_path(walk)) do %>
         <div class="walk-card">
           <div class="card-head d-flex justify-content-between">
             <div class="avatar-name">
-              <img src="<%= walk.user.avatar %>">
+              <img src="<%= walk.user.avatar %>"> <%= walk.user.first_name %>
             </div>
             <p><i class="fa-solid fa-hourglass-start"></i> <%= walk.duration %>min</p>
           </div>
@@ -16,6 +17,8 @@
           </div>
         </div>
         <% end %>
-      <% end %>
-    </div>
-  </div>
+       <% end %>
+     </div>
+   </div>
+</div>
+
