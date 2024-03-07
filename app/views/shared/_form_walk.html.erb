@@ -2,7 +2,7 @@
   <div class="form-inputs">
     <%= f.input :starting_point, label: false, placeholder: "From" %>
     <%= f.input :duration, label: false, placeholder: "Timing" %>
-    <%= f.input :start_time,label: false, placeholder: "At" as: :string, input_html: { data: { controller: "datepicker", datepicker_min_date_value: "today" } } %>
+    <%= f.input :start_time, as: :string, input_html: { data: { controller: "datepicker", datepicker_min_date_value: "today" } } %>
     <%= f.input :difficulty, as: :select, collection: Walk::DIFFICULTIES, placeholder: "Difficulty" %>
     <%= f.input :description, label: false, placeholder: "Description" %>
     <%= f.input :frequency, as: :select, collection: Walk::FREQUENCIES, placeholder: "Frequency" %>
