@@ -7,3 +7,4 @@
 <p><%= link_to "Modifier les informations de mon chien", edit_dog_path(current_user.dogs.first.id) %></p>
 <!-- Infos des balades %> -->
 <p><%= link_to "My walks", mywalks_path %></p>
+<%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
