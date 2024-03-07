@@ -1,10 +1,3 @@
-<!-- Add all the fields into the form after -->
-<%# <%= simple_form_for(walk) do |f| %>
-  <%# <!-- [...] --> %>
-  <%# <%= f.input :photo, as: :file %>
-  <%# <!-- [...] --> %>
-<%# <% end %>
-
 <%= simple_form_for (@walk) do |f| %>
   <div class="form-inputs">
     <%= f.input :starting_point, label: false, placeholder: "From" %>
@@ -15,6 +8,5 @@
     <%= f.input :frequency, as: :select, collection: Walk::FREQUENCIES, placeholder: "Frequency" %>
     <%= f.input :number_of_participant, label: false, placeholder: "Number of participant"%>
     <%= f.submit class: "btn btn-outline-secondary" %>
-
   </div>
 <% end  %>
