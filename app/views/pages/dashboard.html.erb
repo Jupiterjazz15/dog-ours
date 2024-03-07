@@ -1,11 +1,18 @@
 <div class= "fix_padding_navbar_bottom" >
   <!-- Avatar user & ses infos %> -->
-  <p><%= image_tag current_user.avatar, class: "avatar" %></p>
+  <p><%= cl_image_tag current_user.photo.key, class: "avatar" %></p>
   <p><%= current_user.first_name %> <%= current_user.last_name %></p>
   <p><%= link_to "Modifier mes informations", myprofile_path %> </p>
+
   <!-- Avatar chien & ses infos %> -->
-  <p><%= image_tag current_user.dogs.first.picture, class: "avatar" %></p>
+  <% if current_user.has_a_dog? %>
+  <p><%= cl_image_tag current_user.dogs.first.photo.key, class: "avatar" %></p>
   <p><%= link_to "Modifier les informations de mon chien", edit_dog_path(current_user.dogs.first.id) %></p>
+  <% else %>
+    <%= link_to "Ajouter votre chien", new_dog_path %>
+  <% end %>
+
   <!-- Infos des balades %> -->
   <p><%= link_to "My walks", mywalks_path %></p>
+  <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
 </div>

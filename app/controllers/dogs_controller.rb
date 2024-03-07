@@ -14,7 +14,6 @@ class DogsController < ApplicationController
   def create
     @dog = Dog.new(dog_params)
     @dog.user = current_user
-    @dog.breed = Breed.find_by(content: params[:dog][:breed_id])
     authorize @dog
     if @dog.save!
       redirect_to dog_path(@dog)
@@ -43,7 +42,7 @@ class DogsController < ApplicationController
     @dog = Dog.find(params[:id])
     authorize @dog
     @dog.destroy
-    redirect_to dogs_path
+    redirect_to dashboard_path
   end
 
   private
