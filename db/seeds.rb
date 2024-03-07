@@ -61,6 +61,6 @@ Walk.create!(starting_point: "45 Rue des Alouettes, 75019, Paris", duration: "30
 
 Walk.create!(starting_point: "24 Rue de Varenne, 75007, Paris", duration: "20 min", start_time: start_time1, difficulty: "medium", description: "A walk that I like since we can walk in large streets and we can stop in a park." , frequency: "every day",number_of_participant: "2", user_id: User.second.id)
 
-Walk.create!(starting_point: "140 rue oberkampf, 75011, Paris", duration: "40 min", start_time: start_time1, difficulty: "medium", description: "A walk that I like since we can walk in large streets and we can stop in a park." , frequency: "every other week",number_of_participant: "4", user_id: User.third.id)
+Walk.create!(starting_point: "140 rue oberkampf, 75011, Paris", duration: "40 min", start_time: start_time1, difficulty: "medium", description: "A walk that I like since we can walk in large streets and we can stop in a park." , frequency: "every other day",number_of_participant: "4", user_id: User.third.id)
 
-Walk.create!(starting_point: "45 rue Saint Antoine, 75004, Paris", duration: "30 min", start_time: start_time1, difficulty: "medium", description: "A walk that I like since we can walk in large streets and we can stop in a park." , frequency: "every other week",number_of_participant: "4", user_id: User.fourth.id)
+Walk.create!(starting_point: "45 rue Saint Antoine, 75004, Paris", duration: "30 min", start_time: start_time1, difficulty: "medium", description: "A walk that I like since we can walk in large streets and we can stop in a park." , frequency: "every other day",number_of_participant: "4", user_id: User.fourth.id)
