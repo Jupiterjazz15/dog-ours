@@ -2,23 +2,15 @@
   <div class="form-inputs">
     <%= f.input :starting_point, label: false, placeholder: "From" %>
     <%= f.input :duration, label: false, placeholder: "Timing" %>
-<<<<<<< HEAD
-    <%= f.input :start_time, label: false, placeholder: "At" %>
-=======
     <%= f.input :start_time, as: :string, input_html: { data: { controller: "datepicker", datepicker_min_date_value: "today" } } %>
->>>>>>> origin
     <%= f.input :difficulty, as: :select, collection: Walk::DIFFICULTIES, placeholder: "Difficulty" %>
     <%= f.input :description, label: false, placeholder: "Description" %>
     <%= f.input :frequency, as: :select, collection: Walk::FREQUENCIES, placeholder: "Frequency" %>
     <%= f.input :number_of_participant, label: false, placeholder: "Number of participant"%>
-<<<<<<< HEAD
-    <%= f.submit class: "btn btn-outline-secondary" %>
-=======
     <% if local_assigns[:for_walk] %>
     <%= f.submit class: "btn btn-outline-primary" %>
     <% else %>
     <%= f.submit class: "btn btn-outline-warning" %>
     <% end %>
->>>>>>> origin
   </div>
 <% end  %>
