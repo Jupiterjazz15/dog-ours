@@ -8,7 +8,7 @@
     <%= f.input :frequency, as: :select, collection: Walk::FREQUENCIES, placeholder: "Frequency" %>
     <%= f.input :number_of_participant, label: false, placeholder: "Number of participant"%>
     <% if local_assigns[:for_walk] %>
-    <%= f.submit class: "btn btn-outline-primary" %>
+    <%= f.submit class: "btn btn-secondary" %>
     <% else %>
     <%= f.submit class: "btn btn-outline-warning" %>
     <% end %>
