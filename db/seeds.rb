@@ -48,7 +48,6 @@ birth_date2 = Date.new(2022, 10, 10)
 start_time1 = DateTime.new(2024,03,25,12,34)
 start_time2 = DateTime.new(2024,03,25,12,34)
 
-<<<<<<< HEAD
 Dog.create!(name: "Charlie", description: "The funniest dog in the world", birth_date: birth_date1, constraint: "Doesn't like small dogs", picture: "https://img.20mn.fr/2c2xoZqdQhu84Dmhb8ci9Sk/1444x920_media" , fun_fact: "The best swimmer you have ever seen !!",size: "Large", breed_id: Breed.take.id, user_id: User.first.id)
 
 Dog.create!(name: "Molly", description: "Lovely, cute and very friendly", birth_date: birth_date2, constraint: "None", picture: "https://cdn.britannica.com/35/233235-050-8DED07E3/Pug-dog.jpg" , fun_fact: "She loves to wear costume",size: "Small", breed_id: Breed.take.id, user_id: User.second.id)
@@ -57,9 +56,10 @@ Dog.create!(name: "Jim", description: "The funniest dog in the world", birth_dat
 
 Dog.create!(name: "Sam", description: "The funniest dog in the world", birth_date: birth_date1, constraint: "Doesn't like small dogs", picture: "https://img.20mn.fr/2c2xoZqdQhu84Dmhb8ci9Sk/1444x920_media" , fun_fact: "The best swimmer you have ever seen !!", size: "Large", breed_id: Breed.take.id, user_id: User.fourth.id)
 
-Walk.create!(starting_point: "24 Rue de Varenne, 75007, Paris", duration: "20 min", start_time: start_time1, difficulty: "medium", description: "A walk that I like since we can walk in large streets and we can stop in a park." , frequency: "every day",number_of_participant: "2", user_id: User.second.id)
 
 Walk.create!(starting_point: "45 Rue des Alouettes, 75019, Paris", duration: "30 min", start_time: start_time2, difficulty: "medium", description: "A walk in les Buttes-Chaumont" , frequency: "every other day", number_of_participant: "1", user_id: User.first.id)
+
+Walk.create!(starting_point: "24 Rue de Varenne, 75007, Paris", duration: "20 min", start_time: start_time1, difficulty: "medium", description: "A walk that I like since we can walk in large streets and we can stop in a park." , frequency: "every day",number_of_participant: "2", user_id: User.second.id)
 
 Walk.create!(starting_point: "140 rue oberkampf, 75011, Paris", duration: "40 min", start_time: start_time1, difficulty: "medium", description: "A walk that I like since we can walk in large streets and we can stop in a park." , frequency: "every other week",number_of_participant: "4", user_id: User.third.id)
 

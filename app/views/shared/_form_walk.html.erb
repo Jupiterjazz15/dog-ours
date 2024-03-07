@@ -10,22 +10,11 @@
     <%= f.input :starting_point, label: false, placeholder: "From" %>
     <%= f.input :duration, label: false, placeholder: "Timing" %>
     <%= f.input :start_time, label: false, placeholder: "At" %>
-<<<<<<< HEAD
     <%= f.input :difficulty, as: :select, collection: Walk::DIFFICULTIES, placeholder: "Difficulty" %>
     <%= f.input :description, label: false, placeholder: "Description" %>
     <%= f.input :frequency, as: :select, collection: Walk::FREQUENCIES, placeholder: "Frequency" %>
     <%= f.input :number_of_participant, label: false, placeholder: "Number of participant"%>
     <%= f.submit class: "btn btn-outline-secondary" %>
-=======
-    <%= f.input :difficulty, label: false, placeholder: "level" %>
-    <%= f.input :description, label: false, placeholder: "description" %>
-    <%= f.input :frequency, label: false, placeholder: "frequency" %>
-    <%= f.input :number_of_participant, label: false, placeholder: "number of participant"%>
-    <% if local_assigns[:for_walk] %>
-    <%= f.submit class: "btn btn-outline-primary" %>
-    <% else %>
-    <%= f.submit class: "btn btn-outline-warning" %>
-    <% end %>
->>>>>>> origin
+
   </div>
 <% end  %>
