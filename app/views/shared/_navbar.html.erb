@@ -1,27 +1,31 @@
 <div class="navbar-bottom">
+
   <%= link_to root_path do %>
     <div class="tab-current">
-    <i class="fa-solid fa-house"><p>Home</p></i>
-  </div>
+      <i class="fa-solid fa-house"><p>Home</p></i>
+    </div>
   <% end %>
   <%= link_to walks_path do %>
   <div class="tab-current">
     <i class="fa-solid fa-magnifying-glass"><p>Search</p></i>
   </div>
   <% end %>
+
+<% if user_signed_in? %>
   <%= link_to new_walk_path do %>
-  <div class="tab-current">
-    <i class="fa-solid fa-circle-plus"><p>Add</p></i>
-  </div>
+    <div class="tab-current">
+      <i class="fa-solid fa-circle-plus"><p>Add</p></i>
+    </div>
   <% end %>
-  <%= link_to '#' do %>
-  <div class="tab-current">
-    <i class="fa-solid fa-comment"><p>Messages</p></i>
-  </div>
+  <%= link_to walks_path do %>
+    <div class="tab-current">
+      <i class="fa-solid fa-comment"><p>Messages</p></i>
+    </div>
   <% end %>
   <%= link_to dashboard_path do %>
-  <div class="tab-current">
-    <i class="fa-solid fa-shield-dog"><p>Account</p></i>
-  </div>
+    <div class="tab-current">
+      <i class="fa-solid fa-shield-dog"><p>Account</p></i>
+    </div>
   <% end %>
+<% end %>
 </div>

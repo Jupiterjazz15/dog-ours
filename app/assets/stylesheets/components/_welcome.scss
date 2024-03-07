@@ -1,0 +1,65 @@
+.img-welcome {
+  margin-top: 7em;
+}
+
+.welcome-title {
+  font-size: 80px;
+  text-align: center;
+  h1 {
+    color: black;
+    margin-bottom: -1em;
+  }
+}
+
+.wrapper-welcome-button {
+  position: relative;
+  justify-content: center;
+}
+
+.cadre-jaune {
+  height: 85px;
+  width: 220px;
+  border-radius: 24px;
+  top: 95px;
+  left: 107px;
+  position:absolute;
+  background-color: #FFFF82;
+  padding-block: 1em;
+  padding-inline: 2em;
+}
+
+.cadre-violet {
+  border-radius: 24px;
+  width: 220px;
+  height: 85px;
+  bottom: 20px;
+  right: 17px;
+  position:absolute;
+  background-color: #5C6CFF;
+  padding-block: 1em;
+  padding-inline: 2em;
+}
+
+.cadre-noir {
+  border-radius: 24px;
+  position: absolute;
+  border: solid 3px black;
+  padding-block: 1em;
+  padding-inline: 2em;
+  text-align: center;
+  height: 85px;
+  width: 220px;
+  top: 11px;
+  right: -9px;
+
+  a {
+    text-decoration: none;
+    color: #F1EAFF;
+    font-size: 20px;
+    font-weight: bolder;
+  }
+}
+
+body {
+  background-color: #F1EAFF;
+}

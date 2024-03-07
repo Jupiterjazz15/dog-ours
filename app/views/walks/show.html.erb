@@ -5,6 +5,37 @@
   </div>
 </div>
 
+
+
+<!-- app/views/chatrooms/show.html.erb -->
+<!-- [...] -->
+<div class="messages" data-walk-subscription-target="messages">
+  <% @walk.messages.each do |message| %>
+
+  <% end %>
+</div>
+
+<div class="walk"
+  data-controller="walk-subscription"
+  data-walk-subscription-walk-id-value="<%= @walk.id %>">
+  <h1>#<%= @walk.name %></h1>
+
+  <div class="messages" data-walk-subscription-target="messages">
+    <% @walk.messages.each do |message| %>
+        <%= render "messages/messages", message: message %>
+    <% end %>
+  </div>
+
+  <%= simple_form_for [@walk, @message], html: { class: "d-flex" } do |f| %>
+    <%= f.input :content,
+      label: false,
+      placeholder: "Message ##{@walk.name}",
+      wrapper_html: {class: "flex-grow-1"} %>
+
+  <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+<% end %>
+</div>
+
 <div class="container">
   <div class="show-content">
     <div class="avatar-name">
