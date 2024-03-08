@@ -4,17 +4,21 @@
       <% @walks.each do |walk| %>
       <%= link_to(walk_path(walk)) do %>
         <div class="walk-card">
-          <div class="card-head d-flex justify-content-between">
-            <div class="avatar-name">
-              <img src="<%= walk.user.avatar %>"> <%= walk.user.first_name %>
-            </div>
+          <div class="container-dog-photo">
+            <%= cl_image_tag walk.user.dogs.first.photo.key %>
             <p><i class="fa-solid fa-hourglass-start"></i> <%= walk.duration %>min</p>
           </div>
           <div class="walk-card-content">
-            <p><i class="fa-solid fa-location-pin"></i> <%= walk.starting_point %></p>
-            <p><i class="fa-regular fa-clock"></i> <%= walk.start_time.strftime("%e/%m - %H:%M") %></p>
-            <p><i class="fa-solid fa-dog"></i></p>
-            <p><%= link_to "MESSAGE", discussion_walk_path(walk), class: "btn btn-outline-secondary" %></p>
+            <div class="card-head">
+              <div class="avatar-name">
+                <%= cl_image_tag walk.user.photo.key %>
+                <h2><%= walk.user.first_name %></h2>
+              </div>
+            </div>
+            <div class="info-walk-card">
+              <p><i class="fa-solid fa-location-pin"></i> <%= walk.starting_point %></p>
+              <p><i class="fa-regular fa-clock"></i> <%= walk.start_time.strftime("%e/%m - %H:%M") %></p>
+            </div>
           </div>
         </div>
         <% end %>
