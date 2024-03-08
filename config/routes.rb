@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :dogs
 
   resources :walks do
+    get '/discussion', to: "walks#discussion", on: :member
+
     resources :bookings, only: [:create]
     resources :messages, only: [:create]
   end

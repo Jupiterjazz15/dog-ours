@@ -39,7 +39,7 @@ class WalksController < ApplicationController
 
     authorize @walk
     if @walk.geocoded?
-      @markers = [
+      @marker = [
         {
           lat: @walk.latitude,
           lng: @walk.longitude,
@@ -82,6 +82,12 @@ class WalksController < ApplicationController
     @walk.destroy
     authorize @walk
     redirect_to walks_path
+  end
+
+  def discussion
+    skip_authorization
+    @walk = Walk.find(params[:id])
+    @message = Message.new
   end
 
   private

@@ -13,6 +13,7 @@
             <p><i class="fa-solid fa-location-pin"></i> <%= walk.starting_point %></p>
             <p><i class="fa-regular fa-clock"></i> <%= walk.start_time.strftime("%e/%m - %H:%M") %></p>
             <p><i class="fa-solid fa-dog"></i></p>
+            <p><%= link_to "MESSAGE", discussion_walk_path(walk), class: "btn btn-outline-secondary" %></p>
           </div>
         </div>
         <% end %>
