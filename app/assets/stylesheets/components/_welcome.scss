@@ -1,14 +1,15 @@
-.img-welcome {
-  margin-top: 7em;
-}
 
 .welcome-title {
-  font-size: 80px;
   text-align: center;
   h1 {
+    font-size: 80px;
     color: black;
-    margin-bottom: -1em;
   }
+}
+
+.welcome-subtitle {
+  color: black;
+  margin-bottom: -2em;
 }
 
 .wrapper-welcome-button {
