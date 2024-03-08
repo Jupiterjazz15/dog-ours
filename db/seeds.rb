@@ -75,6 +75,6 @@ Walk.create!(starting_point: "45 Rue des Alouettes, 75019, Paris", duration: "30
 
 Walk.create!(starting_point: "24 Rue de Varenne, 75007, Paris", duration: "20 ", start_time: start_time1, difficulty: "Medium", description: "A walk that I like since we can walk in large streets and we can stop in a park." , frequency: "Every day",number_of_participant: "2", user_id: User.second.id)
 
-Walk.create!(starting_point: "140 rue oberkampf, 75011, Paris", duration: "40", start_time: start_time1, difficulty: "Medium", description: "A walk that I like since we can walk in large streets and we can stop in a park." , frequency: "Every other day",number_of_participant: "2", user_id: User.third.id)
+Walk.create!(starting_point: "140 rue oberkampf, 75011, Paris", duration: "40", start_time: start_time1, difficulty: "Medium", description: "My favourite walk!", frequency: "Every other day",number_of_participant: "2", user_id: User.third.id)
 
-Walk.create!(starting_point: "45 rue Saint Antoine, 75004, Paris", duration: "30", start_time: start_time1, difficulty: "Medium", description: "A walk that I like since we can walk in large streets and we can stop in a park." , frequency: "Every other day",number_of_participant: "2", user_id: User.fourth.id)
+Walk.create!(starting_point: "45 rue Saint Antoine, 75004, Paris", duration: "30", start_time: start_time1, difficulty: "Medium", description: "A peaceful walk." , frequency: "Every other day",number_of_participant: "2", user_id: User.fourth.id)
