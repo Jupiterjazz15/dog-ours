@@ -36,7 +36,7 @@ class WalksController < ApplicationController
   def show
     @walk = Walk.find(params[:id])
     @message = Message.new
-
+    @booking = Booking.new
     authorize @walk
     if @walk.geocoded?
       @markers = [
