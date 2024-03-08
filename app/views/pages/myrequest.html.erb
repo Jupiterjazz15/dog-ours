@@ -1,0 +1,38 @@
+<div class="container">
+<!-- Current user walks with edit ans delete%> -->
+  <div class="my-4">
+    <h4>My booking request</h4>
+  </div>
+    <% @walks.each do |walk| %>
+      <% walk.bookings.each do |booking| %>
+       <div class="walk-card">
+        <div class="card-head d-flex justify-content-between">
+          <div class="avatar-name">
+            <%= cl_image_tag booking.walk.user.photo.key %><%= booking.walk.user.first_name %>
+          </div>
+          <p><i class="fa-solid fa-hourglass-start"></i> <%= booking.walk.duration %>min</p>
+        </div>
+          <div class="walk-card-content">
+            <p><i class="fa-solid fa-location-pin"></i> <%= booking.walk.starting_point %></p>
+            <p><i class="fa-regular fa-clock"></i> <%= booking.walk.start_time.strftime("%e/%m - %H:%M") %></p>
+            <p><i class="fa-solid fa-dog"></i></p>
+              <div class="d-flex justify-content-around">
+                  <%= link_to validate_walk_booking_path(booking), data: { turbo_method: :patch, turbo_confirm: 'Are you sure?' }  do %>
+                  <% if booking.booking_status.nil? %>
+                  <i class="fas fa-solid fa-check"></i>
+                  <% end %>
+                  <% end %>
+                  <%= link_to refused_walk_booking_path(booking), data: { turbo_method: :patch, turbo_confirm: 'Are you sure?' } do %>
+                  <%  if booking.booking_status.nil? %>
+                  <i class="fas fa-solid fa-ban"></i>
+                  <% end %>
+                  <% end %>
+                  <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "delete-button" do %>
+                  <i class="fas fa-trash-alt"></i>
+                  <% end %>
+              </div>
+          </div>
+      </div>
+      <% end %>
+    <% end %>
+</div>

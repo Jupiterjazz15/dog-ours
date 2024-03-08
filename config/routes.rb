@@ -8,10 +8,13 @@ Rails.application.routes.draw do
   get 'breeds/autocomplete', to: 'breeds#autocomplete'
   get "/myprofile", to: "pages#myprofile"
   get "/mywalks", to: "pages#mywalks"
+  get "/myrequest", to: "pages#myrequest"
 
   resources :dogs
 
   resources :walks do
+    get '/discussion', to: "walks#discussion", on: :member
+
     resources :bookings, only: [:create]
     resources :messages, only: [:create]
   end
@@ -19,4 +22,10 @@ Rails.application.routes.draw do
   resources :bookings, only: [:update, :destroy]
   # A NESTER : resources :reviews, only [:create, :update, :destroy]
   root to: "pages#home"
+  resources :bookings, only: [:destroy] do
+    member do
+      patch :validates
+      patch :refused
+    end
+  end
 end

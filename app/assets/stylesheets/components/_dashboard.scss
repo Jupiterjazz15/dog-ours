@@ -1,0 +1,12 @@
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+  margin-top: 2em;
+}
+.flex-center p {
+  color: black;
+  font-weight: 300;
+  text-decoration: underline;
+}

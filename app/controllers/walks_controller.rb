@@ -56,7 +56,7 @@ class WalksController < ApplicationController
     authorize @walk
     if @walk.save
       create_dependent_walks_for(@walk)
-      redirect_to walk_path(@walk)
+      redirect_to  mywalks_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -84,6 +84,12 @@ class WalksController < ApplicationController
     redirect_to walks_path
   end
 
+  def discussion
+    skip_authorization
+    @walk = Walk.find(params[:id])
+    @message = Message.new
+  end
+
   private
 
   def set_walk
@@ -96,7 +102,7 @@ class WalksController < ApplicationController
 
   def create_dependent_walks_for(walk)
     case walk.frequency
-    when "every day"
+    when "Every day"
       13.times do |number|
         Walk.create(
           start_time: walk.start_time + (number + 1).days,
@@ -112,7 +118,7 @@ class WalksController < ApplicationController
           parent: walk
         )
       end
-    when "every other day"
+    when "Every other day"
       6.times do |number|
         Walk.create(
           start_time: walk.start_time + (number + 2).days,
