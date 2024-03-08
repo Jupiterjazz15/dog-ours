@@ -39,7 +39,7 @@ class WalksController < ApplicationController
 
     authorize @walk
     if @walk.geocoded?
-      @marker = [
+      @markers = [
         {
           lat: @walk.latitude,
           lng: @walk.longitude,
