@@ -4,6 +4,8 @@ Message.destroy_all
 p "Messages deleted"
 Breed.destroy_all
 p "Breeds deleted"
+Message.destroy_all
+p "Messages deleted"
 Tag.destroy_all
 p "Tags deleted"
 UserTag.destroy_all

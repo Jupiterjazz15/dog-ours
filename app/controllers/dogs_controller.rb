@@ -16,7 +16,7 @@ class DogsController < ApplicationController
     @dog.user = current_user
     authorize @dog
     if @dog.save!
-      redirect_to dog_path(@dog)
+      redirect_to dashboard_path()
     else
       render :new # render the new.html.erb
     end
