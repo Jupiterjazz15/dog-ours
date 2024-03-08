@@ -1,7 +1,5 @@
 require 'csv'
 
-Message.destroy_all
-p "Messages deleted"
 Breed.destroy_all
 p "Breeds deleted"
 Tag.destroy_all
@@ -10,6 +8,8 @@ UserTag.destroy_all
 p "UserTags deleted"
 Walk.destroy_all
 p "Walks deleted"
+Message.destroy_all
+p "Messages deleted"
 Dog.destroy_all
 p "Dogs deleted"
 User.destroy_all
