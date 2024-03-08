@@ -84,6 +84,12 @@ class WalksController < ApplicationController
     redirect_to walks_path
   end
 
+  def discussion
+    skip_authorization
+    @walk = Walk.find(params[:id])
+    @message = Message.new
+  end
+
   private
 
   def set_walk

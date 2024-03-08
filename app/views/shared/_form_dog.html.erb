@@ -3,10 +3,10 @@
 <%= simple_form_for @dog do |f| %>
   <div class="form-inputs" data-controller="autocomplete">
     <%= f.input :name, label: false, placeholder: "Name" %>
-    <%= f.input :description, label: false, placeholder: "description" %>
+    <%= f.input :description, label: false, placeholder: "Description" %>
     <%= f.input :birth_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
-    <%= f.input :constraint, label: false, placeholder: "constraint" %>
-    <%= f.input :fun_fact, label: false, placeholder: "fun fact" %>
+    <%= f.input :constraint, label: false, placeholder: "Constraint" %>
+    <%= f.input :fun_fact, label: false, placeholder: "Fun fact" %>
     <%= f.input :size, collection: Dog::SIZES, label: "Size", placeholder: "size" %>
     <%= f.association :breed, collection: Breed.all, input_html: { data: { controller: "autocomplete" } } %>
     <%= f.input :photo, as: :file, label: false, placeholder: "image" %>
