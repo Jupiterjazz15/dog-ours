@@ -1,11 +1,14 @@
 .logo {
   margin-top: 4em;
   margin-bottom: 2em;
+  h2 {
+    padding-top: 1em;
+  }
 }
 
 .form-actions {
   border-radius: 4px;
-  background-color: grey;
+  background-color: #5C6CFF;;
   padding: 0.25em;
 }
 
@@ -25,10 +28,10 @@
 
 .sign-up a {
   text-decoration: none;
-  color: grey;
+  color: #5C6CFF;
   padding-block: 0.5em;
   padding-inline: 3em;
-  border: solid 1px grey;
+  border: solid 1px #5C6CFF;;
   border-radius: 4px;
 }
 

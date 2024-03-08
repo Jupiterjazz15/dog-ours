@@ -67,7 +67,7 @@ dog = Dog.create!(name: "Sam", description: "The funniest dog in the world", bir
 file = URI.open("https://img.20mn.fr/2c2xoZqdQhu84Dmhb8ci9Sk/1444x920_media")
 dog.photo.attach(io: file, filename: "dog.webp", content_type: "image/webp")
 
-dog = Dog.create!(name: "Jim", description: "The funniest dog in the world", birth_date: birth_date1, constraint: "Doesn't like small dogs", fun_fact: "The best swimmer you have ever seen !!", size: "Large", breed_id: Breed.take.id, user_id: User.third.id)
+dog = Dog.create!(name: "Jim", description: "The funniest dog in the world", birth_date: birth_date1, constraint: "Doesn't like small dogs", fun_fact: "The best swimmer you have ever seen !!", size: "Large", breed_id: Breed.take.id, user_id: User.fourth.id)
 file = URI.open("https://www.rustica.fr/images/risques-si-je-possede-chien-dont-race-est-interdite-france-19189-l790-h526.jpg.webp")
 dog.photo.attach(io: file, filename: "dog.webp", content_type: "image/webp")
 
