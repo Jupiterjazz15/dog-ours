@@ -10,4 +10,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   accepts_nested_attributes_for :dogs
+
+  def has_a_dog?
+    dogs.exists?
+  end
 end
