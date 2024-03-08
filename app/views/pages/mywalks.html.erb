@@ -5,25 +5,32 @@
   </div>
     <% @walks.each do |walk| %>
       <div class="walk-card">
-        <div class="card-head d-flex justify-content-between">
-          <div class="avatar-name">
-            <%= cl_image_tag current_user.photo.key %><%= walk.user.first_name %>
-          </div>
-            <p><i class="fa-solid fa-hourglass-start"></i> <%= walk.duration %>min</p>
+        <div class="container-dog-photo">
+          <%= cl_image_tag current_user.dogs.first.photo.key %>
+          <p><i class="fa-solid fa-hourglass-start"></i> <%= walk.duration %>min</p>
         </div>
-          <div class="walk-card-content">
+
+        <div class="walk-card-content">
+          <div class="card-head">
+            <div class="avatar-name">
+              <%= cl_image_tag current_user.photo.key %>
+              <h2><%= walk.user.first_name %></h2>
+            </div>
+          </div>
+
+          <div class="info-walk-card">
             <p><i class="fa-solid fa-location-pin"></i> <%= walk.starting_point %></p>
             <p><i class="fa-regular fa-clock"></i> <%= walk.start_time.strftime("%e/%m - %H:%M") %></p>
-            <p><i class="fa-solid fa-dog"></i></p>
             <%= link_to edit_walk_path(walk), class: "edit-button" do %>
-              <i class="fas fa-edit"></i>
+              <i class="fas fa-edit mx-5"></i>
             <% end %>
             <%= link_to walk_path(walk), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "delete-button" do %>
-              <i class="fas fa-trash-alt"></i>
+              <i class="fas fa-trash-alt mx-5"></i>
             <% end %>
           </div>
       </div>
     <% end %>
+  </div>
 
 <!-- Current user booking %> -->
   <div class="border-top border-dark my-4"></div>
