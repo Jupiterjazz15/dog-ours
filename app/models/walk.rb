@@ -1,7 +1,8 @@
 class Walk < ApplicationRecord
-  DIFFICULTIES = %w[low medium intense]
-  FREQUENCIES = ["once", "every day", "every other day"]
+  DIFFICULTIES = %w[Low Medium Intense]
+  FREQUENCIES = ["Once", "Every day", "Every other day"]
 
+  validates :number_of_participant, numericality: { less_than_or_equal_to: 3 }
   belongs_to :user
   belongs_to :parent, foreign_key: :parent_id, class_name: 'Walk', optional: true
   has_many :bookings, dependent: :destroy
