@@ -1,18 +1,24 @@
-<h2>Dogs#show</h2>
-<p>Find me in app/views/dogs/show.html.erb</p>
+<div class="container">
+  <h2 class ="new-dog-name new-dog-font"><%= @dog.name%></h2>
+  <h3 class="welcome-subtitle center-text new-dog-font"> <%= @dog.description %></h3>
 
+  <div class = "center-text">
+    <%= cl_image_tag @dog.photo.key, class:"new-dog-avatar" %>
+  </div>
 
-<%= cl_image_tag @dog.photo.key, height: 300, width: 400, crop: :fill %>
+  <div class="d-flex justify-content-around">
+      <% if policy(@dog).edit? %>
+      <div>
+        <%= link_to "Edit", edit_dog_path, class: "btn btn-secondary" %>
+      </div>
+      <% end %>
+      <% if policy(@dog).destroy? %>
+      <div>
+        <%= link_to dog_path(@dog), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"}, class: "btn btn-secondary" do %>
+        <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 
-<% if policy(@dog).edit? %>
-<div>
-  <%= link_to "Edit", edit_dog_path, class: "btn btn-outline-warning" %>
 </div>
-<% end %>
-<% if policy(@dog).destroy? %>
-<div>
-  <%= link_to dog_path(@dog), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"}, class: "btn btn-outline-danger" do %>
-  <i class="fas fa-trash-alt"></i>
-  <% end %>
-</div>
-<% end %>
