@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'breeds/autocomplete', to: 'breeds#autocomplete'
   get "/myprofile", to: "pages#myprofile"
   get "/mywalks", to: "pages#mywalks"
+  get "/myrequest", to: "pages#myrequest"
 
   resources :dogs
 

@@ -1,3 +1,49 @@
-<h1> Faire des cards des walks que je propose </h1>
+<div class="container">
+<!-- Current user walks with edit ans delete%> -->
+  <div class="my-4">
+    <h4>My walks</h4>
+  </div>
+    <% @walks.each do |walk| %>
+      <div class="walk-card">
+        <div class="card-head d-flex justify-content-between">
+          <div class="avatar-name">
+            <%= cl_image_tag current_user.photo.key %><%= walk.user.first_name %>
+          </div>
+            <p><i class="fa-solid fa-hourglass-start"></i> <%= walk.duration %>min</p>
+        </div>
+          <div class="walk-card-content">
+            <p><i class="fa-solid fa-location-pin"></i> <%= walk.starting_point %></p>
+            <p><i class="fa-regular fa-clock"></i> <%= walk.start_time.strftime("%e/%m - %H:%M") %></p>
+            <p><i class="fa-solid fa-dog"></i></p>
+            <%= link_to edit_walk_path(walk), class: "edit-button" do %>
+              <i class="fas fa-edit"></i>
+            <% end %>
+            <%= link_to walk_path(walk), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "delete-button" do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </div>
+      </div>
+    <% end %>
 
-<h1> Faire des cards des walks auxquelles je veux me joindre </h1>
+<!-- Current user booking %> -->
+  <div class="border-top border-dark my-4"></div>
+    <h4>My booked walks</h4>
+    <% @bookings.each do |booking| %>
+      <div class="walk-card">
+        <div class="card-head d-flex justify-content-between">
+          <div class="avatar-name">
+            <%= cl_image_tag booking.walk.user.photo.key %><%= booking.walk.user.first_name %>
+          </div>
+          <p><i class="fa-solid fa-hourglass-start"></i> <%= booking.walk.duration %>min</p>
+        </div>
+          <div class="walk-card-content">
+            <p><i class="fa-solid fa-location-pin"></i> <%= booking.walk.starting_point %></p>
+            <p><i class="fa-regular fa-clock"></i> <%= booking.walk.start_time.strftime("%e/%m - %H:%M") %></p>
+            <p><i class="fa-solid fa-dog"></i></p>
+            <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "delete-button" do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </div>
+      </div>
+    <% end %>
+</div>
