@@ -1,18 +1,30 @@
-<h2>Dogs#show</h2>
-<p>Find me in app/views/dogs/show.html.erb</p>
+<div class="container">
+  <h2 class="new-dog-name"><%= @dog.name%></h2>
+  <h3 class= "text-center new-dog-color"><%= @dog.description %></h3>
 
+  <div class="d-flex flex-column">
+    <h6 class="new-dog-color text-center">Born in: <%= @dog.birth_date.strftime("%m/%d/%Y")%></h6>
+    <h6 class="new-dog-color text-center">Constraint: <%= @dog.constraint%></h6>
+    <h6 class="new-dog-color text-center">Fun fact: <%= @dog.fun_fact%></h6>
+    <h6 class="new-dog-color text-center">Size: <%= @dog.size%></h6>
+  </div>
 
-<%= cl_image_tag @dog.photo.key, height: 300, width: 400, crop: :fill %>
+  <div class= "text-center">
+    <%= cl_image_tag @dog.photo.key, class:"new-dog-avatar" %>
+  </div>
 
-<% if policy(@dog).edit? %>
-<div>
-  <%= link_to "Edit", edit_dog_path, class: "btn btn-outline-warning" %>
+  <div class="d-flex justify-content-around">
+      <% if policy(@dog).edit? %>
+      <div>
+        <%= link_to "Edit", edit_dog_path, class: "btn btn-secondary" %>
+      </div>
+      <% end %>
+      <% if policy(@dog).destroy? %>
+      <div>
+        <%= link_to dog_path(@dog), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"}, class: "btn btn-secondary" do %>
+        <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
-<% end %>
-<% if policy(@dog).destroy? %>
-<div>
-  <%= link_to dog_path(@dog), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"}, class: "btn btn-outline-danger" do %>
-  <i class="fas fa-trash-alt"></i>
-  <% end %>
-</div>
-<% end %>
