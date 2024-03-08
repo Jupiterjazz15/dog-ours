@@ -13,7 +13,7 @@
     <%= cl_image_tag @dog.photo.key, class:"new-dog-avatar" %>
   </div>
 
-  <div class="d-flex justify-content-around align-items-center">
+  <div class="d-flex justify-content-around">
       <% if policy(@dog).edit? %>
       <div>
         <%= link_to "Edit", edit_dog_path, class: "btn btn-secondary" %>
