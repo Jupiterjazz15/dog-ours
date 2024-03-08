@@ -18,4 +18,5 @@ export default class extends Controller {
   #insertMessage(data) {
     this.messagesTarget.insertAdjacentHTML('beforeend', data);
   }
+
 }
