@@ -29,11 +29,17 @@
       <p><em>Fun fact :</em></p>
     </div>
     <div class="map-vision">
+      <div class="d-flex justify-content-center">
+        <div>
+          <%= link_to "Join", dashboard_path, class:"btn btn-secondary btn-lg me-4" %>
+        </div>
+        <div>
+        <%= link_to "MESSAGE", discussion_walk_path(@walk), class: "btn btn-outline-dark btn-lg" %>
+        </div>
+      </div>
       <h2>See on the map</h2>
     </div>
   </div>
-
-
   <div id="map-container" class="rounded shadow map_integration"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
