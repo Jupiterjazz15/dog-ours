@@ -1,15 +1,35 @@
 .logo {
   margin-top: 4em;
   margin-bottom: 2em;
+
   h2 {
     padding-top: 1em;
   }
+
+  img  {
+    width: 30%;
+  }
+}
+
+.form-control {
+  background: whitesmoke;
+  box-shadow: 0 0 2px;
 }
 
 .form-actions {
   border-radius: 4px;
   background-color: #5C6CFF;;
   padding: 0.25em;
+
+  input {
+    width: 100%;
+    height: 100%;
+    transition: none;
+  }
+}
+
+.form-check-input {
+  background: whitesmoke;
 }
 
 .btn {
@@ -33,12 +53,13 @@
   padding-inline: 3em;
   border: solid 1px #5C6CFF;;
   border-radius: 4px;
+  box-shadow: 0 0 4px;
 }
 
 .forgotten {
   margin-top: 2em;
-}
 
-.forgotten a {
-  color: grey;
+  a {
+    color: grey;
+  }
 }
