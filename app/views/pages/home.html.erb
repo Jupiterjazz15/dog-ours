@@ -1,25 +1,18 @@
-
 <div class="fix_padding_navbar_bottom">
   <!-- BANNER -->
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.4) 100%), url(https://images.pexels.com/photos/8499921/pexels-photo-8499921.jpeg); mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);">
-  </div>
-    <div class="container content">
-      <h1>Dogs our</h1>
-      <h3>Walk with me</h3>
+  <div class="container banner">
+    <%= image_tag "logo.png" %>
   <!-- NAVBAR-->
-      <div class="bar">
-        <%= render "shared/searchbar" %>
-      </div>
+    <div>
+      <%= render "shared/searchbar" %>
     </div>
-
+  </div>
   <!-- INTRODUCTION -->
   <div class="container introduction">
     <h4>Find your next Dogbuddy near you</h4>
   </div>
-
   <!-- Walks Cards -->
   <%= render "shared/walk_card_home" %>
-
   <!-- MAP -->
   <div class="map">
     <div class="container introduction">

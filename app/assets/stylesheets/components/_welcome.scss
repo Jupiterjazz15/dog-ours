@@ -1,21 +1,74 @@
-
 .welcome-title {
   text-align: center;
   h1 {
     font-size: 80px;
     color: black;
+    position: relative;
+    left: -100%;
+    animation: slideIn 2s ease-out forwards;
+  }
+
+  h3 {
+    color: black;
+    margin-bottom: -2em;
+    position: relative;
+    left: 100%;
+    animation: slideIn 2s ease-out forwards;
+  }
+
+  @keyframes slideIn {
+    to {
+      left: 0;
+    }
   }
 }
 
-.welcome-subtitle {
-  color: black;
-  margin-bottom: -2em;
+.img-welcome {
+  position: relative;
+  .mithosis-yellow {
+    position: absolute;
+    z-index: -1;
+    top: 5em;
+    left: 5em;
+    animation-direction: alternate-reverse;
+    animation-timing-function: linear;
+    animation-duration: 0.5s;
+    animation-name: glissement;
+    animation-iteration-count: 6;
+  }
+
+  .mithosis-black {
+    position: absolute;
+    top: 5em;
+    left: 4em;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+    animation-duration: 0.5s;
+    animation-name: glissement;
+    animation-iteration-count: 7;
+  }
+
+  @keyframes glissement {
+    from {
+      margin-left: 2%;
+      width: 0%;
+    }
+
+    to {
+      margin-left: -2%;
+      width: 0%;
+    }
+  }
 }
 
 .wrapper-welcome-button {
   position: relative;
   justify-content: center;
+  top: 100%;
+  animation: slideIn 2s ease-out forwards;
 }
+
+
 
 .cadre-jaune {
   height: 85px;
