@@ -7,6 +7,7 @@
 .walk-card-home {
   overflow-x: scroll;
   white-space: nowrap;
+  margin-left: 0.5em;
 }
 
 .walk-card {
@@ -55,6 +56,7 @@
 .walk-card-content {
   background: #F4F4F9; /* Adjust to your content area background color */
   border-radius: 20px;
+  position: relative;
 }
 
 .fix_padding_navbar_bottom {
@@ -92,7 +94,7 @@ a {
 
 .container-dog-photo img {
   width: 100%;
-  height: 100%;
+  height: 180px;
   object-fit: cover;
   border-radius: 20px 20px 0 0;
 }
