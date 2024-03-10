@@ -1,11 +1,11 @@
-  <div class="container">
-    <% random_walk = @walks.sample %>
+  <div class="d-flex walk-card-home">
+    <% random_walks = @walks.sample(5) %>
+      <% random_walks.each do |random_walk|%>
         <div class="walk-card">
           <div class="container-dog-photo">
             <%= cl_image_tag random_walk.user.dogs.first.photo.key %>
             <p><i class="fa-solid fa-hourglass-start"></i> <%= random_walk.duration %>min</p>
           </div>
-
           <div class="walk-card-content">
             <div class="card-head">
               <div class="avatar-name">
@@ -14,9 +14,10 @@
               </div>
             </div>
             <div class="info-walk-card">
-              <p><i class="fa-solid fa-location-pin"></i> <%= random_walk.starting_point %></p>
+              <p class="info-walk-address"><i class="fa-solid fa-location-pin"></i> <%= random_walk.starting_point %></p>
               <p><i class="fa-regular fa-clock"></i> <%= random_walk.start_time.strftime("%e/%m - %H:%M") %></p>
             </div>
           </div>
         </div>
+      <% end %>
     </div>
