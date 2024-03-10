@@ -8,12 +8,14 @@
     height: 36px;
     border: none;
     padding: 0.75em;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
   }
 
   .submit {
     border-radius: 0 24px 24px 0;
     padding-block: 0;
-    background-color: grey;
+    background-color: #5C6CFF;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
   }
 
   .search-bar-date {
@@ -22,5 +24,6 @@
     border: none;
     padding: 0.75em;
     color: grey;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
   }
 }
