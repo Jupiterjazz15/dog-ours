@@ -4,9 +4,52 @@
   justify-content: top;
   align-items: center;
   margin-top: 2em;
+
+  p{
+    text-decoration: none;
+  }
 }
 .flex-center p {
   color: black;
   font-weight: 300;
   text-decoration: underline;
+}
+
+.profile-icone-head {
+  position: relative;
+  padding: 2em;
+  background-image: url("logo.png");
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 0 0 48px 48px;
+
+  .profile {
+    height: 180px;
+    width: 180px;
+    border: solid 3px white;
+  }
+
+  .dog {
+    width: 60px;
+    height: 60px;
+    border: solid 2px white;
+    position: absolute;
+    top: 130px;
+    right: 8px;
+  }
+
+  p {
+    position: relative;
+    right: -12px;
+  }
+}
+
+.fa-pen-to-square {
+  font-size: 20px;
+}
+
+.dashboard-name {
+  text-align: center;
+  font-size: 2em;
 }
