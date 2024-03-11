@@ -1,39 +1,17 @@
 <%= simple_form_for (@walk) do |f| %>
-  <div class="form-inputs fix_padding_navbar_bottom">
-    <%= f.input :starting_point, placeholder: "From"%>
-
-    <%= f.input :duration,
-                as: :radio_buttons,
-                input_html: { class: "tag-selector" },
-                item_wrapper_class: 'tag-item',
-                collection: Walk::DURATIONS%>
-
+  <div class="form-inputs">
+    <%= f.input :starting_point, label: false, placeholder: "From" %>
+    <%= f.input :duration, label: false, placeholder: "Duration (... min)" %>
     <%= f.input :start_time, as: :string, input_html: { data: { controller: "datepicker", datepicker_min_date_value: "today" } } %>
-
-    <%= f.input :difficulty,
-                as: :radio_buttons,
-                input_html: { class: "tag-selector" },
-                item_wrapper_class: 'tag-item',
-                collection: Walk::DIFFICULTIES%>
-
+    <%= f.input :difficulty, as: :select, collection: Walk::DIFFICULTIES, placeholder: "Difficulty" %>
     <%= f.input :description, label: false, placeholder: "Description" %>
-
-    <%= f.input :frequency,
-                as: :radio_buttons,
-                input_html: { class: "tag-selector" },
-                item_wrapper_class: 'tag-item',
-                collection: Walk::FREQUENCIES%>
-
-    <%= f.input :number_of_participant,
-                as: :radio_buttons,
-                input_html: { class: "tag-selector" },
-                item_wrapper_class: 'tag-item',
-                collection: Walk::PARTICIPANTS%>
-
+    <%= f.input :frequency, as: :select, collection: Walk::FREQUENCIES, placeholder: "Frequency" %>
+    <%= f.input :number_of_participant, label: false, placeholder: "Number of participant (limited to three )"%>
+    <%= f.input :name, label: false, placeholder: "Name of your walk" %>
     <% if local_assigns[:for_walk] %>
     <%= f.submit class: "btn btn-secondary" %>
     <% else %>
-    <%= f.submit class: "btn btn-outline-dark" %>
+    <%= f.submit class: "btn btn-outline-warning" %>
     <% end %>
   </div>
 <% end  %>
