@@ -3,6 +3,8 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: %i[validates refused destroy]
 
   def index
+    @walks = Walk.where(user: current_user)
+    @bookings = Booking.where(walk: @walks)
     @bookings = Booking.where(user: current_user)
     @bookings = policy_scope(Booking)
   end
