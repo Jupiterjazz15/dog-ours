@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_booking, only: %i[show edit update destroy]
+  before_action :set_booking, only: %i[validates refused destroy]
 
   def create
     @booking = Booking.new
@@ -8,7 +8,6 @@ class BookingsController < ApplicationController
     @booking.walk = @walk
     @booking.user = current_user
     @booking.status = "pending"
-
     authorize @booking
     if @booking.save
       redirect_to dashboard_path
@@ -18,11 +17,13 @@ class BookingsController < ApplicationController
   end
 
   def validates
+    authorize @booking
     @booking.accepted!
     redirect_to dashboard_path
   end
 
   def refused
+    authorize @booking
     @booking.declined!
     redirect_to dashboard_path
   end
