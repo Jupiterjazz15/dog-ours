@@ -11,8 +11,6 @@ export default class extends Controller {
   }
 
   connect() {
-    console.log("btn", this.confirmButtonTextValue)
-
     Sweetalert2.fire({
       title: this.titleValue,
       text: this.textValue,
