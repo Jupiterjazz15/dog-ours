@@ -3,6 +3,7 @@
   <h3 class= "text-center new-dog-color"><%= @dog.description %></h3>
 
   <div class="d-flex flex-column">
+    <h6 class="new-dog-color text-center">Breed: <%= @dog.breed.content.capitalize%></h6>
     <h6 class="new-dog-color text-center">Born in: <%= @dog.birth_date.strftime("%m/%d/%Y")%></h6>
     <h6 class="new-dog-color text-center">Constraint: <%= @dog.constraint%></h6>
     <h6 class="new-dog-color text-center">Fun fact: <%= @dog.fun_fact%></h6>
