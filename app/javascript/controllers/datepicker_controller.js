@@ -6,7 +6,13 @@ export default class extends Controller {
   static values = { minDate: String }
 
   connect() {
-    const format = "F j, Y";
-    flatpickr(this.element, { minDate: this.minDateValue, altFormat: format } );
+    const format = "F j, Y, H:i";
+    flatpickr(this.element, {
+      minDate: this.minDateValue,
+      altFormat: format,
+      enableTime: true, 
+      time_24hr: true,
+      minuteIncrement: 15,
+    });
   }
 }
