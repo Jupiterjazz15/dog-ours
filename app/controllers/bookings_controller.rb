@@ -4,11 +4,13 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = Booking.where(user: current_user)
+    @bookings = policy_scope(Booking)
   end
 
   def create
-    @booking = Booking.new
     @walk = Walk.find(params[:walk_id])
+    @booking = Booking.new
+    @message = Message.new
     @booking.walk = @walk
     @booking.user = current_user
     @booking.status = "pending"

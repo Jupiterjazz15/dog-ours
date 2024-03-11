@@ -44,7 +44,11 @@
         <div class="cadre-jaune">
           <div class="cadre-violet">
             <div class="cadre-noir">
-              <%= link_to "BOOKING", discussion_walk_path(@walk), class: "" %>
+              <% if @booking %>
+                <%= link_to "DISCUSSION", discussion_walk_path(@walk) %>
+              <% else %>
+                <%= button_to "BOOKING", walk_bookings_path(@walk), class: "" %>
+              <% end %>
             </div>
           </div>
         </div>
