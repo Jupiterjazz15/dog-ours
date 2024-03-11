@@ -15,7 +15,7 @@
 
     <!-- Infos des balades %> -->
     <p><%= link_to "My walks (#{current_user.walks.count})", mywalks_path %></p>
-    <p><%= link_to "My Booking request(#{current_user.bookings.count})", myrequest_path %></p>
+    <p><%= link_to "My Booking request", myrequest_path %></p>
     <p><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-dark" %></p>
   </div>
 </div>
