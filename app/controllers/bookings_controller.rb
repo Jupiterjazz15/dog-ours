@@ -32,7 +32,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
     @booking.destroy
-    redirect_to bookings_path(@booking) # redirect to the dashboard view page to determine
+    redirect_to booking_path(@booking)
   end
 
   private

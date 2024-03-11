@@ -1,8 +1,9 @@
-<div class="container">
+<div class="fix_padding_navbar_bottom">
 <!-- Current user walks with edit ans delete%> -->
-  <div class="my-4">
+  <div class="m-4">
     <h4>My walks</h4>
   </div>
+    <div class="d-flex walk-card-home">
     <% @walks.each do |walk| %>
       <div class="walk-card">
         <div class="container-dog-photo">
@@ -29,35 +30,41 @@
             <% end %>
           </div>
       </div>
+    </div>
     <% end %>
-  </div>
+</div>
 
 <!-- Current user booking %> -->
-  <div class="border-top border-dark my-4"></div>
- <% @bookings.each do |booking| %>
-      <div class="walk-card">
-        <div class="container-dog-photo">
-          <%= cl_image_tag booking.walk.user.dogs.first.photo.key %>
-          <span><%= booking.status %></span>
-          <p><i class="fa-solid fa-hourglass-start"></i> <%= booking.walk.duration %>min</p>
-        </div>
-
-        <div class="walk-card-content">
-          <div class="card-head">
-            <div class="avatar-name">
-              <%= cl_image_tag booking.walk.user.photo.key %>
-              <h2><%= booking.walk.user.first_name %></h2>
-            </div>
-          </div>
-
-          <div class="info-walk-card">
-            <p><i class="fa-solid fa-location-pin"></i> <%= booking.walk.starting_point %></p>
-            <p><i class="fa-regular fa-clock"></i> <%= booking.walk.start_time.strftime("%e/%m - %H:%M") %></p>
-            <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "delete-button" do %>
-              <i class="fas fa-trash-alt mx-3"></i>
-            <% end %>
-          </div>
-      </div>
-    <% end %>
+  <div class="border-top border-dark m-4"></div>
+    <div class="m-4">
+    <h4>My Bookings</h4>
   </div>
+  <div class="d-flex walk-card-home">
+  <% @bookings.each do |booking| %>
+        <div class="walk-card">
+          <div class="container-dog-photo">
+            <%= cl_image_tag booking.walk.user.dogs.first.photo.key %>
+            <span><%= booking.status.capitalize %></span>
+            <p><i class="fa-solid fa-hourglass-start"></i> <%= booking.walk.duration %>min</p>
+          </div>
+
+          <div class="walk-card-content">
+            <div class="card-head">
+              <div class="avatar-name">
+                <%= cl_image_tag booking.walk.user.photo.key %>
+                <h2><%= booking.walk.user.first_name %></h2>
+              </div>
+            </div>
+
+            <div class="info-walk-card">
+              <p><i class="fa-solid fa-location-pin"></i> <%= booking.walk.starting_point %></p>
+              <p><i class="fa-regular fa-clock"></i> <%= booking.walk.start_time.strftime("%e/%m - %H:%M") %></p>
+              <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "delete-button" do %>
+                <i class="fas fa-trash-alt mx-3"></i>
+              <% end %>
+            </div>
+        </div>
+    </div>
+      <% end %>
+    </div>
 </div>
