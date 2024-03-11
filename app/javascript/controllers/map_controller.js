@@ -18,7 +18,6 @@ export default class extends Controller {
       center: [-96, 37.8],
       zoom: 10
     })
-
       this.#addMarkersToMap()
       this.#fitMapToMarkers()
   }

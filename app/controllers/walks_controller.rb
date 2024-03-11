@@ -53,6 +53,7 @@ class WalksController < ApplicationController
   def create
     @walk = Walk.new(walk_params)
     @walk.user = current_user
+    @message = Message.new
     authorize @walk
     if @walk.save
       create_dependent_walks_for(@walk)
@@ -85,9 +86,10 @@ class WalksController < ApplicationController
   end
 
   def discussion
-    skip_authorization
     @walk = Walk.find(params[:id])
+    authorize @walk
     @message = Message.new
+    @booking = Booking.find_by(walk: @walk, user: current_user)
   end
 
   private
@@ -97,45 +99,45 @@ class WalksController < ApplicationController
   end
 
   def walk_params
-    params.require(:walk).permit(:starting_point, :difficulty, :description, :start_time, :duration, :frequency, :number_of_participant)
+    params.require(:walk).permit(:starting_point, :difficulty, :description, :start_time, :duration, :frequency, :number_of_participant, :name)
   end
 
-  def create_dependent_walks_for(walk)
-    case walk.frequency
-    when "Every day"
-      13.times do |number|
-        Walk.create(
-          start_time: walk.start_time + (number + 1).days,
-          starting_point: walk.starting_point,
-          duration: walk.duration,
-          difficulty: walk.difficulty,
-          description: walk.description,
-          frequency: walk.frequency,
-          number_of_participant: walk.number_of_participant,
-          longitude: walk.longitude,
-          latitude: walk.latitude,
-          user: walk.user,
-          parent: walk
-        )
-      end
-    when "Every other day"
-      6.times do |number|
-        Walk.create(
-          start_time: walk.start_time + (number + 2).days,
-          starting_point: walk.starting_point,
-          duration: walk.duration,
-          difficulty: walk.difficulty,
-          description: walk.description,
-          frequency: walk.frequency,
-          number_of_participant: walk.number_of_participant,
-          longitude: walk.longitude,
-          latitude: walk.latitude,
-          user: walk.user,
-          parent: walk
-        )
-      end
-    else
-      @walk.save
-    end
-  end
+  # def create_dependent_walks_for(walk)
+  #   case walk.frequency
+  #   when "Every day"
+  #     13.times do |number|
+  #       Walk.create(
+  #         start_time: walk.start_time + (number + 1).days,
+  #         starting_point: walk.starting_point,
+  #         duration: walk.duration,
+  #         difficulty: walk.difficulty,
+  #         description: walk.description,
+  #         frequency: walk.frequency,
+  #         number_of_participant: walk.number_of_participant,
+  #         longitude: walk.longitude,
+  #         latitude: walk.latitude,
+  #         user: walk.user,
+  #         parent: walk
+  #       )
+  #     end
+  #   when "Every other day"
+  #     6.times do |number|
+  #       Walk.create(
+  #         start_time: walk.start_time + (number + 2).days,
+  #         starting_point: walk.starting_point,
+  #         duration: walk.duration,
+  #         difficulty: walk.difficulty,
+  #         description: walk.description,
+  #         frequency: walk.frequency,
+  #         number_of_participant: walk.number_of_participant,
+  #         longitude: walk.longitude,
+  #         latitude: walk.latitude,
+  #         user: walk.user,
+  #         parent: walk
+  #       )
+  #     end
+  #   else
+  #     @walk.save
+  #   end
+  # end
 end
