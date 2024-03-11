@@ -12,4 +12,4 @@ pin "process" # @2.0.1
 pin "slim-select" # @2.8.2
 pin "@rails/actioncable", to: "@rails--actioncable.js" # @7.1.3
 pin "flatpickr" # @4.6.13
-
+pin "sweetalert2" # @11.10.6

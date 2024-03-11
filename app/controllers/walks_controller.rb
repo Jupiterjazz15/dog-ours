@@ -56,8 +56,8 @@ class WalksController < ApplicationController
     @message = Message.new
     authorize @walk
     if @walk.save
-      # create_dependent_walks_for(@walk)
-      redirect_to  mywalks_path
+      create_dependent_walks_for(@walk)
+      redirect_to mywalks_path(created_walk: true)
     else
       render :new, status: :unprocessable_entity
     end

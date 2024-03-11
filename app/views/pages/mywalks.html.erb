@@ -1,3 +1,20 @@
+<% case %>
+<% when @created_walk %>
+  <span
+    data-controller="sweetalert"
+    data-sweetalert-title-value="Well done!",
+    data-sweetalert-text-value="Your walk is created",
+    data-sweetalert-icon-value="success",>
+  </span>
+<% when @created_booking %>
+  <span
+    data-controller="sweetalert"
+    data-sweetalert-title-value="Your request is sent",
+    data-sweetalert-text-value="Wait for your confirmation",
+    data-sweetalert-icon-value="success",>
+  </span>
+<% end %>
+
 <div class="container">
 <!-- Current user walks with edit ans delete%> -->
   <div class="my-4">
