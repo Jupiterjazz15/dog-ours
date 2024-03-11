@@ -1,49 +1,59 @@
 <div class="banner-index">
   <button class="back-arrow"><i class="fa-solid fa-arrow-left"></i></button>
-  <div class="d-flex justify-content-center">
-    <h2>Walk details</h2>
+  <!-- PHOTO DU CHIEN -->
+  <div class="d-flex justify-content-center dog-pic">
+    <%= cl_image_tag @walk.user.dogs.first.photo.key %>
   </div>
+  <p><i class="fa-solid fa-hourglass-start"></i> <%= @walk.duration %>min</p>
 </div>
 <div class="container">
   <div class="show-content">
-    <div class="avatar-name">
-      <img src="<%= @walk.user.avatar %>"> <%= @walk.user.first_name %>
+  <!-- AVATAR PROPRIETAIRE -->
+    <div class="avatar-name d-flex">
+      <%= cl_image_tag @walk.user.photo.key %>
     </div>
+    <!-- NOM CHIEN ET PROPRIETAIRE -->
+    <div class="name-dog-owner">
+      <h2><%= @walk.user.dogs.first.name %></h2>
+      <p class="px-1"><em>& <%= @walk.user.first_name %></em></p>
+    </div>
+    <!-- INFO DOG -->
+    <div class="info-dog">
+      <p class="dog-size"><i class="fa-solid fa-ruler-vertical"></i> <%= @walk.user.dogs.first.size %></p>
+      <p class="dog-breed"><i class="fa-solid fa-dog"></i> <%= @walk.user.dogs.first.breed.content %></p>
+    </div>
+    <!-- INFO WALK -->
     <div class="principals-info d-flex">
-      <div class="dog-pic col-5">
-
-      </div>
-      <div class="info-walk col-7">
+      <div class="info-walk">
         <p><i class="fa-solid fa-location-pin"></i> <%= @walk.starting_point %></p>
         <p><i class="fa-regular fa-clock"></i> <%= @walk.start_time %></p>
-        <p><i class="fa-solid fa-hourglass-start"></i> <%= @walk.duration %>min</p>
+        <div class="d-flex justify-content-between">
+          <p><i class="fa-solid fa-people-arrows"></i> <%= @walk.number_of_participant %></p>
+          <p><i class="fa-solid fa-bolt"></i> <%= @walk.difficulty %></p>
+        </div>
       </div>
     </div>
-    <div class="info-dog">
-      <p><i class="fa-solid fa-ruler-vertical"></i></p>
-      <p><i class="fa-solid fa-dog"></i></p>
-    </div>
+    <!-- WALK DESCRIPTION -->
     <div class="walk-description">
+      <p><i class="fa-solid fa-sheet-plastic"></i> Description :</p>
       <p><%= @walk.description %></i></p>
-      <br>
-      <p><em>Fun fact :</em></p>
     </div>
-    <div class="map-vision">
-      <div class="d-flex justify-content-center">
-        <div>
-         <%= simple_form_for([@walk, @booking]) do |f|  %>
-         <div class="btn btn-secondary btn-lg me-4">
-         <%= f.button :submit %>
-         </div>
-         <% end %>
-          <%# <%= link_to "Join", dashboard_path, class:"btn btn-secondary btn-lg me-4" %>
-        </div>
-        <div>
-        <%= link_to "MESSAGE", discussion_walk_path(@walk), class: "btn btn-outline-dark btn-lg" %>
+    <!-- BOOKING REQUEST BUTTON -->
+    <div class="d-flex justify-content-center">
+      <div class="wrapper-bkrequest-button">
+        <div class="cadre-jaune">
+          <div class="cadre-violet">
+            <div class="cadre-noir">
+              <%= link_to "BOOKING", discussion_walk_path(@walk), class: "" %>
+            </div>
+          </div>
         </div>
       </div>
-      <h2>See on the map</h2>
     </div>
+  </div>
+  <!-- MAP -->
+  <div class="map-vision">
+    <h2>See on the map</h2>
   </div>
   <div id="map-container" class="rounded shadow map_integration"
     data-controller="map"
