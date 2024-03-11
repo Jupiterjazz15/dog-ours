@@ -1,6 +1,6 @@
 .dog-pic img {
   position: relative;
-  top: -80px;
+  top: 0px;
   height: 300px;
   object-fit: cover;
   width: 100%;
@@ -33,7 +33,7 @@
 .show-content {
   padding: 1em;
   position: relative;
-  top: -142px;
+  top: -60px;
   padding-bottom: 2em;
 
   .name-dog-owner {
@@ -58,7 +58,7 @@
 }
 .map-vision {
   text-align: center;
-  margin-top: -1em;
+  margin-top: 3em;
   h2 {
     margin-bottom: 1em;
   }
@@ -123,6 +123,8 @@
 .img-logo {
   display: flex;
   justify-content: center;
+  position: relative;
+  top: -30px;
   height: 73.5px;
   width: 70px;
 }
