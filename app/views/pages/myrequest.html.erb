@@ -18,10 +18,14 @@
             <p><i class="fa-solid fa-dog"></i></p>
               <div class="d-flex justify-content-around">
                   <%= link_to validates_booking_path(booking), data: { turbo_method: :patch, turbo_confirm: 'Are you sure?' }  do %>
+                  <% if booking.status == 'pending' %>
                   <i class="fas fa-solid fa-check"></i>
                   <% end %>
+                  <% end %>
                   <%= link_to refused_booking_path(booking), data: { turbo_method: :patch, turbo_confirm: 'Are you sure?' } do %>
+                  <% if booking.status == 'pending' %>
                   <i class="fas fa-solid fa-ban"></i>
+                  <% end %>
                   <% end %>
                   <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "delete-button" do %>
                   <i class="fas fa-trash-alt"></i>
