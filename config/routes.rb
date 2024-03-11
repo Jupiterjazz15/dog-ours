@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :bookings, only: [:update]
     # A NESTER : resources :reviews, only [:create, :update, :destroy]
   root to: "pages#home"
-  resources :bookings, only: [:destroy] do
+  resources :bookings, only: [:destroy, :index] do
     resources :messages, only: [:create]
     member do
       patch :validates

@@ -56,7 +56,7 @@ class WalksController < ApplicationController
     @message = Message.new
     authorize @walk
     if @walk.save
-      create_dependent_walks_for(@walk)
+      # create_dependent_walks_for(@walk)
       redirect_to mywalks_path(created_walk: true)
     else
       render :new, status: :unprocessable_entity
@@ -87,9 +87,8 @@ class WalksController < ApplicationController
 
   def discussion
     @walk = Walk.find(params[:id])
-    authorize @walk
-    @message = Message.new
     @booking = Booking.find_by(walk: @walk, user: current_user)
+    @message = Message.new
   end
 
   private
