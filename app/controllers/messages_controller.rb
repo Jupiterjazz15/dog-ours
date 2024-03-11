@@ -1,9 +1,11 @@
 class MessagesController < ApplicationController
+
   def create
     @message = Message.new(message_params)
-    @walk = Walk.find(params[:walk_id])
-    @message.walk = @walk
+    @booking = Booking.find(params[:booking_id])
+    @message.walk = @booking.walk
     @message.user = current_user
+    @walk = @message.walk
     if @message.save
       WalkChannel.broadcast_to(
         @walk,
