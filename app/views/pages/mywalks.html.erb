@@ -28,9 +28,10 @@
         <div class="container-dog-photo">
           <%= cl_image_tag current_user.dogs.first.photo.key %>
           <div class="walk-card-stickers">
-            <p><i class="fa-solid fa-hourglass-start"></i> <%= walk.duration %>min</p>
+              <p><i class="fa-solid fa-hourglass-start"></i><%= walk.duration %>min</p>
+            <% end %>
             <% unless walk.frequency == "Once" %>
-              <p><%= walk.frequency == "Every day" ? "every day" : "every other day"%></p>
+              <p><%= walk.frequency == "Every day" ? "every day" : "every other day" %></p>
             <% end %>
           </div>
         </div>
