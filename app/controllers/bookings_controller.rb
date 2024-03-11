@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
     @booking.status = "pending"
     authorize @booking
     if @booking.save
-      redirect_to dashboard_path
+      redirect_to mywalks_path(created_booking: true)
     else
       render :new, status: :unprocessable_entity
     end

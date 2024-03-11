@@ -12,11 +12,14 @@ export default class extends Controller {
       { channel: "WalkChannel", id: this.walkIdValue },
       { received: data => this.#insertMessage(data) }
     )
-    console.log(`Subscribe to the walk with the id ${this.walkIdValue}.`)
   }
-
   #insertMessage(data) {
+    // event.preventDefault();
+    console.log("hello", data);
     this.messagesTarget.insertAdjacentHTML('beforeend', data);
+    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
   }
-
+  resetForm(event) {
+    event.target.reset()
+  }
 }
