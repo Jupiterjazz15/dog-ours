@@ -1,19 +1,14 @@
 <div class="margin-bottom">
-
-  <div class="banner-index">
-    <button class="back-arrow"><i class="fa-solid fa-arrow-left"></i></button>
-    <div class="d-flex justify-content-center">
-      <div class="img-logo">
+  <button class="back-arrow"><i class="fa-solid fa-arrow-left"></i></button>
+    <div class="container banner">
+      <div class="d-flex justify-content-center mt-5">
         <%= image_tag "logo.png" %>
       </div>
+    <!-- NAVBAR-->
+      <div>
+        <%= render "shared/searchbar" %>
+      </div>
     </div>
-  </div>
-
-  <div class="container">
-    <div class="bar">
-      <%= render "shared/searchbar" %>
-    </div>
-  </div>
 
   <%= render "shared/walk_card_index" %>
 </div>
