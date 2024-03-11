@@ -3,13 +3,15 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: %i[show edit update destroy]
 
   def create
-    @booking = Booking.new(booking_params)
-    authorize @booking
-    @booking.user = current_user
-    @booking.walk = Walk.find(params[:walk_id])
+    @booking = Booking.new
+    @walk = Walk.find(params[:walk_id])
     @booking.walk = @walk
+    @booking.user = current_user
+    @booking.status = "pending"
+
+    authorize @booking
     if @booking.save
-      redirect_to booking_path(@booking) # redirect to the dashboard view page to determine
+      redirect_to dashboard_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -36,9 +38,5 @@ class BookingsController < ApplicationController
 
   def set_booking
     @booking = Booking.find(params[:id])
-  end
-
-  def booking_params
-    params.require(:booking).permit(:status, :walk_id)
   end
 end
