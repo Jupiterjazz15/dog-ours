@@ -1,17 +1,21 @@
 <!-- Add all the fields into the form after -->
 
 <%= simple_form_for @dog do |f| %>
-  <div class="form-inputs" data-controller="autocomplete">
-    <%= f.input :name, label: false, placeholder: "Name" %>
-    <%= f.input :description, label: false, placeholder: "Description" %>
+  <div class="form-inputs fix_padding_navbar_bottom" data-controller="autocomplete">
+    <%= f.input :name, placeholder: "Your dog's name" %>
+    <%= f.input :description, placeholder: "Your dog's description 🐶" %>
     <%= f.input :birth_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
-    <%= f.input :constraint, label: false, placeholder: "Constraint" %>
-    <%= f.input :fun_fact, label: false, placeholder: "Fun fact" %>
-    <%= f.input :size, collection: Dog::SIZES, label: "Size", placeholder: "size" %>
+    <%= f.input :constraint, placeholder: "Your dog's constraint" %>
+    <%= f.input :fun_fact, placeholder: "Your dog's fun fact" %>
+    <%= f.input :size,
+                as: :check_boxes,
+                input_html: { class: "tag-selector" },
+                item_wrapper_class: 'tag-item',
+                collection: Dog::SIZES%>
     <%= f.association :breed, collection: Breed.all, input_html: { data: { controller: "autocomplete" } } %>
-    <%= f.input :photo, as: :file, label: false, placeholder: "image" %>
+    <%= f.input :photo, as: :file %>
     <% if local_assigns[:for_dog] %>
-    <%= f.submit class: "btn btn-outline-secondary" %>
+    <%= f.submit class: "btn btn-secondary" %>
     <% else %>
     <%= f.submit class: "btn btn-outline-dark" %>
     <% end %>
