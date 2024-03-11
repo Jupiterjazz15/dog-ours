@@ -8,22 +8,22 @@
     <%= f.input :constraint, placeholder: "Your dog's constraint" %>
     <%= f.input :fun_fact, placeholder: "Your dog's fun fact" %>
     <%= f.input :size,
-                as: :check_boxes,
+                as: :radio_buttons,
                 input_html: { class: "tag-selector" },
                 item_wrapper_class: 'tag-item',
                 collection: Dog::SIZES%>
     <%= f.association :breed, collection: Breed.all, input_html: { data: { controller: "autocomplete" } } %>
     <%= f.input :photo, as: :file %>
+
     <% if local_assigns[:for_dog] %>
-    <%= f.submit class: "btn btn-secondary" %>
+      <%= f.submit class: "btn btn-outline-dark" %>
     <% else %>
-    <%= f.submit class: "btn btn-outline-dark" %>
+      <%= f.submit class: "btn btn-secondary" %>
+    <% end %>
+    <% if @dog.persisted? %>
+        <%= link_to dog_path(@dog), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-secondary delete-button" do %>
+        Delete
     <% end %>
   </div>
-<% end  %>
- <% if @dog.persisted? %>
-    <%= link_to dog_path(@dog), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "delete-button" do %>
-    <i class="fas fa-trash-alt"></i>
  <% end %>
-
- <% end %>
+<% end %>

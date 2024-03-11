@@ -1,5 +1,5 @@
 class Walk < ApplicationRecord
-  DURATIONS = ["15 min", "30 min", "45 min", "1 h", "More than 1 h"]
+  DURATIONS = ["15 min", "30 min", "1 h", "More than 1 h"]
   DIFFICULTIES = ["Low", "Medium", "Intense"]
   FREQUENCIES = ["Once", "Every day", "Every other day"]
   PARTICIPANTS = [1, 2, 3]
