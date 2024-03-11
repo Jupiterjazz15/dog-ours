@@ -15,7 +15,7 @@
     <!-- NOM CHIEN ET PROPRIETAIRE -->
     <div class="name-dog-owner">
       <h2><%= @walk.user.dogs.first.name %></h2>
-      <p><em> & <%= @walk.user.first_name %></em></p>
+      <p class="px-1"><em>& <%= @walk.user.first_name %></em></p>
     </div>
     <!-- INFO DOG -->
     <div class="info-dog">
@@ -27,30 +27,33 @@
       <div class="info-walk">
         <p><i class="fa-solid fa-location-pin"></i> <%= @walk.starting_point %></p>
         <p><i class="fa-regular fa-clock"></i> <%= @walk.start_time %></p>
-        <p><i class="fa-solid fa-people-arrows"></i> <%= @walk.number_of_participant %></p>
+        <div class="d-flex justify-content-between">
+          <p><i class="fa-solid fa-people-arrows"></i> <%= @walk.number_of_participant %></p>
+          <p><i class="fa-solid fa-bolt"></i> <%= @walk.difficulty %></p>
+        </div>
       </div>
     </div>
+    <!-- WALK DESCRIPTION -->
     <div class="walk-description">
+      <p><i class="fa-solid fa-sheet-plastic"></i> Description :</p>
       <p><%= @walk.description %></i></p>
-      <br>
-      <p><em>Fun fact :</em></p>
     </div>
-    <div class="map-vision">
-      <div class="d-flex justify-content-center">
-        <div>
-         <%= simple_form_for [@walk, @booking] do |f|  %>
-         <div class="btn btn-secondary btn-lg me-4">
-         <%= f.button :submit %>
-         </div>
-         <% end %>
-          <%# <%= link_to "Join", dashboard_path, class:"btn btn-secondary btn-lg me-4" %>
-        </div>
-        <div>
-        <%= link_to "MESSAGE", discussion_walk_path(@walk), class: "btn btn-outline-dark btn-lg" %>
+    <!-- BOOKING REQUEST BUTTON -->
+    <div class="d-flex justify-content-center">
+      <div class="wrapper-bkrequest-button">
+        <div class="cadre-jaune">
+          <div class="cadre-violet">
+            <div class="cadre-noir">
+              <%= link_to "BOOKING", discussion_walk_path(@walk), class: "" %>
+            </div>
+          </div>
         </div>
       </div>
-      <h2>See on the map</h2>
     </div>
+  </div>
+  <!-- MAP -->
+  <div class="map-vision">
+    <h2>See on the map</h2>
   </div>
   <div id="map-container" class="rounded shadow map_integration"
     data-controller="map"
