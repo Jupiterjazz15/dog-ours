@@ -2,6 +2,10 @@ class BookingsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_booking, only: %i[validates refused destroy]
 
+  def index
+    @bookings = Booking.where(user: current_user)
+  end
+
   def create
     @booking = Booking.new
     @walk = Walk.find(params[:walk_id])
