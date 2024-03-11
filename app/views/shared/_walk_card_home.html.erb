@@ -1,6 +1,7 @@
   <div class="d-flex walk-card-home">
     <% random_walks = @walks.sample(5) %>
       <% random_walks.each do |random_walk|%>
+      <%= link_to(walk_path(random_walk)) do %>
       <!-- WALK CARD -->
         <div class="walk-card">
           <div class="container-dog-photo">
@@ -12,8 +13,8 @@
               <div class="avatar-name">
                 <%= cl_image_tag random_walk.user.photo.key %>
                 <div class="d-flex">
-                  <h2><%= random_walk.user.first_name %></h2>
-                  <p class="dog-name"><em>& <%= random_walk.user.dogs.first.name %></em></p>
+                  <h2><%= random_walk.user.dogs.first.name %></h2>
+                  <p class="dog-name"><em>& <%= random_walk.user.first_name %></em></p>
                 </div>
               </div>
             </div>
@@ -24,4 +25,5 @@
           </div>
         </div>
       <% end %>
-    </div>
+    <% end %>
+  </div>

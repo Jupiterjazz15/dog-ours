@@ -14,15 +14,14 @@ Rails.application.routes.draw do
 
   resources :walks do
     get '/discussion', to: "walks#discussion", on: :member
-    resources :bookings, only: [:create] do
-      resources :messages, only: [:create]
-    end
+    resources :bookings, only: [:create]
   end
   resources :user_tags, only: [:create, :destroy]
   resources :bookings, only: [:update]
     # A NESTER : resources :reviews, only [:create, :update, :destroy]
   root to: "pages#home"
-  resources :bookings, only: [:destroy] do
+  resources :bookings, only: [:destroy, :index] do
+    resources :messages, only: [:create]
     member do
       patch :validates
       patch :refused

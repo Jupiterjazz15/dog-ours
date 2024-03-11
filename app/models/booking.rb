@@ -5,10 +5,10 @@ class Booking < ApplicationRecord
   validates :status, inclusion: { in: %W[pending accepted declined] }
 
   def accepted!
-    update!(booking_status: 'accepted')
+    update!(status: 'accepted')
   end
 
   def declined!
-    update!(booking_status: 'declined')
+    update!(status: 'declined')
   end
 end

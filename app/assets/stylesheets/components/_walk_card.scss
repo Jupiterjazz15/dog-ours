@@ -8,7 +8,7 @@
 .walk-card-home {
   overflow-x: scroll;
   white-space: nowrap;
-  margin-left: 0.5em;
+  margin-left: 0;
 }
 
 .walk-card {
@@ -74,6 +74,18 @@
 .container-dog-photo p {
   position: absolute;
   right: 10px;
+  top: 10px;
+  border-radius: 30px;
+  border: grey solid 1px;
+  padding-inline: 0.5em;
+  padding-block: 0.25em;
+  font-size: 9px;
+  background-color: #F4F4F9;
+}
+
+.container-dog-photo span {
+  position: absolute;
+  left: 10px;
   top: 10px;
   border-radius: 30px;
   border: grey solid 1px;

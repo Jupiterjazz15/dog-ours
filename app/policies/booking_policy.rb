@@ -10,4 +10,12 @@ class BookingPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def validates?
+    record.walk.user == user
+  end
+
+  def refused?
+    record.walk.user == user
+  end
 end
