@@ -15,7 +15,7 @@ class Walk < ApplicationRecord
   validates :difficulty, inclusion: { in: DIFFICULTIES }
   validates :frequency, inclusion: { in: FREQUENCIES }, allow_nil: true
   validates :number_of_participant, inclusion: { in: PARTICIPANTS }
-  validates :name, length: { maximum: 17 }
+  validates :name, length: { maximum: 16 }
   # GeoCoder
   geocoded_by :starting_point
   after_validation :geocode, if: :will_save_change_to_starting_point?

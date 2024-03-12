@@ -34,15 +34,15 @@
           </div>
         </div>
         <div class="walk-card-content">
-          <div class="info-walk-card">
           <div class="card-head">
             <div class="avatar-name">
               <%= cl_image_tag current_user.photo.key %>
-              <h6><%= walk.name %></h6>
+              <div class="d-flex">
+                <h2><%= walk.name %></h2>
+              </div>
             </div>
           </div>
-
-
+          <div class="info-walk-card">
             <p><i class="fa-solid fa-location-pin"></i> <%= walk.starting_point %></p>
             <p><i class="fa-regular fa-clock"></i> <%= walk.start_time.strftime("%e/%m - %H:%M") %></p>
             <%= link_to edit_walk_path(walk), class: "edit-button" do %>
