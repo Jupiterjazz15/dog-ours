@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   def home
     if user_signed_in?
-      @walks = Walk.all
+      @walks = Walk.where(parent_id: nil)
       @markers = @walks.geocoded.map do |walk|
         {
           lat: walk.latitude,
@@ -28,6 +28,7 @@ class PagesController < ApplicationController
     @created_booking = params[:created_booking] == "true"
     @walks = current_user.walks
     @bookings = current_user.bookings
+    @my_walks = Walk.where(user: current_user, parent_id: nil)
   end
 
   def myrequest

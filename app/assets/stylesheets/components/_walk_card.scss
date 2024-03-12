@@ -56,7 +56,21 @@
   border: 2px solid #FFF; /* Adjust to your card's background color */
   position: relative;
   top: -25px;
-  left: 140px;
+  left: 124px;
+}
+
+.wrapper-index {
+  .avatar-name img {
+    height: 35px; /* Adjust to fit your design */
+    border-radius: 50%;
+    margin-bottom: -36px; /* Half the image height to overlay it on the card content */
+    background: #FFF; /* Adjust to the background of the content area */
+    box-sizing: border-box;
+    border: 2px solid #FFF; /* Adjust to your card's background color */
+    position: relative;
+    top: -25px;
+    left: 155px;
+  }
 }
 
 .walk-card-content {
@@ -69,16 +83,18 @@
   padding-bottom: 145px;
 }
 
-.container-dog-photo p {
+.walk-card-stickers {
   position: absolute;
   right: 10px;
   top: 10px;
-  border-radius: 30px;
-  border: grey solid 1px;
-  padding-inline: 0.5em;
-  padding-block: 0.25em;
-  font-size: 9px;
-  background-color: #F4F4F9;
+  p {
+    border-radius: 30px;
+    border: grey solid 1px;
+    padding-inline: 0.5em;
+    padding-block: 0.25em;
+    font-size: 11px;
+    background-color: #F4F4F9;
+  }
 }
 
 .container-dog-photo span {
@@ -99,6 +115,9 @@
   padding-top: 0.5em;
   .info-walk-address {
     width: 160px;
+    white-space: break-spaces;
+  }
+  p {
     white-space: break-spaces;
   }
 }
