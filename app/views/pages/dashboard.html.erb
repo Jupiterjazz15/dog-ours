@@ -1,14 +1,19 @@
 <div class= "fix_padding_navbar_bottom" >
   <div class="profile-icone-head">
     <p><%= cl_image_tag current_user.photo.key, class: "avatar profile" %></p>
-    <%= link_to myprofile_path do %>
-      <i class="fa-regular fa-pen-to-square"></i>
-    <% end %>
     <% if current_user.has_a_dog? %>
       <p><%= cl_image_tag current_user.dogs.first.photo.key, class: "avatar dog" %></p>
     <% end %>
   </div>
+ <!-- PROFILE NAME -->
+  <div class="user-info-dashboard d-flex">
     <p class="dashboard-name"><%= current_user.first_name %></p>
+    <div class="modify-profile">
+      <%= link_to myprofile_path do %>
+        <i class="fa-regular fa-pen-to-square"></i>
+      <% end %>
+    </div>
+  </div>
 
   <div class="container flex-center">
     <!-- Avatar user & ses infos %> -->
