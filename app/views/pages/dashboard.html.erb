@@ -44,7 +44,7 @@
           <div class="accordion-body">
             <div class="d-flex walk-card-home dashfit">
               <% @my_walks.each do |walk| %>
-                <div class="walk-card">
+                <div class="walk-card dashcard">
                   <div class="container-dog-photo">
                     <%= cl_image_tag current_user.dogs.first.photo.key %>
                       <div class="walk-card-stickers">
@@ -68,12 +68,14 @@
                     <div class="info-walk-card">
                       <p><i class="fa-solid fa-location-pin"></i> <%= walk.starting_point %></p>
                       <p><i class="fa-regular fa-clock"></i> <%= walk.start_time.strftime("%e/%m - %H:%M") %></p>
-                      <%= link_to edit_walk_path(walk), class: "edit-button" do %>
-                        <i class="fas fa-edit mx-3"></i>
-                      <% end %>
-                      <%= link_to walk_path(walk), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "delete-button" do %>
-                        <i class="fas fa-trash-alt mx-3"></i>
-                      <% end %>
+                      <div class="d-flex justify-content-around">
+                        <%= link_to edit_walk_path(walk), class: "edit-button" do %>
+                          <i class="fas fa-edit mx-3"></i>
+                        <% end %>
+                        <%= link_to walk_path(walk), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "delete-button" do %>
+                          <i class="fas fa-trash-alt mx-3"></i>
+                        <% end %>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -92,7 +94,7 @@
           <div class="accordion-body">
             <div class="d-flex walk-card-home dashfit">
               <% @bookings.each do |booking| %>
-                <div class="walk-card">
+                <div class="walk-card dashcard">
                   <div class="container-dog-photo">
                     <%= cl_image_tag booking.walk.user.dogs.first.photo.key %>
                     <span><%= booking.status.capitalize %></span>
@@ -132,7 +134,7 @@
             <div class="d-flex walk-card-home dashfit">
               <% @walks.each do |walk| %>
               <% walk.bookings.each do |booking| %>
-                <div class="walk-card">
+                <div class="walk-card dashcard">
                   <div class="container-dog-photo">
                     <%= cl_image_tag booking.walk.user.dogs.first.photo.key %>
                     <span><%= booking.status.capitalize %></span>
