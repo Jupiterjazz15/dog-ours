@@ -2,7 +2,7 @@ class Booking < ApplicationRecord
   belongs_to :walk
   belongs_to :user
 
-  validates :status, inclusion: { in: %W[pending accepted declined] }
+  validates :status, inclusion: { in: %W[Pending Accepted Declined] }
 
   def accepted!
     update!(status: 'accepted')

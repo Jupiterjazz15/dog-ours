@@ -17,16 +17,30 @@ p "Dogs deleted"
 User.destroy_all
 p "Users deleted"
 
+####  Message de confirmation de la création des breeds ####
+csv_file_path = Rails.root.join('lib', 'seeds', 'fci-breeds.csv')
+CSV.foreach(csv_file_path, headers: true) do |row|
+  Breed.create!(content: row['name'])
+end
+p "Breed #{Breed.count} created"
+
+
 ##### USER 1 ANTOINE L. ####
 user = User.create!(first_name: "Antoine", last_name: "Lebeau", phone_number: "123-456-7890", email: "antoine@test.com", password: "azerty")
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U06DG7195EE-41fa3d1f8d29-512")
 user.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
 
-Walk.create!(name: "Walk in 75019", starting_point: "41 Av. Mathurin Moreau, 75019 Paris", duration: "15 min", start_time: DateTime.new(2024,03,25,12,30), difficulty: "Medium", description: "A walk in les Buttes-Chaumont" , frequency: "Every other day", number_of_participant: "1", user_id: User.first.id)
-
 dog = Dog.create!(name: "Charlie", description: "The funniest dog in the world", birth_date: Date.new(2020, 8, 15), constraint: "Doesn't like small dogs", fun_fact: "The best swimmer you have ever seen !!",size: "Large", breed: Breed.find_by_content!("COLLIE ROUGH"), user_id: User.first.id)
 file = URI.open("https://img.passeportsante.net/1200x675/2021-05-06/i106625-signes-bonne-sante-chien.webp")
 dog.photo.attach(io: file, filename: "dog.webp", content_type: "image/webp")
+
+Walk.create!(name: "Walk in 75019", starting_point: "41 Av. Mathurin Moreau, 75019 Paris", duration: "15 min", start_time: DateTime.new(2024,03,25,12,30), difficulty: "Medium", description: "A walk in les Buttes-Chaumont" , frequency: "Once", number_of_participant: "1", user_id: User.first.id)
+
+Walk.create!(name: "My favorite walk", starting_point: "41 Av. Mathurin Moreau, 75019 Paris", duration: "30 min", start_time: DateTime.new(2024,03,25,12,30), difficulty: "Medium", description: "A joyful walk in the beautiful parc les Buttes-Chaumont ", frequency: "Every other day", number_of_participant: "1", user_id: User.first.id)
+
+Booking.create!(status: "Accepted", user_id: User.first.id, walk_id: Walk.where(user_id: User.first.id).first&.id)
+
+p "#{User.first.first_name} has #{Walk.where(user_id: User.first.id).count} walk(s) and #{Booking.where(user_id: User.first.id).count} booking(s)"
 
 
 #### USER 2 CORALIE H. ####
@@ -39,6 +53,12 @@ file =  URI.open("https://cdn.britannica.com/35/233235-050-8DED07E3/Pug-dog.jpg"
 dog.photo.attach(io: file, filename: "dog.webp", content_type: "image/webp")
 
 Walk.create!(name: "Walk in 75007", starting_point: "24 Rue de Varenne, 75007, Paris", duration: "30 min", start_time: DateTime.new(2024,03,27,18,00), difficulty: "Medium", description: "A walk that I like since we can walk in large streets and we can stop in a park." , frequency: "Every day",number_of_participant: "2", user_id: User.second.id)
+
+Walk.create!(name: "Walk with Molly", starting_point: "24 Rue de Varenne, 75007, Paris", duration: "15 min", start_time: DateTime.new(2024,03,27,18,00), difficulty: "Low", description: "My favourite walk : charming and very cool!" , frequency: "Once",number_of_participant: "2", user_id: User.second.id)
+
+Booking.create!(status: "Accepted", user_id: User.second.id, walk_id: Walk.where(user_id: User.second.id).first&.id)
+
+p "#{User.second.first_name} has #{Walk.where(user_id: User.second.id).count} walk(s) and #{Booking.where(user_id: User.second.id).count} booking(s)"
 
 
 #### USER 3 GUILLAUME D. ####
@@ -60,7 +80,7 @@ user.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
 
 dog = Dog.create!(name: "Jim", description: "The funniest dog in the world", birth_date: Date.new(2022, 10, 10), constraint: "Doesn't like small dogs", fun_fact: "The best swimmer you have ever seen !!", size: "Large", breed_id: Breed.take.id, user_id: User.fourth.id)
 
-Walk.create!(name: "Walk in 75004", starting_point: "45 rue Saint Antoine, 75004, Paris", duration: "1 h", start_time: start_time1, difficulty: "Medium", description: "A peaceful walk." , frequency: "Every other day",number_of_participant: "2", user_id: User.fourth.id)
+Walk.create!(name: "Walk in 75004", starting_point: "45 rue Saint Antoine, 75004, Paris", duration: "30 min", start_time: DateTime.new(2024,03,28,13,00), difficulty: "Medium", description: "A peaceful walk." , frequency: "Every other day",number_of_participant: "2", user_id: User.fourth.id)
 
 
 ####  Message de confirmation de la création des users ####
@@ -77,13 +97,6 @@ p "You have created #{Tag.count} tags"
 ####  Message de confirmation de la création des usertags ####
 UserTag.create!(user: User.first, tag: Tag.take)
 UserTag.create!(user: User.first, tag: Tag.take)
-
-####  Message de confirmation de la création des breeds ####
-csv_file_path = Rails.root.join('lib', 'seeds', 'fci-breeds.csv')
-CSV.foreach(csv_file_path, headers: true) do |row|
-  Breed.create!(content: row['name'])
-end
-p "Breed #{Breed.count} created"
 
 file = URI.open("https://www.rustica.fr/images/risques-si-je-possede-chien-dont-race-est-interdite-france-19189-l790-h526.jpg.webp")
 dog.photo.attach(io: file, filename: "dog.webp", content_type: "image/webp")
