@@ -83,16 +83,18 @@
   padding-bottom: 145px;
 }
 
-.container-dog-photo p {
+.walk-card-stickers {
   position: absolute;
   right: 10px;
   top: 10px;
-  border-radius: 30px;
-  border: grey solid 1px;
-  padding-inline: 0.5em;
-  padding-block: 0.25em;
-  font-size: 9px;
-  background-color: #F4F4F9;
+  p {
+    border-radius: 30px;
+    border: grey solid 1px;
+    padding-inline: 0.5em;
+    padding-block: 0.25em;
+    font-size: 11px;
+    background-color: #F4F4F9;
+  }
 }
 
 .container-dog-photo span {
@@ -113,6 +115,9 @@
   padding-top: 0.5em;
   .info-walk-address {
     width: 160px;
+    white-space: break-spaces;
+  }
+  p {
     white-space: break-spaces;
   }
 }
