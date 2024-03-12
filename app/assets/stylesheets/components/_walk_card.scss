@@ -26,7 +26,6 @@
     height: 160px;
     width: 185px;
   }
-
   p {
     font-size: 12px;
     margin-bottom: 0;
@@ -80,7 +79,7 @@
     border: grey solid 1px;
     padding-inline: 0.5em;
     padding-block: 0.25em;
-    font-size: 9px;
+    font-size: 11px;
     background-color: #F4F4F9;
   }
 }
@@ -103,6 +102,9 @@
   padding-top: 0.5em;
   .info-walk-address {
     width: 160px;
+    white-space: break-spaces;
+  }
+  p {
     white-space: break-spaces;
   }
 }

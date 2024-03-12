@@ -7,7 +7,9 @@
       <div class="walk-card">
         <div class="container-dog-photo">
           <%= cl_image_tag walk.user.dogs.first.photo.key %>
-          <p><i class="fa-solid fa-hourglass-start"></i> <%= walk.duration %>min</p>
+          <div class="walk-card-stickers">
+            <p><i class="fa-solid fa-hourglass-start"></i> <%= walk.duration %></p>
+          </div>
         </div>
         <div class="walk-card-content">
           <div class="card-head">

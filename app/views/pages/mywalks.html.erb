@@ -27,25 +27,20 @@
         <div class="container-dog-photo">
           <%= cl_image_tag current_user.dogs.first.photo.key %>
           <div class="walk-card-stickers">
-              <p><i class="fa-solid fa-hourglass-start"></i><%= walk.duration %>min</p>
-            <% end %>
+            <p><i class="fa-solid fa-hourglass-start"></i><%= walk.duration %></p>
             <% unless walk.frequency == "Once" %>
-              <p><%= walk.frequency == "Every day" ? "every day" : "every other day" %></p>
+              <p><%= walk.frequency == "Every day" ? "Every day" : "Every other day" %></p>
             <% end %>
           </div>
         </div>
-
         <div class="walk-card-content">
-
           <div class="card-head">
             <div class="avatar-name">
               <%= cl_image_tag current_user.photo.key %>
               <h2><%= walk.user.first_name %></h2>
             </div>
           </div>
-
           <div class="info-walk-card">
-
             <p><i class="fa-solid fa-location-pin"></i> <%= walk.starting_point %></p>
             <p><i class="fa-regular fa-clock"></i> <%= walk.start_time.strftime("%e/%m - %H:%M") %></p>
             <%= link_to edit_walk_path(walk), class: "edit-button" do %>
@@ -54,14 +49,12 @@
             <%= link_to walk_path(walk), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "delete-button" do %>
               <i class="fas fa-trash-alt mx-3"></i>
             <% end %>
-
           </div>
-
         </div>
-
       </div>
-
+    <% end %>
   </div>
+</div>
 
 <!-- Current user booking %> -->
   <div class="border-top border-dark m-4"></div>
