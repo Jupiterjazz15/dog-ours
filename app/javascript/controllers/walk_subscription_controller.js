@@ -3,7 +3,7 @@ import { createConsumer } from "@rails/actioncable"
 
 // Connects to data-controller="walk-subscription"
 export default class extends Controller {
-  static values = { walkId: Number }
+  static values = { walkId: Number, currentUserId: Number  }
   static targets = ["messages"]
 
 
@@ -17,7 +17,9 @@ export default class extends Controller {
     // event.preventDefault();
     console.log("hello", data);
     this.messagesTarget.insertAdjacentHTML('beforeend', data);
+    // const currentUserIsSender = this.currentUserIdValue === data.sender_id; 
     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
+
   }
   resetForm(event) {
     event.target.reset()

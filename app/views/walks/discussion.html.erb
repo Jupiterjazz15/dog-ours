@@ -1,11 +1,12 @@
 <div class="messages" data-walk-subscription-target="messages">
-  <%# @walk.messages.each do |message| %>
-  <%# end %>
 </div>
-
+<div>
+  <button class="back-arrow"><i class="fa-solid fa-arrow-left"></i></button>
+</div>
 <div class="walk"
   data-controller="walk-subscription"
-  data-walk-subscription-walk-id-value="<%= @walk.id %>">
+  data-walk-subscription-walk-id-value="<%= @walk.id %>"
+  data-walk-subscription-current-user-id-value="<%= current_user.id %>">
   <h2><%= @walk.name %></h2>
   <div class="messages" data-walk-subscription-target="messages">
     <% @walk.messages.each do |message| %>
@@ -15,7 +16,7 @@
   <%= simple_form_for [@booking, @message], html: { data: { action: "turbo:submit-end->walk-subscription#resetForm" }, class: "d-flex" } do |f| %>
     <%= f.input :content,
       label: false,
-      placeholder: "Message ##{@walk.name}",
+      placeholder: "Message ...",
       wrapper_html: {class: "flex-grow-1"} %>
     <%= f.submit "Wouff", class: "btn btn-secondary mb-3 mx-1 send-button" %>
   <% end %>

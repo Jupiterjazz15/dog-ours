@@ -13,7 +13,7 @@
     margin-top: 1em;
   }
 
-  p {
+.user-message {
     background-color: #5C6CFF;
     padding-inline: 1em;
     padding-block: 0.25em;
@@ -21,6 +21,8 @@
     border-radius: 12px;
     margin-bottom: 2em;
     margin-top: 0.5em;
+    margin-left: auto;
+    color: #FFFF82;
   }
 }
 
@@ -34,4 +36,16 @@
   background: #FFF;
   box-sizing: border-box;
   border: 2px solid #FFF;
+}
+
+.message-member {
+  background-color: #FFFF82;
+  color: #5C6CFF;
+  padding-inline: 1em;
+  padding-block: 0.25em;
+  width: max-content;
+  border-radius: 12px;
+  margin-bottom: 2em;
+  margin-top: 0.5em;
+
 }

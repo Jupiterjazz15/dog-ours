@@ -9,7 +9,8 @@ class MessagesController < ApplicationController
     if @message.save
       WalkChannel.broadcast_to(
         @walk,
-        render_to_string(partial: "messages", locals: { message: @message })
+        render_to_string(partial: "messages", locals: { message: @message }),
+        sender_id: @message.user.id
       )
       head :ok
     else
