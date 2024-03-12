@@ -57,6 +57,7 @@ class WalksController < ApplicationController
     authorize @walk
     if @walk.save
       create_dependent_walks_for(@walk)
+      @booking = Booking.create(walk: @walk, user: current_user, status: "accepted")
       redirect_to mywalks_path(created_walk: true)
     else
       render :new, status: :unprocessable_entity
