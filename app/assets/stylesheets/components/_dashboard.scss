@@ -83,3 +83,8 @@
     color: black;
   }
 }
+
+.walk-card-home.dashfit{
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
+}
