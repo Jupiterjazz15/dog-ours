@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_07_113621) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_11_120400) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -123,7 +123,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_113621) do
 
   create_table "walks", force: :cascade do |t|
     t.string "starting_point"
-    t.integer "duration"
+    t.string "duration"
     t.datetime "start_time"
     t.string "difficulty"
     t.string "description"
@@ -134,8 +134,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_113621) do
     t.float "latitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
     t.bigint "parent_id"
+    t.string "name"
     t.index ["parent_id"], name: "index_walks_on_parent_id"
     t.index ["user_id"], name: "index_walks_on_user_id"
   end
