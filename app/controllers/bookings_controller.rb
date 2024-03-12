@@ -3,12 +3,16 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: %i[validates refused destroy]
 
   def index
+    @walks = Walk.where(user: current_user)
+    @bookings = Booking.where(walk: @walks)
     @bookings = Booking.where(user: current_user)
+    @bookings = policy_scope(Booking)
   end
 
   def create
-    @booking = Booking.new
     @walk = Walk.find(params[:walk_id])
+    @booking = Booking.new
+    @message = Message.new
     @booking.walk = @walk
     @booking.user = current_user
     @booking.status = "pending"

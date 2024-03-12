@@ -36,7 +36,7 @@ class WalksController < ApplicationController
   def show
     @walk = Walk.find(params[:id])
     @message = Message.new
-    @booking = Booking.new
+    @booking = current_user.bookings.find_by(walk: @walk)
     authorize @walk
     if @walk.geocoded?
       @markers = [
@@ -87,6 +87,7 @@ class WalksController < ApplicationController
 
   def discussion
     @walk = Walk.find(params[:id])
+    authorize @walk
     @booking = Booking.find_by(walk: @walk, user: current_user)
     @message = Message.new
   end
