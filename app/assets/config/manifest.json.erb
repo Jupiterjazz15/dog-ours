@@ -2,7 +2,8 @@
 {
   "background_color": "white",
   "description": "Coucou",
-  "display": "fullscreen",
+  "display": "standalone",
+  "start_url": "/",
   "name": "DogsOur",
   "icons": [
     <% files = Dir.entries(Rails.root.join("app/assets/images/icons/")).select {|f| !File.directory? f} %>
