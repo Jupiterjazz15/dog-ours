@@ -56,7 +56,21 @@
   border: 2px solid #FFF; /* Adjust to your card's background color */
   position: relative;
   top: -25px;
-  left: 140px;
+  left: 124px;
+}
+
+.wrapper-index {
+  .avatar-name img {
+    height: 35px; /* Adjust to fit your design */
+    border-radius: 50%;
+    margin-bottom: -36px; /* Half the image height to overlay it on the card content */
+    background: #FFF; /* Adjust to the background of the content area */
+    box-sizing: border-box;
+    border: 2px solid #FFF; /* Adjust to your card's background color */
+    position: relative;
+    top: -25px;
+    left: 155px;
+  }
 }
 
 .walk-card-content {
