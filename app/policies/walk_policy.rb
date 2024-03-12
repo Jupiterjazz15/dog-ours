@@ -19,7 +19,7 @@ class WalkPolicy < ApplicationPolicy
   end
 
   def discussion?
-    Booking.find_by(walk: record, user: user).present?
+    true
   end
 
   def edit?

@@ -56,6 +56,7 @@ class WalksController < ApplicationController
     @message = Message.new
     authorize @walk
     if @walk.save
+      @booking = Booking.create(walk: @walk, user: current_user, status: "accepted")
       # create_dependent_walks_for(@walk)
       redirect_to mywalks_path(created_walk: true)
     else
