@@ -17,7 +17,10 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @created_walk = params[:created_walk] == "true"
+    @created_booking = params[:created_booking] == "true"
     @walks = current_user.walks
+    @bookings = current_user.bookings
   end
 
   def mywalks

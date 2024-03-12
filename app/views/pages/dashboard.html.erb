@@ -15,8 +15,159 @@
     </div>
   </div>
 
-  <div class="container flex-center">
+  <div>
     <!-- Avatar user & ses infos %> -->
+    <% case %>
+    <% when @created_walk %>
+      <span
+        data-controller="sweetalert"
+        data-sweetalert-title-value="Well done!",
+        data-sweetalert-text-value="Your walk is created",
+        data-sweetalert-icon-value="success",>
+      </span>
+    <% when @created_booking %>
+      <span
+        data-controller="sweetalert"
+        data-sweetalert-title-value="Your request is sent",
+        data-sweetalert-text-value="Wait for your confirmation",
+        data-sweetalert-icon-value="success",>
+      </span>
+    <% end %>
+
+    <div class="accordion" id="accordiondashboard">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            My <%= current_user.walks.count %> <%= "walk".pluralize(current_user.walks.count) %>
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordiondashboard">
+          <div class="accordion-body">
+            <div class="d-flex walk-card-home">
+              <% @walks.each do |walk| %>
+                <div class="walk-card">
+                  <div class="container-dog-photo">
+                    <%= cl_image_tag current_user.dogs.first.photo.key %>
+                    <p><i class="fa-solid fa-hourglass-start"></i> <%= walk.duration %>min</p>
+                  </div>
+
+                  <div class="walk-card-content">
+                    <div class="card-head">
+                      <div class="avatar-name">
+                        <%= cl_image_tag current_user.photo.key %>
+                        <h2><%= walk.user.first_name %></h2>
+                      </div>
+                    </div>
+
+                    <div class="info-walk-card">
+                      <p><i class="fa-solid fa-location-pin"></i> <%= walk.starting_point %></p>
+                      <p><i class="fa-regular fa-clock"></i> <%= walk.start_time.strftime("%e/%m - %H:%M") %></p>
+                      <%= link_to edit_walk_path(walk), class: "edit-button" do %>
+                        <i class="fas fa-edit mx-3"></i>
+                      <% end %>
+                      <%= link_to walk_path(walk), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "delete-button" do %>
+                        <i class="fas fa-trash-alt mx-3"></i>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            My <%= current_user.bookings.count %> Joined <%= "walk".pluralize(current_user.bookings.count) %>
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <div class="d-flex walk-card-home">
+              <% @bookings.each do |booking| %>
+                <div class="walk-card">
+                  <div class="container-dog-photo">
+                    <%= cl_image_tag booking.walk.user.dogs.first.photo.key %>
+                    <span><%= booking.status.capitalize %></span>
+                    <p><i class="fa-solid fa-hourglass-start"></i> <%= booking.walk.duration %>min</p>
+                  </div>
+
+                  <div class="walk-card-content">
+                    <div class="card-head">
+                      <div class="avatar-name">
+                        <%= cl_image_tag booking.walk.user.photo.key %>
+                        <h2><%= booking.walk.user.first_name %></h2>
+                      </div>
+                    </div>
+
+                    <div class="info-walk-card">
+                      <p><i class="fa-solid fa-location-pin"></i> <%= booking.walk.starting_point %></p>
+                      <p><i class="fa-regular fa-clock"></i> <%= booking.walk.start_time.strftime("%e/%m - %H:%M") %></p>
+                      <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "delete-button" do %>
+                        <i class="fas fa-trash-alt mx-3"></i>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            My Booking request
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <div class="d-flex walk-card-home">
+              <% @walks.each do |walk| %>
+              <% walk.bookings.each do |booking| %>
+                <div class="walk-card">
+                  <div class="container-dog-photo">
+                    <%= cl_image_tag booking.walk.user.dogs.first.photo.key %>
+                    <span><%= booking.status.capitalize %></span>
+                    <p><i class="fa-solid fa-hourglass-start"></i> <%= booking.walk.duration %>min</p>
+                  </div>
+
+                  <div class="walk-card-content">
+                    <div class="card-head">
+                      <div class="avatar-name">
+                        <%= cl_image_tag booking.walk.user.photo.key %>
+                        <h2><%= booking.walk.user.first_name %></h2>
+                      </div>
+                    </div>
+
+                    <div class="info-walk-card">
+                      <p><i class="fa-solid fa-location-pin"></i> <%= booking.walk.starting_point %></p>
+                      <p><i class="fa-regular fa-clock"></i> <%= booking.walk.start_time.strftime("%e/%m - %H:%M") %></p>
+                      <%= link_to validates_booking_path(booking), data: { turbo_method: :patch, turbo_confirm: 'Are you sure?' }  do %>
+                      <% if booking.status == 'pending' %>
+                      <i class="fas fa-solid fa-check"></i>
+                      <% end %>
+                      <% end %>
+                      <%= link_to refused_booking_path(booking), data: { turbo_method: :patch, turbo_confirm: 'Are you sure?' } do %>
+                      <% if booking.status == 'pending' %>
+                      <i class="fas fa-solid fa-ban"></i>
+                      <% end %>
+                      <% end %>
+                      <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "delete-button" do %>
+                      <i class="fas fa-trash-alt"></i>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <p><%= link_to "My walks (#{current_user.walks.count})", mywalks_path %></p>
     <p><%= link_to "My Booking request", myrequest_path %></p>
 
