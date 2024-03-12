@@ -59,7 +59,7 @@ class WalksController < ApplicationController
   @booking = Booking.new(walk: @walk, user: current_user, status: "accepted")
       create_dependent_walks_for(@walk)
       @booking = Booking.create(walk: @walk, user: current_user, status: "accepted")
-      redirect_to mywalks_path(created_walk: true)
+      redirect_to dashboard_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -75,7 +75,7 @@ class WalksController < ApplicationController
     authorize @walk
     @walk.update(walk_params)
     if @walk.save
-      redirect_to walk_path(@walk)
+      redirect_to dashboard_path
     else
       render :edit, status: :unprocessable_entity # render the edit.html.erb determine the best path to take
     end
@@ -84,7 +84,7 @@ class WalksController < ApplicationController
   def destroy
     @walk.destroy
     authorize @walk
-    redirect_to walks_path
+    redirect_to dashboard_path
   end
 
   def discussion

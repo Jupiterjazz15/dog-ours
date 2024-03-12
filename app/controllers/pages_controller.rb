@@ -21,6 +21,7 @@ class PagesController < ApplicationController
     @created_booking = params[:created_booking] == "true"
     @walks = current_user.walks
     @bookings = current_user.bookings
+    @my_walks = Walk.where(user: current_user, parent_id: nil)
   end
 
   def mywalks
