@@ -13,10 +13,9 @@
 
 .walk-card {
   height: 270px;
-  width: 185px;
   margin-top: 20px;
   margin-bottom: 1em;
-  margin-inline: 0.5em;
+  margin-inline: 3px;
   background: #FFF; /* Adjust to your desired card background color */
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -24,7 +23,6 @@
   .container-dog-photo {
     position: relative;
     height: 160px;
-    width: 185px;
   }
 
   p {
@@ -58,7 +56,7 @@
   border: 2px solid #FFF; /* Adjust to your card's background color */
   position: relative;
   top: -25px;
-  left: 145px;
+  left: 140px;
 }
 
 .walk-card-content {

@@ -6,9 +6,10 @@
   margin-top: 2em;
 
   p{
-    text-decoration: none;
-  }
+  text-decoration: none;
+    }
 }
+
 .flex-center p {
   color: black;
   font-weight: 300;
@@ -19,10 +20,12 @@
   position: relative;
   padding: 2em;
   background-image: url("logo.png");
+  background-color: #F1EAFF;
   background-position: center;
   display: flex;
   justify-content: center;
   border-radius: 0 0 48px 48px;
+  z-index: 1;
 
   .profile {
     height: 180px;
@@ -41,7 +44,7 @@
 
   p {
     position: relative;
-    right: -12px;
+    right: 0px;
   }
 }
 
@@ -50,6 +53,33 @@
 }
 
 .dashboard-name {
-  text-align: center;
   font-size: 2em;
+  margin-bottom: 0;
+}
+.user-info-dashboard {
+  position: relative;
+  justify-content: center;
+  border-radius: 0 0 24px 24px;
+  padding: 0.5em;
+  padding-top: 3em;
+  background-color: #FFFF82;
+  color: black;
+  box-shadow: 0px 0px 4px grey;
+  align-items: center;
+  top: -45px;
+
+  .modify-profile{
+    width: 0;
+  }
+
+  p {
+    position: relative;
+  }
+
+  i {
+    position: relative;
+    top: 0px;
+    right: -70px;
+    color: black;
+  }
 }
