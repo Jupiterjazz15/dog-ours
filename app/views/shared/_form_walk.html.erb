@@ -1,5 +1,6 @@
 <%= simple_form_for (@walk) do |f| %>
   <div class="form-inputs fix_padding_navbar_bottom">
+    <%= f.input :name, label: false, placeholder: "Name of your walk" %>
     <%= f.input :starting_point, placeholder: "From"%>
 
     <%= f.input :duration,
@@ -29,7 +30,6 @@
                 input_html: { class: "tag-selector" },
                 item_wrapper_class: 'tag-item',
                 collection: Walk::PARTICIPANTS%>
-    <%= f.input :name, label: false, placeholder: "Name of your walk" %>
     <% if local_assigns[:for_walk] %>
     <%= f.submit class: "btn btn-secondary" %>
     <% else %>
