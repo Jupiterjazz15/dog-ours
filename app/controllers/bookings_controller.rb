@@ -4,8 +4,6 @@ class BookingsController < ApplicationController
 
   def index
     @walks = Walk.where(user: current_user)
-    @bookings = Booking.where(walk: @walks)
-    @bookings = Booking.where(user: current_user)
     @bookings = policy_scope(Booking)
   end
 
