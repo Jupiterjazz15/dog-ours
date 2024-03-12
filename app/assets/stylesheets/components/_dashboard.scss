@@ -88,3 +88,7 @@
   display: grid !important;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
 }
+
+.walk-card.dashcard {
+  width: 188px;
+}
