@@ -47,7 +47,7 @@
               <% if @booking %>
                 <%= link_to "DISCUSSION", discussion_walk_path(@walk) %>
               <% else %>
-                <%= button_to "BOOKING", walk_bookings_path(@walk), class: "" %>
+                <%= button_to "BOOKING", walk_bookings_path(@walk) %>
               <% end %>
             </div>
           </div>
