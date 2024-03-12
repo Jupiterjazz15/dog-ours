@@ -1,1 +1,15 @@
-
+ <div class="container">
+    <% @bookings.each do |booking| %>
+    <div class="d-flex flex-column">
+    <div class="avatar-name messagerie">
+      <%= cl_image_tag booking.walk.user.photo.key %>
+    </div>
+    <div class="d-block">
+      <h2><%= booking.walk.user.first_name %></h2>
+      <p><em>& <%= booking.walk.messages.last&.content %></em></p>
+    </div>
+    <%= link_to "Response", discussion_walk_path(booking.walk), class:"btn btn-primary" %>
+    <% end %>
+    </div>
+  </div>
+<div>
