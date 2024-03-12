@@ -1,6 +1,6 @@
 <div>
   <%= form_with url: walks_path, method: :get, class: "d-flex bar" do %>
-    <div data-controller="address-autocomplete", data-address-autocomplete-api-key-value=<%= ENV["MAPBOX_API_KEY"] %> >
+    <div class="search-field" data-controller="address-autocomplete" data-address-autocomplete-api-key-value=<%= ENV["MAPBOX_API_KEY"] %> >
       <%= text_field_tag :query,
           params[:query],
           class: "d-none",
