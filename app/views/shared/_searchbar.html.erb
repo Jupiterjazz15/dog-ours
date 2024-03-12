@@ -1,13 +1,16 @@
 <div>
   <%= form_with url: walks_path, method: :get, class: "d-flex bar" do %>
-    <%= text_field_tag :query,
-        params[:query],
-        class: "search-bar",
-        placeholder: "Where?"%>
+    <div class="search-field" data-controller="address-autocomplete" data-address-autocomplete-api-key-value=<%= ENV["MAPBOX_API_KEY"] %> >
+      <%= text_field_tag :query,
+          params[:query],
+          class: "d-none",
+          placeholder: "Where?",
+          data: { address_autocomplete_target: "address"} %>
+    </div>
+
     <%= date_field_tag :start_time,
         params[:start_time],
-        class: "search-bar-date",
-        placeholder: "When do you want to start your walk?"%>
+        class: "search-bar-date"%>
     <%= submit_tag "Search", name: "", class: "btn btn-secondary submit" %>
   <% end %>
 </div>
