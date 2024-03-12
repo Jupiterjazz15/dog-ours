@@ -134,8 +134,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_12_083031) do
     t.float "latitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
     t.bigint "parent_id"
+    t.string "name"
     t.index ["parent_id"], name: "index_walks_on_parent_id"
     t.index ["user_id"], name: "index_walks_on_user_id"
   end
