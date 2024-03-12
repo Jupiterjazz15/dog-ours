@@ -43,18 +43,25 @@
         <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordiondashboard">
           <div class="accordion-body">
             <div class="d-flex walk-card-home dashfit">
-              <% @walks.each do |walk| %>
+              <% @my_walks.each do |walk| %>
                 <div class="walk-card">
                   <div class="container-dog-photo">
                     <%= cl_image_tag current_user.dogs.first.photo.key %>
-                    <p><i class="fa-solid fa-hourglass-start"></i> <%= walk.duration %>min</p>
+                      <div class="walk-card-stickers">
+                        <p><i class="fa-solid fa-hourglass-start"></i> <%= walk.duration %></p>
+                        <% unless walk.frequency == "Once" %>
+                          <p><%= walk.frequency == "Every day" ? "14 walks" : "7 walks" %></p>
+                        <% end %>
+                      </div>
                   </div>
 
                   <div class="walk-card-content">
                     <div class="card-head">
                       <div class="avatar-name">
                         <%= cl_image_tag current_user.photo.key %>
-                        <h2><%= walk.user.first_name %></h2>
+                        <div class="d-flex">
+                          <h2><%= walk.name %></h2>
+                        </div>
                       </div>
                     </div>
 
