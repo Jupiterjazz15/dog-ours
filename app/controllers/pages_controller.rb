@@ -18,6 +18,7 @@ class PagesController < ApplicationController
 
   def dashboard
     @walks = current_user.walks
+    # @walks = current_user.walks.where.not(parent_id: nil)
   end
 
   def mywalks
