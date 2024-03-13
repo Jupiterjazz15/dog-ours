@@ -1,7 +1,15 @@
 class PagesController < ApplicationController
   def home
     if user_signed_in?
-      @walks = Walk.where(parent_id: nil)
+      walk_ids = Walk.select("user_id, min(id) as id").
+        where(parent_id: nil).
+        group(:user_id).
+        order("RANDOM()").
+        limit(5).
+        map(&:id)
+
+      @walks   = Walk.where(id: walk_ids)
+
       @markers = @walks.geocoded.map do |walk|
         {
           lat: walk.latitude,
