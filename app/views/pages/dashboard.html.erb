@@ -34,8 +34,8 @@
     <% end %>
 
     <div class="accordion" id="accordiondashboard">
-      <div class="accordion-item">
-        <h2 class="accordion-header">
+      <div class="accordion-item first">
+        <h2 class="accordion-header first">
           <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
             My <%= current_user.walks.count %> <%= "walk".pluralize(current_user.walks.count) %>
           </button>
@@ -77,8 +77,8 @@
           </div>
         </div>
       </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header">
+      <div class="accordion-item second">
+        <h2 class="accordion-header second">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
             My <%= current_user.bookings.count %> Joined <%= "walk".pluralize(current_user.bookings.count) %>
           </button>
@@ -116,9 +116,10 @@
           </div>
         </div>
       </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+      <div class="accordion-item third">
+        <h2 class="accordion-header third">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="
+    border-radius: 0 0 24px 24px;">
             My Booking request
           </button>
         </h2>

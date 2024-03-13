@@ -1,0 +1,43 @@
+.accordion-item.first {
+  button {
+  padding-top: 3em;
+  border-radius: 0 0 24px 24px;
+  background-color: #5C6CFF;
+  color: white;
+  }
+}
+.accordion-header.first {
+  position: relative;
+  margin-top: -3em;
+  z-index: 3;
+}
+
+.accordion-item.second {
+  button {
+  padding-top: 6em;
+  border-radius: 0 0 24px 24px;
+  background-color: #FFFF82;
+  color: black;
+  }
+}
+
+.accordion-header.second {
+  position: relative;
+  margin-top: -3em;
+  z-index: 2;
+}
+
+.accordion-item.third {
+  button {
+  padding-top: 6em;
+  background-color: #5C6CFF;
+  border-radius: 0 0 24px 24px;
+  color: white;
+  }
+}
+
+.accordion-header.third {
+  position: relative;
+  margin-top: -3em;
+  z-index: 1;
+}
