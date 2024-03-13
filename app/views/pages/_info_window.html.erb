@@ -1,2 +1,23 @@
-<%# <h2><%= walk.starting_point %>
-<%# <p><%= walk.duration %>
+<%= link_to walk_path(walk) do %>
+      <div class="walk-card">
+        <div class="container-dog-photo">
+          <%= cl_image_tag walk.user.dogs.first.photo.key %>
+          <p><i class="fa-solid fa-hourglass-start"></i> <%= walk.duration %></p>
+        </div>
+        <div class="walk-card-content">
+          <div class="card-head">
+            <div class="avatar-name-info">
+              <%= cl_image_tag walk.user.photo.key %>
+              <div class="d-flex">
+                <h2><%= walk.user.dogs.first.name %></h2>
+                <p class="dog-name"><em>& <%= walk.user.first_name %></em></p>
+              </div>
+            </div>
+          </div>
+          <div class="info-walk-card">
+            <p><i class="fa-solid fa-location-pin"></i> <%= walk.starting_point %></p>
+            <p><i class="fa-regular fa-clock"></i> <%= walk.start_time.strftime("%e/%m - %H:%M") %></p>
+          </div>
+        </div>
+      </div>
+<% end %>

@@ -1,0 +1,42 @@
+.avatar-name-messagerie {
+  img {
+    height: 60px;
+    border-radius: 50%;
+  }
+}
+
+.container-messages {
+  margin: 1em;
+  padding: 1em;
+  color: black;
+  background-color: white;
+  border-radius: 24px;
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
+  align-items: center;
+
+  .info-message {
+    padding-left: 1em;
+  }
+
+  p {
+    margin-bottom: 0px;
+    color: grey;
+  }
+
+  h2 em {
+    font-size: 14px;
+  }
+
+  i {
+    position: absolute;
+    right: 40px;
+    font-size: 28px;
+    color: red;
+  }
+}
+
+.empty-container {
+  text-align: center;
+  padding-top: 50px;
+  color: #5C6CFF;
+}

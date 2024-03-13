@@ -1,0 +1,37 @@
+.send-button {
+  background-color: #5C6CFF;
+  color: white;
+  border: none;
+  border-radius: 12px;
+}
+
+.messages {
+  border-top: solid 1px grey;
+
+  small {
+    color: black;
+    margin-top: 1em;
+  }
+
+  p {
+    background-color: #5C6CFF;
+    padding-inline: 1em;
+    padding-block: 0.25em;
+    width: max-content;
+    border-radius: 12px;
+    margin-bottom: 2em;
+    margin-top: 0.5em;
+  }
+}
+
+.avatar-messaging {
+  align-items: center
+}
+
+.avatar-messaging img {
+  height: 35px;
+  border-radius: 50%;
+  background: #FFF;
+  box-sizing: border-box;
+  border: 2px solid #FFF;
+}

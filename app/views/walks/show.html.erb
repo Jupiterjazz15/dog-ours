@@ -1,10 +1,12 @@
 <div class="banner-index">
+<%= link_to walks_path do %>
   <button class="back-arrow"><i class="fa-solid fa-arrow-left"></i></button>
+<% end %>
   <!-- PHOTO DU CHIEN -->
   <div class="d-flex justify-content-center dog-pic">
     <%= cl_image_tag @walk.user.dogs.first.photo.key %>
   </div>
-  <p><i class="fa-solid fa-hourglass-start"></i> <%= @walk.duration %>min</p>
+  <p><i class="fa-solid fa-hourglass-start"></i> <%= @walk.duration %></p>
 </div>
 <div class="container">
   <div class="show-content">
@@ -35,6 +37,7 @@
     </div>
     <!-- WALK DESCRIPTION -->
     <div class="walk-description">
+      <p class="name-walk"><%= @walk.name %></p>
       <p><i class="fa-solid fa-sheet-plastic"></i> Description :</p>
       <p><%= @walk.description %></i></p>
     </div>
@@ -47,7 +50,7 @@
               <% if @booking %>
                 <%= link_to "DISCUSSION", discussion_walk_path(@walk) %>
               <% else %>
-                <%= button_to "BOOKING", walk_bookings_path(@walk), class: "" %>
+                <%= button_to "BOOKING", walk_bookings_path(@walk) %>
               <% end %>
             </div>
           </div>
@@ -57,7 +60,6 @@
   </div>
   <!-- MAP -->
   <div class="map-vision">
-    <h2>See on the map</h2>
   </div>
   <div id="map-container" class="rounded shadow map_integration"
     data-controller="map"

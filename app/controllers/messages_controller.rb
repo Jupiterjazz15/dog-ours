@@ -15,6 +15,12 @@ class MessagesController < ApplicationController
     else
       render "walks/show", status: :unprocessable_entity
     end
+
+    def destroy
+      @message = Message.find(params[:id])
+      @message.destroy
+      redirect_to booking_path(@message.booking)
+    end
   end
 
   private

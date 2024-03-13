@@ -26,4 +26,62 @@
     color: grey;
     box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
   }
+
+  .search-field{
+    position: relative;
+    z-index: 1;
+  }
+
+  .mapboxgl-ctrl-geocoder {
+    width:200px;
+  }
+
+  .mapboxgl-ctrl-geocoder--input {
+    width: 100%;
+    font-size: 15px;
+    border-radius: 24px 0 0 24px;
+    height: 36px;
+    padding-left: 20px;
+    border: none;
+    color: grey;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+    outline:none;
+  }
+
+  .mapboxgl-ctrl-geocoder--powered-by {
+    display:none !important;
+  }
+
+  .suggestions-wrapper {
+    width: 286px;
+  }
+
+  .suggestions-wrapper, .suggestions, li {
+    padding-left: 15px;
+  }
+
+  .suggestions {
+    list-style: none;
+    padding-left: 0;
+    li {
+      color: grey;
+      background-color: white;
+    }
+  }
+
+  .mapboxgl-ctrl-geocoder--pin-right {
+    display: none;
+  }
+
+  .mapboxgl-ctrl-geocoder--button {
+    display: none;
+  }
+
+  .mapboxgl-ctrl-geocoder--icon {
+    display: none;
+  }
+
+  .mapboxgl-ctrl-geocoder--icon-search {
+    display: none;
+  }
 }

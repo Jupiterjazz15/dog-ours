@@ -4,8 +4,6 @@ class BookingsController < ApplicationController
 
   def index
     @walks = Walk.where(user: current_user)
-    @bookings = Booking.where(walk: @walks)
-    @bookings = Booking.where(user: current_user)
     @bookings = policy_scope(Booking)
   end
 
@@ -18,7 +16,7 @@ class BookingsController < ApplicationController
     @booking.status = "pending"
     authorize @booking
     if @booking.save
-      redirect_to mywalks_path(created_booking: true)
+      redirect_to dashboard_path(created_booking: true)
     else
       render :new, status: :unprocessable_entity
     end
@@ -40,7 +38,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
     @booking.destroy
-    redirect_to booking_path(@booking)
+    redirect_to dashboard_path
   end
 
   private
