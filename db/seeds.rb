@@ -52,7 +52,7 @@ Walk.create!(name: "Walk in 75007", starting_point: "24 Rue de Varenne, 75007, P
 
 Walk.create!(name: "Walk with Molly", starting_point: "24 Rue de Varenne, 75007, Paris, France", duration: "15 min", start_time: DateTime.new(2024,03,27,18,00), difficulty: "Low", description: "My favourite walk : charming and very cool!" , frequency: "Once",number_of_participant: "2", user_id: User.second.id)
 
-Booking.create!(status: "Accepted", user_id: User.second.id, walk_id: Walk.where(user_id: User.second.id).first&.id)
+Booking.create!(status: "accepted", user_id: User.second.id, walk_id: Walk.where(user_id: User.second.id).first&.id)
 
 p "#{User.second.first_name} has #{Walk.where(user_id: User.second.id).count} walk(s) and #{Booking.where(user_id: User.second.id).count} booking(s)"
 
@@ -90,7 +90,7 @@ end
 
 Walk.create!(name: "Walk in 75004", starting_point: "45 rue Saint Antoine, 75004, Paris, France", duration: "30 min", start_time: DateTime.new(2024,03,18,13,00), difficulty: "Medium", description: "A peaceful walk." , frequency: "Once",number_of_participant: "2", user_id: User.fourth.id)
 
-Booking.create!(status: "Accepted", user_id: User.fourth.id, walk_id: Walk.where( .first&.id)
+Booking.create!(status: "accepted", user_id: User.fourth.id, walk_id: Walk.where(user_id: User.fourth.id).first&.id)
 
 p "#{User.fourth.first_name} has #{Walk.where(user_id: User.fourth.id).count} walk(s) and #{Booking.where(user_id: User.fourth.id).count} booking(s)"
 
