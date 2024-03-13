@@ -16,10 +16,7 @@
 <!-- Walks Cards -->
 <%= render "shared/walk_card_home" %>
 <!-- MAP -->
-<div class="map">
-  <div class="container introduction mb-4">
-    <h4>See all walkers near you</h4>
-  </div>
+<div class="map pt-3">
   <div id="map-container" class="rounded shadow map_integration mb-5"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
