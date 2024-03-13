@@ -76,10 +76,10 @@ dog = Dog.create!(name: "Jim", description: "The funniest dog in the world", bir
 file = URI.open("https://www.rustica.fr/images/risques-si-je-possede-chien-dont-race-est-interdite-france-19189-l790-h526.jpg.webp")
 dog.photo.attach(io: file, filename: "dog.webp", content_type: "image/webp")
 
-Walk.create!(starting_point: "45 Rue des Alouettes, 75019, Paris", duration: "15 min", start_time: start_time2, difficulty: "Medium", description: "A walk in les Buttes-Chaumont" , frequency: "Every other day", number_of_participant: "1", user_id: User.first.id)
+Walk.create!(starting_point: "45 Rue des Alouettes, 75019, Paris, France", duration: "15 min", start_time: start_time2, difficulty: "Medium", description: "A walk in les Buttes-Chaumont" , frequency: "Every other day", number_of_participant: "1", user_id: User.first.id)
 
-Walk.create!(starting_point: "24 Rue de Varenne, 75007, Paris", duration: "30 min", start_time: start_time1, difficulty: "Medium", description: "A walk that I like since we can walk in large streets and we can stop in a park." , frequency: "Every day",number_of_participant: "2", user_id: User.second.id)
+Walk.create!(starting_point: "24 Rue de Varenne, 75007, Paris, France", duration: "30 min", start_time: start_time1, difficulty: "Medium", description: "A walk that I like since we can walk in large streets and we can stop in a park." , frequency: "Every day",number_of_participant: "2", user_id: User.second.id)
 
-Walk.create!(starting_point: "140 rue oberkampf, 75011, Paris", duration: "30 min", start_time: start_time1, difficulty: "Medium", description: "My favourite walk!", frequency: "Every other day",number_of_participant: "2", user_id: User.third.id)
+Walk.create!(starting_point: "140 rue oberkampf, 75011, Paris, France", duration: "30 min", start_time: start_time1, difficulty: "Medium", description: "My favourite walk!", frequency: "Every other day",number_of_participant: "2", user_id: User.third.id)
 
-Walk.create!(starting_point: "45 rue Saint Antoine, 75004, Paris", duration: "1 h", start_time: start_time1, difficulty: "Medium", description: "A peaceful walk." , frequency: "Every other day",number_of_participant: "2", user_id: User.fourth.id)
+Walk.create!(starting_point: "45 rue Saint Antoine, 75004, Paris, France", duration: "1 h", start_time: start_time1, difficulty: "Medium", description: "A peaceful walk." , frequency: "Every other day",number_of_participant: "2", user_id: User.fourth.id)
