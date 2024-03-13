@@ -72,16 +72,28 @@ dog.photo.attach(io: file, filename: "dog.webp", content_type: "image/webp")
 
 Walk.create!(name: "Walk in 75011", starting_point: "140 rue oberkampf, 75011, Paris", duration: "30 min", start_time: DateTime.new(2024,04,01,12,00), difficulty: "Medium", description: "My favourite walk!", frequency: "Every other day",number_of_participant: "2", user_id: User.third.id)
 
+p "#{User.third.first_name} has #{Walk.where(user_id: User.third.id).count} walk(s) and #{Booking.where(user_id: User.third.id).count} booking(s)"
+
 
 #### USER 4 ANTOINE C. ####
 user = User.create!(first_name: "Antoine", last_name: "Clavel", phone_number: "456-789-0123", email: "toto@test.com", password: "azerty")
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U06EKJ558NL-g43dd42946ee-512")
 user.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
 
-dog = Dog.create!(name: "Jim", description: "The funniest dog in the world", birth_date: Date.new(2022, 10, 10), constraint: "Doesn't like small dogs", fun_fact: "The best swimmer you have ever seen !!", size: "Large", breed_id: Breed.take.id, user_id: User.fourth.id)
+dog = Dog.create!(name: "Jim", description: "The funniest dog in the world", birth_date: Date.new(2022, 10, 10), constraint: "Doesn't like small dogs", fun_fact: "The best swimmer you have ever seen !!", size: "Large", breed_id: Breed.find_by_content!("AMERICAN STAFFORDSHIRE TERRIER"), user_id: User.fourth.id)
 
 Walk.create!(name: "Walk in 75004", starting_point: "45 rue Saint Antoine, 75004, Paris", duration: "30 min", start_time: DateTime.new(2024,03,28,13,00), difficulty: "Medium", description: "A peaceful walk." , frequency: "Every other day",number_of_participant: "2", user_id: User.fourth.id)
 
+p "#{User.fourth.first_name} has #{Walk.where(user_id: User.fourth.id).count} walk(s) and #{Booking.where(user_id: User.fourth.id).count} booking(s)"
+
+#### USER 4 CLOTHILDE S. ####
+user = User.create!(first_name: "Clothilde", last_name: "Scache", phone_number: "456-789-0123", email: "clothilde@test.com", password: "azerty")
+file = URI.open("https://ca.slack-edge.com/T02NE0241-U06EHGW24V6-4177402b7800-512")
+user.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
+
+dog = Dog.create!(name: "Mac", description: "A kind and joyful dog!", birth_date: Date.new(2029, 05, 10), constraint: "He has no constraint", fun_fact: "He helps me to be motivated to run!", size: "Large", breed_id: Breed.find_by_content!("GERMAN SHORT- HAIRED POINTING DOG"), user_id: User.fifth.id)
+
+Walk.create!(name: "Walk in 75017", starting_point: "175 Avenue de Wagram,75017, Paris", duration: "1 h", start_time: DateTime.new(2024,03,18,13,00), difficulty: "Medium", description: "A long walk to expend energy" , frequency: "Once",number_of_participant: "3", user_id: User.fourth.id)
 
 ####  Message de confirmation de la création des users ####
 p "You have created #{User.count} users"
