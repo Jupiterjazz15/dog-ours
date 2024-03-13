@@ -13,16 +13,18 @@
     margin-top: 1em;
   }
 
-.user-message {
-    background-color: #5C6CFF;
-    padding-inline: 1em;
-    padding-block: 0.25em;
-    width: max-content;
-    border-radius: 12px;
-    margin-bottom: 2em;
-    margin-top: 0.5em;
-    margin-left: auto;
-    color: #FFFF82;
+  .user-message {
+    p {
+      background-color: #5C6CFF;
+      padding-inline: 1em;
+      padding-block: 0.25em;
+      width: max-content;
+      border-radius: 12px;
+      margin-bottom: 2em;
+      margin-top: 0.5em;
+      margin-left: auto;
+      color: #FFFF82;
+    }
   }
 }
 
@@ -39,13 +41,14 @@
 }
 
 .message-member {
-  background-color: #FFFF82;
-  color: #5C6CFF;
-  padding-inline: 1em;
-  padding-block: 0.25em;
-  width: max-content;
-  border-radius: 12px;
-  margin-bottom: 2em;
-  margin-top: 0.5em;
-
+  p {
+    background-color: #FFFF82;
+    color: #5C6CFF;
+    padding-inline: 1em;
+    padding-block: 0.25em;
+    width: max-content;
+    border-radius: 12px;
+    margin-bottom: 2em;
+    margin-top: 0.5em;
+  }
 }
