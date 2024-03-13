@@ -34,7 +34,7 @@ dog = Dog.create!(name: "Charlie", description: "The funniest dog in the world",
 file = URI.open("https://img.passeportsante.net/1200x675/2021-05-06/i106625-signes-bonne-sante-chien.webp")
 dog.photo.attach(io: file, filename: "dog.webp", content_type: "image/webp")
 
-Walk.create!(name: "Walk in 75019", starting_point: "41 Av. Mathurin Moreau, 75019 Paris", duration: "15 min", start_time: DateTime.new(2024,03,25,12,30), difficulty: "Medium", description: "A walk in les Buttes-Chaumont" , frequency: "Once", number_of_participant: "1", user_id: User.first.id)
+Walk.create!(name: "Walk in 75019", starting_point: "41 Av. Mathurin Moreau, 75019, Paris, France", duration: "15 min", start_time: DateTime.new(2024,03,25,12,30), difficulty: "Medium", description: "A walk in les Buttes-Chaumont" , frequency: "Once", number_of_participant: "1", user_id: User.first.id)
 
 p "#{User.first.first_name} has #{Walk.where(user_id: User.first.id).count} walk(s) and #{Booking.where(user_id: User.first.id).count} booking(s)"
 
@@ -48,9 +48,9 @@ dog = Dog.create!(name: "Molly", description: "Lovely, cute and very friendly", 
 file =  URI.open("https://cdn.britannica.com/35/233235-050-8DED07E3/Pug-dog.jpg")
 dog.photo.attach(io: file, filename: "dog.webp", content_type: "image/webp")
 
-Walk.create!(name: "Walk in 75007", starting_point: "24 Rue de Varenne, 75007, Paris", duration: "30 min", start_time: DateTime.new(2024,03,27,18,00), difficulty: "Medium", description: "A walk that I like since we can walk in large streets and we can stop in a park." , frequency: "Once",number_of_participant: "2", user_id: User.second.id)
+Walk.create!(name: "Walk in 75007", starting_point: "24 Rue de Varenne, 75007, Paris, France", duration: "30 min", start_time: DateTime.new(2024,03,27,18,00), difficulty: "Medium", description: "A walk that I like since we can walk in large streets and we can stop in a park." , frequency: "Once",number_of_participant: "2", user_id: User.second.id)
 
-Walk.create!(name: "Walk with Molly", starting_point: "24 Rue de Varenne, 75007, Paris", duration: "15 min", start_time: DateTime.new(2024,03,27,18,00), difficulty: "Low", description: "My favourite walk : charming and very cool!" , frequency: "Once",number_of_participant: "2", user_id: User.second.id)
+Walk.create!(name: "Walk with Molly", starting_point: "24 Rue de Varenne, 75007, Paris, France", duration: "15 min", start_time: DateTime.new(2024,03,27,18,00), difficulty: "Low", description: "My favourite walk : charming and very cool!" , frequency: "Once",number_of_participant: "2", user_id: User.second.id)
 
 Booking.create!(status: "Accepted", user_id: User.second.id, walk_id: Walk.where(user_id: User.second.id).first&.id)
 
@@ -66,7 +66,7 @@ dog = Dog.create!(name: "Sam", description: "The funniest dog in the world", bir
 file = URI.open("https://img.20mn.fr/2c2xoZqdQhu84Dmhb8ci9Sk/1444x920_media")
 dog.photo.attach(io: file, filename: "dog.webp", content_type: "image/webp")
 
-Walk.create!(name: "Walk in 75011", starting_point: "140 rue oberkampf, 75011, Paris", duration: "30 min", start_time: DateTime.new(2024,04,01,12,00), difficulty: "Medium", description: "My favourite walk!", frequency: "Every other day",number_of_participant: "2", user_id: User.third.id)
+Walk.create!(name: "Walk in 75011", starting_point: "140 rue oberkampf, 75011, Paris, France", duration: "30 min", start_time: DateTime.new(2024,04,01,12,00), difficulty: "Medium", description: "My favourite walk!", frequency: "Every other day",number_of_participant: "2", user_id: User.third.id)
 
 p "#{User.third.first_name} has #{Walk.where(user_id: User.third.id).count} walk(s) and #{Booking.where(user_id: User.third.id).count} booking(s)"
 
@@ -80,19 +80,20 @@ dog = Dog.create!(name: "Jim", description: "The funniest dog in the world", bir
 file = URI.open("https://www.rustica.fr/images/risques-si-je-possede-chien-dont-race-est-interdite-france-19189-l790-h526.jpg.webp")
 dog.photo.attach(io: file, filename: "dog.webp", content_type: "image/webp")
 
-walk = Walk.create!(name: "My favorite walk", starting_point: "45 rue Saint Antoine, 75004, Paris", duration: "30 min", start_time: DateTime.new(2024,03,25,12,30), difficulty: "Medium", description: "A cool walk! ", frequency: "Every other day", number_of_participant: "1", user_id: User.fourth.id)
+walk = Walk.create!(name: "My favorite walk", starting_point: "45 rue Saint Antoine, 75004, Paris, France", duration: "30 min", start_time: DateTime.new(2024,03,25,12,30), difficulty: "Medium", description: "A cool walk! ", frequency: "Every other day", number_of_participant: "1", user_id: User.fourth.id)
 
 i = DateTime.new(2024,03,25,12,30)
 6.times do
-  Walk.create!(name: "My favorite walk", starting_point: "45 rue Saint Antoine, 75004, Paris", duration: "30 min", start_time: DateTime.new(2024,03,25,12,30), difficulty: "Medium", description: "A cool walk! ", frequency: "Every other day", number_of_participant: "1", user_id: User.fourth.id)
+  Walk.create!(name: "My favorite walk", starting_point: "45 rue Saint Antoine, 75004, Paris, France", duration: "30 min", start_time: DateTime.new(2024,03,25,12,30), difficulty: "Medium", description: "A cool walk! ", frequency: "Every other day", number_of_participant: "1", user_id: User.fourth.id)
   i += 2
 end
 
-Walk.create!(name: "Walk in 75004", starting_point: "45 rue Saint Antoine, 75004, Paris", duration: "30 min", start_time: DateTime.new(2024,03,18,13,00), difficulty: "Medium", description: "A peaceful walk." , frequency: "Once",number_of_participant: "2", user_id: User.fourth.id)
+Walk.create!(name: "Walk in 75004", starting_point: "45 rue Saint Antoine, 75004, Paris, France", duration: "30 min", start_time: DateTime.new(2024,03,18,13,00), difficulty: "Medium", description: "A peaceful walk." , frequency: "Once",number_of_participant: "2", user_id: User.fourth.id)
 
 Booking.create!(status: "Accepted", user_id: User.fourth.id, walk_id: Walk.where(user_id: User.fourth.id).first&.id)
 
 p "#{User.fourth.first_name} has #{Walk.where(user_id: User.fourth.id).count} walk(s) and #{Booking.where(user_id: User.fourth.id).count} booking(s)"
+
 
 #### USER 5 CLOTHILDE S. ####
 user = User.create!(first_name: "Clothilde", last_name: "Scache", phone_number: "456-789-0123", email: "clothilde@test.com", password: "azerty")
@@ -100,14 +101,13 @@ file = URI.open("https://ca.slack-edge.com/T02NE0241-U06EHGW24V6-4177402b7800-51
 user.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
 
 dog = Dog.create!(name: "Mac", description: "A kind and joyful dog!", birth_date: Date.new(2019, 05, 10), constraint: "He has no constraint", fun_fact: "He helps me to be motivated to run!", size: "Large", breed: Breed.find_by_content!("GERMAN SHORT- HAIRED POINTING DOG"), user_id: User.fifth.id)
-file = File.open("https://www.animaleco.com/wp-content/uploads/2023/03/175023298_m.jpg")
+file = URI.open("https://www.animaleco.com/wp-content/uploads/2023/03/175023298_m.jpg")
 dog.photo.attach(io: file, filename: "dog.jpg", content_type: "image/jpeg")
 
-file = File.open(Rails.root.join("db/seeds/dogs/iiiii.jpg"))
-
-Walk.create!(name: "Walk in 75017", starting_point: "175 Avenue de Wagram,75017, Paris", duration: "1 h", start_time: DateTime.new(2024,03,18,13,00), difficulty: "Medium", description: "A long walk to expend energy" , frequency: "Once",number_of_participant: "3", user_id: User.fifth.id)
+Walk.create!(name: "Walk in 75017", starting_point: "175 Avenue de Wagram,75017, Paris, France", duration: "1 h", start_time: DateTime.new(2024,03,18,13,00), difficulty: "Medium", description: "A long walk to expend energy" , frequency: "Once",number_of_participant: "3", user_id: User.fifth.id)
 
 p "#{User.fifth.first_name} has #{Walk.where(user_id: User.fifth.id).count} walk(s) and #{Booking.where(user_id: User.fifth.id).count} booking(s)"
+
 
 #### USER 6 GABRIELLE S. ####
 user6 = User.create!(first_name: "Gabrielle ", last_name: "Simha", phone_number: "456-789-0123", email: "gabrielle@test.com", password: "azerty")
@@ -118,7 +118,36 @@ dog = Dog.create!(name: "Will", description: "The best dog!", birth_date: Date.n
 file = URI.open("https://lemagduchien.ouest-france.fr/images/dossiers/2018-10/kangal-1-134823.jpg")
 dog.photo.attach(io: file, filename: "dog.jpg", content_type: "image/jpeg")
 
-Walk.create!(name: "Walk in 75020", starting_point: "16 Rue Ramponeau,75020, Paris", duration: "30 min", start_time: DateTime.new(2024,03,20,17,30), difficulty: "Medium", description: "A long walk with special spot to play" , frequency: "Once",number_of_participant: "2", user_id: user6.id)
+Walk.create!(name: "Walk in 75020", starting_point: "16 Rue Ramponeau,75020, Paris, France", duration: "30 min", start_time: DateTime.new(2024,03,20,17,30), difficulty: "Medium", description: "A long walk with special spot to play" , frequency: "Once",number_of_participant: "2", user_id: user6.id)
+
+p "#{user6.id.first_name} has #{Walk.where(user_id: user6.id).count} walk(s) and #{Booking.where(user_id: user6.id).count} booking(s)"
+
+#### USER 7 PIERRE U. ####
+user7 = User.create!(first_name: "Pierre", last_name: "Urban", phone_number: "456-789-0123", email: "pierre@test.com", password: "azerty")
+file = URI.open("https://ca.slack-edge.com/T02NE0241-U06DZJW1W68-82c2aa6b1622-512")
+user.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
+
+dog = Dog.create!(name: "Bretzel", description: "She has so much energy!", birth_date: Date.new(2018, 07, 18), constraint: "None: she is very kind tolerant", fun_fact: "She loves cats!", size: "Medium", breed: Breed.find_by_content!("BEAGLE HARRIER"), user_id: user7.id)
+file = URI.open("https://www.kingpet.fr/ph/u/766721643537408/6401019845823116/be3bff0c84db51867cdc5a58996262031.jpg?align=54,43&v=31&fm=webp&w=1080&h=810&q=35")
+dog.photo.attach(io: file, filename: "dog.webp", content_type: "image/webp")
+
+Walk.create!(name: "B. Vincennes ", starting_point: "26 Rue du Rendez-Vous, 75012, Paris, France", duration: "1 h", start_time: DateTime.new(2024,03,18,19,0), difficulty: "Medium", description: "A walk around the lac Daumesnil" , frequency: "Once",number_of_participant: "1", user_id: user7.id)
+
+p "#{user7.id.first_name} has #{Walk.where(user_id: user7.id).count} walk(s) and #{Booking.where(user_id: user7.id).count} booking(s)"
+
+#### USER 8 ANTONIN D. ####
+user8 = User.create!(first_name: "Antonin", last_name: "Danto", phone_number: "456-789-0123", email: "antonin@test.com", password: "azerty")
+file = URI.open("https://ca.slack-edge.com/T02NE0241-U06DX3RAEAG-4e517ec9aca6-512")
+user.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
+
+dog = Dog.create!(name: "Pirouette", description: "A very fun buddy!", birth_date: Date.new(2021, 01, 23), constraint: "No cosntraint", fun_fact: "She loves to swim!", size: "Small", breed: Breed.find_by_content!("MINIATURE PINSCHER"), user_id: user8.id)
+file = URI.open("https://www.zooplus.fr/magazine/wp-content/uploads/2023/03/pinscher-nain-sur-une-couverture.jpg")
+dog.photo.attach(io: file, filename: "dog.jpg", content_type: "image/jpeg")
+
+
+Walk.create!(name: "J. Luxembourg", starting_point: "9 Rue Férou, 75006, Paris, France", duration: "15 min", start_time: DateTime.new(2024,03,22,18,0), difficulty: "Low", description: "A walk in the jardin du Luxembourg" , frequency: "Once",number_of_participant: "2", user_id: user8.id)
+
+p "#{user8.id.first_name} has #{Walk.where(user_id: user8.id).count} walk(s) and #{Booking.where(user_id: user8.id).count} booking(s)"
 
 ####  Message de confirmation de la création des users ####
 p "You have created #{User.count} users"
