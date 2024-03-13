@@ -120,12 +120,22 @@
   height: auto;
   overflow: auto;
   padding-top: 0.5em;
+
   .info-walk-address {
     width: 160px;
     white-space: break-spaces;
   }
+
   p {
     white-space: break-spaces;
+  }
+
+  .fa-trash-alt {
+    color: black;
+  }
+
+  .fa-edit {
+    color: #5C6CFF;
   }
 }
 

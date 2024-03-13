@@ -1,31 +1,28 @@
-<div class="fix_padding_navbar_bottom">
-  <!-- BANNER -->
-  <div class="container banner">
-    <div class="d-flex justify-content-center">
-      <%= image_tag "logo.png" %>
-    </div>
-  <!-- NAVBAR-->
-    <div>
-      <%= render "shared/searchbar" %>
-    </div>
+<!-- BANNER -->
+<div class="container banner">
+  <div class="d-flex justify-content-center">
+    <%= image_tag "logo.png" %>
   </div>
-    <!-- ENLEVER LES BR-->
-  <br>
-  <!-- INTRODUCTION -->
-  <div class="container introduction">
+<!-- NAVBAR-->
+  <div>
+    <%= render "shared/searchbar" %>
+  </div>
+</div>
+<br>
+<!-- INTRODUCTION -->
+<div class="container introduction">
     <h4>Find your next Dogbuddy near you</h4>
+</div>
+<!-- Walks Cards -->
+<%= render "shared/walk_card_home" %>
+<!-- MAP -->
+<div class="map">
+  <div class="container introduction">
+    <h4>See all walkers near you</h4>
   </div>
-  <!-- Walks Cards -->
-  <%= render "shared/walk_card_home" %>
-  <!-- MAP -->
-  <div class="map">
-    <div class="container introduction">
-      <h4>See all walkers near you</h4>
-    </div>
-      <div id="map-container" class="rounded shadow map_integration"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
+  <div id="map-container" class="rounded shadow map_integration"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
