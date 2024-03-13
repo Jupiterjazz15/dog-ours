@@ -20,7 +20,7 @@
   <div class="container introduction">
     <h4>See all walkers near you</h4>
   </div>
-  <div id="map-container" class="rounded shadow map_integration"
+  <div id="map-container" class="rounded shadow map_integration mb-5"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
