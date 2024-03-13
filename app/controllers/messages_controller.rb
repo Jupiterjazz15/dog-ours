@@ -5,9 +5,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.walk = @booking.walk
     @message.user = current_user
-
     @walk = @booking.walk
-
     if @message.save
       WalkChannel.broadcast_to(
         @walk,
