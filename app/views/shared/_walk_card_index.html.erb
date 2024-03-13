@@ -4,14 +4,14 @@
       <% @walks.each do |walk| %>
       <%= link_to(walk_path(walk)) do %>
       <!-- WALK CARDS -->
-      <div class="walk-card">
+      <div class="walk-card home-index">
         <div class="container-dog-photo">
           <%= cl_image_tag walk.user.dogs.first.photo.key %>
           <div class="walk-card-stickers">
             <p><i class="fa-solid fa-hourglass-start"></i> <%= walk.duration %></p>
           </div>
         </div>
-        <div class="walk-card-content">
+        <div class="walk-card-content home-index">
           <div class="card-head">
             <div class="avatar-name">
               <%= cl_image_tag walk.user.photo.key %>

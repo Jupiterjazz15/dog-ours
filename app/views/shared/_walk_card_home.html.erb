@@ -2,14 +2,14 @@
     <% @walks.each do |random_walk|%>
       <%= link_to(walk_path(random_walk)) do %>
       <!-- WALK CARD -->
-        <div class="walk-card">
+        <div class="walk-card home-index">
           <div class="container-dog-photo">
             <%= cl_image_tag random_walk.user.dogs.first.photo.key %>
             <div class="walk-card-stickers">
               <p><i class="fa-solid fa-hourglass-start"></i> <%= random_walk.duration %></p>
             </div>
           </div>
-          <div class="walk-card-content">
+          <div class="walk-card-content home-index">
             <div class="card-head">
               <div class="avatar-name">
                 <%= cl_image_tag random_walk.user.photo.key %>

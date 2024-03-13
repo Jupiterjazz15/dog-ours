@@ -1,15 +1,16 @@
 class MessagesController < ApplicationController
 
   def create
-    @message = Message.new(message_params)
     @booking = Booking.find(params[:booking_id])
+    @message = Message.new(message_params)
     @message.walk = @booking.walk
     @message.user = current_user
-    @walk = @message.walk
+    @walk = @booking.walk
     if @message.save
       WalkChannel.broadcast_to(
         @walk,
-        render_to_string(partial: "messages", locals: { message: @message })
+        message: render_to_string(partial: "messages", locals: { message: @message }),
+        sender_id: @message.user.id
       )
       head :ok
     else
