@@ -36,16 +36,6 @@ dog.photo.attach(io: file, filename: "dog.webp", content_type: "image/webp")
 
 Walk.create!(name: "Walk in 75019", starting_point: "41 Av. Mathurin Moreau, 75019 Paris", duration: "15 min", start_time: DateTime.new(2024,03,25,12,30), difficulty: "Medium", description: "A walk in les Buttes-Chaumont" , frequency: "Once", number_of_participant: "1", user_id: User.first.id)
 
-walk = Walk.create!(name: "My favorite walk", starting_point: "41 Av. Mathurin Moreau, 75019 Paris", duration: "30 min", start_time: DateTime.new(2024,03,25,12,30), difficulty: "Medium", description: "A joyful walk in the beautiful parc les Buttes-Chaumont ", frequency: "Every other day", number_of_participant: "1", user_id: User.first.id)
-
-i = DateTime.new(2024,03,25,12,30)
-6.times do
-  Walk.create!(name: "My favorite walk", starting_point: "41 Av. Mathurin Moreau, 75019 Paris", duration: "30 min", start_time: i, difficulty: "Medium", description: "A joyful walk in the beautiful parc les Buttes-Chaumont ", frequency: "Every other day", number_of_participant: "1", user_id: User.first.id, parent_id: walk.id)
-  i += 2
-end
-
-Booking.create!(status: "Accepted", user_id: User.first.id, walk_id: Walk.where(user_id: User.first.id).first&.id)
-
 p "#{User.first.first_name} has #{Walk.where(user_id: User.first.id).count} walk(s) and #{Booking.where(user_id: User.first.id).count} booking(s)"
 
 
@@ -58,7 +48,7 @@ dog = Dog.create!(name: "Molly", description: "Lovely, cute and very friendly", 
 file =  URI.open("https://cdn.britannica.com/35/233235-050-8DED07E3/Pug-dog.jpg")
 dog.photo.attach(io: file, filename: "dog.webp", content_type: "image/webp")
 
-Walk.create!(name: "Walk in 75007", starting_point: "24 Rue de Varenne, 75007, Paris", duration: "30 min", start_time: DateTime.new(2024,03,27,18,00), difficulty: "Medium", description: "A walk that I like since we can walk in large streets and we can stop in a park." , frequency: "Every day",number_of_participant: "2", user_id: User.second.id)
+Walk.create!(name: "Walk in 75007", starting_point: "24 Rue de Varenne, 75007, Paris", duration: "30 min", start_time: DateTime.new(2024,03,27,18,00), difficulty: "Medium", description: "A walk that I like since we can walk in large streets and we can stop in a park." , frequency: "Once",number_of_participant: "2", user_id: User.second.id)
 
 Walk.create!(name: "Walk with Molly", starting_point: "24 Rue de Varenne, 75007, Paris", duration: "15 min", start_time: DateTime.new(2024,03,27,18,00), difficulty: "Low", description: "My favourite walk : charming and very cool!" , frequency: "Once",number_of_participant: "2", user_id: User.second.id)
 
@@ -86,20 +76,49 @@ user = User.create!(first_name: "Antoine", last_name: "Clavel", phone_number: "4
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U06EKJ558NL-g43dd42946ee-512")
 user.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
 
-dog = Dog.create!(name: "Jim", description: "The funniest dog in the world", birth_date: Date.new(2022, 10, 10), constraint: "Doesn't like small dogs", fun_fact: "The best swimmer you have ever seen !!", size: "Large", breed: Breed.find_by_content!("AMERICAN STAFFORDSHIRE TERRIER"), user_id: User.fourth.id)
+dog = Dog.create!(name: "Jim", description: "The funniest dog in the world", birth_date: Date.new(2018, 10, 10), constraint: "Doesn't like small dogs", fun_fact: "The best swimmer you have ever seen !!", size: "Large", breed: Breed.find_by_content!("AMERICAN STAFFORDSHIRE TERRIER"), user_id: User.fourth.id)
+file = URI.open("https://www.rustica.fr/images/risques-si-je-possede-chien-dont-race-est-interdite-france-19189-l790-h526.jpg.webp")
+dog.photo.attach(io: file, filename: "dog.webp", content_type: "image/webp")
 
-Walk.create!(name: "Walk in 75004", starting_point: "45 rue Saint Antoine, 75004, Paris", duration: "30 min", start_time: DateTime.new(2024,03,28,13,00), difficulty: "Medium", description: "A peaceful walk." , frequency: "Every other day",number_of_participant: "2", user_id: User.fourth.id)
+walk = Walk.create!(name: "My favorite walk", starting_point: "45 rue Saint Antoine, 75004, Paris", duration: "30 min", start_time: DateTime.new(2024,03,25,12,30), difficulty: "Medium", description: "A cool walk! ", frequency: "Every other day", number_of_participant: "1", user_id: User.fourth.id)
+
+i = DateTime.new(2024,03,25,12,30)
+6.times do
+  Walk.create!(name: "My favorite walk", starting_point: "45 rue Saint Antoine, 75004, Paris", duration: "30 min", start_time: DateTime.new(2024,03,25,12,30), difficulty: "Medium", description: "A cool walk! ", frequency: "Every other day", number_of_participant: "1", user_id: User.fourth.id)
+  i += 2
+end
+
+Walk.create!(name: "Walk in 75004", starting_point: "45 rue Saint Antoine, 75004, Paris", duration: "30 min", start_time: DateTime.new(2024,03,18,13,00), difficulty: "Medium", description: "A peaceful walk." , frequency: "Once",number_of_participant: "2", user_id: User.fourth.id)
+
+Booking.create!(status: "Accepted", user_id: User.fourth.id, walk_id: Walk.where(user_id: User.fourth.id).first&.id)
 
 p "#{User.fourth.first_name} has #{Walk.where(user_id: User.fourth.id).count} walk(s) and #{Booking.where(user_id: User.fourth.id).count} booking(s)"
 
-#### USER 4 CLOTHILDE S. ####
+#### USER 5 CLOTHILDE S. ####
 user = User.create!(first_name: "Clothilde", last_name: "Scache", phone_number: "456-789-0123", email: "clothilde@test.com", password: "azerty")
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U06EHGW24V6-4177402b7800-512")
 user.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
 
-dog = Dog.create!(name: "Mac", description: "A kind and joyful dog!", birth_date: Date.new(2029, 05, 10), constraint: "He has no constraint", fun_fact: "He helps me to be motivated to run!", size: "Large", breed: Breed.find_by_content!("GERMAN SHORT- HAIRED POINTING DOG"), user_id: User.fifth.id)
+dog = Dog.create!(name: "Mac", description: "A kind and joyful dog!", birth_date: Date.new(2019, 05, 10), constraint: "He has no constraint", fun_fact: "He helps me to be motivated to run!", size: "Large", breed: Breed.find_by_content!("GERMAN SHORT- HAIRED POINTING DOG"), user_id: User.fifth.id)
+file = File.open("https://www.animaleco.com/wp-content/uploads/2023/03/175023298_m.jpg")
+dog.photo.attach(io: file, filename: "dog.jpg", content_type: "image/jpeg")
 
-Walk.create!(name: "Walk in 75017", starting_point: "175 Avenue de Wagram,75017, Paris", duration: "1 h", start_time: DateTime.new(2024,03,18,13,00), difficulty: "Medium", description: "A long walk to expend energy" , frequency: "Once",number_of_participant: "3", user_id: User.fourth.id)
+file = File.open(Rails.root.join("db/seeds/dogs/iiiii.jpg"))
+
+Walk.create!(name: "Walk in 75017", starting_point: "175 Avenue de Wagram,75017, Paris", duration: "1 h", start_time: DateTime.new(2024,03,18,13,00), difficulty: "Medium", description: "A long walk to expend energy" , frequency: "Once",number_of_participant: "3", user_id: User.fifth.id)
+
+p "#{User.fifth.first_name} has #{Walk.where(user_id: User.fifth.id).count} walk(s) and #{Booking.where(user_id: User.fifth.id).count} booking(s)"
+
+#### USER 6 GABRIELLE S. ####
+user6 = User.create!(first_name: "Gabrielle ", last_name: "Simha", phone_number: "456-789-0123", email: "gabrielle@test.com", password: "azerty")
+file = URI.open("https://ca.slack-edge.com/T02NE0241-U06E791DEU9-b543cb2a1db7-512")
+user.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
+
+dog = Dog.create!(name: "Will", description: "The best dog!", birth_date: Date.new(2017, 05, 10), constraint: "He doesn't like other male dogs", fun_fact: "He loves tree branches", size: "Large", breed: Breed.find_by_content!("KANGAL SHEPHERD DOG"), user_id: user6.id)
+file = URI.open("https://lemagduchien.ouest-france.fr/images/dossiers/2018-10/kangal-1-134823.jpg")
+dog.photo.attach(io: file, filename: "dog.jpg", content_type: "image/jpeg")
+
+Walk.create!(name: "Walk in 75020", starting_point: "16 Rue Ramponeau,75020, Paris", duration: "30 min", start_time: DateTime.new(2024,03,20,17,30), difficulty: "Medium", description: "A long walk with special spot to play" , frequency: "Once",number_of_participant: "2", user_id: user6.id)
 
 ####  Message de confirmation de la création des users ####
 p "You have created #{User.count} users"
