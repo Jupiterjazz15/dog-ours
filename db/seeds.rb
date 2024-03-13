@@ -140,14 +140,26 @@ user8 = User.create!(first_name: "Antonin", last_name: "Danto", phone_number: "4
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U06DX3RAEAG-4e517ec9aca6-512")
 user.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
 
-dog = Dog.create!(name: "Pirouette", description: "A very fun buddy!", birth_date: Date.new(2021, 01, 23), constraint: "No cosntraint", fun_fact: "She loves to swim!", size: "Small", breed: Breed.find_by_content!("MINIATURE PINSCHER"), user_id: user8.id)
+dog = Dog.create!(name: "Pirouette", description: "A very fun buddy!", birth_date: Date.new(2021, 01, 23), constraint: "No constraint", fun_fact: "She loves to swim!", size: "Small", breed: Breed.find_by_content!("MINIATURE PINSCHER"), user_id: user8.id)
 file = URI.open("https://www.zooplus.fr/magazine/wp-content/uploads/2023/03/pinscher-nain-sur-une-couverture.jpg")
 dog.photo.attach(io: file, filename: "dog.jpg", content_type: "image/jpeg")
-
 
 Walk.create!(name: "J. Luxembourg", starting_point: "9 Rue Férou, 75006, Paris, France", duration: "15 min", start_time: DateTime.new(2024,03,22,18,0), difficulty: "Low", description: "A walk in the jardin du Luxembourg" , frequency: "Once",number_of_participant: "2", user_id: user8.id)
 
 p "#{user8.id.first_name} has #{Walk.where(user_id: user8.id).count} walk(s) and #{Booking.where(user_id: user8.id).count} booking(s)"
+
+#### USER 9 AHMED B. ####
+user9 = User.create!(first_name: "Ahmed", last_name: "Boussaada", phone_number: "456-789-0123", email: "ahmed@test.com", password: "azerty")
+file = URI.open("https://ca.slack-edge.com/T02NE0241-U06DUHU6VT4-cf7e45775c6c-512")
+user.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
+
+dog = Dog.create!(name: "Kiwi", description: "He is very kind and he loves to meet new dogs!", birth_date: Date.new(2022, 04, 03), constraint: "He is affraid of labradors", fun_fact: "He snores very loudly!", size: "Small", breed: Breed.find_by_content!("CAIRN TERRIER"), user_id: user9.id)
+file = URI.open("https://www.yorkshires.fr/wp-content/uploads/2023/09/cairn-terrier.jpg")
+dog.photo.attach(io: file, filename: "dog.jpg", content_type: "image/jpeg")
+
+Walk.create!(name: "Sqr Pablo-C", starting_point: "59 Rue de Lourmel, 75015, Paris, France", duration: "30 min", start_time: DateTime.new(2024,03,28,20,0), difficulty: "Low", description: "A walk in the Square Pablo-Casals" , frequency: "Once",number_of_participant: "1", user_id: user9.id)
+
+p "#{user9.id.first_name} has #{Walk.where(user_id: user9.id).count} walk(s) and #{Booking.where(user_id: user9.id).count} booking(s)"
 
 ####  Message de confirmation de la création des users ####
 p "You have created #{User.count} users"
