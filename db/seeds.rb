@@ -118,7 +118,7 @@ dog6 = Dog.create!(name: "Will", description: "The best dog!", birth_date: Date.
 file = URI.open("https://lemagduchien.ouest-france.fr/images/dossiers/2018-10/kangal-1-134823.jpg")
 dog6.photo.attach(io: file, filename: "dog.jpg", content_type: "image/jpeg")
 
-Walk.create!(name: "Walk in 75020", starting_point: "16 Rue Ramponeau,75020, Paris, France", duration: "30 min", start_time: DateTime.new(2024,03,20,17,30), difficulty: "Medium", description: "A long walk with special spot to play" , frequency: "Once",number_of_participant: "2", user_id: user6.id)
+Walk.create!(name: "Walk in 75020", starting_point: "16 Rue Ramponeau, 75020, Paris, France", duration: "30 min", start_time: DateTime.new(2024,03,20,17,30), difficulty: "Medium", description: "A long walk with special spot to play" , frequency: "Once",number_of_participant: "2", user_id: user6.id)
 
 p "#{user6.first_name} has #{Walk.where(user_id: user6.id).count} walk(s) and #{Booking.where(user_id: user6.id).count} booking(s)"
 
