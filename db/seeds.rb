@@ -104,7 +104,7 @@ dog5 = Dog.create!(name: "Mac", description: "A kind and joyful dog!", birth_dat
 file = URI.open("https://www.animaleco.com/wp-content/uploads/2023/03/175023298_m.jpg")
 dog5.photo.attach(io: file, filename: "dog.jpg", content_type: "image/jpeg")
 
-Walk.create!(name: "Walk in 75017", starting_point: "175 Avenue de Wagram,75017, Paris, France", duration: "1 h", start_time: DateTime.new(2024,03,18,13,00), difficulty: "Medium", description: "A long walk to expend energy" , frequency: "Once",number_of_participant: "3", user_id: User.fifth.id)
+Walk.create!(name: "Walk in 75017", starting_point: "175 Avenue de Wagram, 75017, Paris, France", duration: "1 h", start_time: DateTime.new(2024,03,18,13,00), difficulty: "Medium", description: "A long walk to expend energy" , frequency: "Once",number_of_participant: "3", user_id: User.fifth.id)
 
 p "#{User.fifth.first_name} has #{Walk.where(user_id: User.fifth.id).count} walk(s) and #{Booking.where(user_id: User.fifth.id).count} booking(s)"
 
