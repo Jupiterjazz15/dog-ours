@@ -27,6 +27,7 @@
 
     <%= f.input :number_of_participant,
                 as: :radio_buttons,
+                label: "Number of participant(s) ",
                 input_html: { class: "tag-selector" },
                 item_wrapper_class: 'tag-item',
                 collection: Walk::PARTICIPANTS%>

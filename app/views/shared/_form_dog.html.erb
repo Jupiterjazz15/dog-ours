@@ -5,6 +5,7 @@
     <%= f.input :name, placeholder: "Your dog's name" %>
     <%= f.input :description, placeholder: "Your dog's description 🐶" %>
     <%= f.input :birth_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
+      <%= f.input :photo, as: :file, label_html: { class: 'upload-photo'}, label: "Change my dog's photo", input_html: { class: 'd-none' } %>
     <%= f.input :constraint, placeholder: "Your dog's constraint" %>
     <%= f.input :fun_fact, placeholder: "Your dog's fun fact" %>
     <%= f.input :size,
@@ -13,12 +14,11 @@
                 item_wrapper_class: 'tag-item',
                 collection: Dog::SIZES%>
     <%= f.association :breed, collection: Breed.all, input_html: { data: { controller: "autocomplete" } } %>
-    <%= f.input :photo, as: :file %>
 
     <% if local_assigns[:for_dog] %>
-      <%= f.button :submit, "Update", class: "btn create-button" %>
+      <%= f.button :submit, "Save", class: "btn create-button" %>
     <% else %>
-      <%= f.button :submit, "Update",class: "btn create-button" %>
+      <%= f.button :submit, "Save",class: "btn create-button" %>
     <% end %>
     <% if @dog.persisted? %>
         <%= link_to dog_path(@dog), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn delete-button-dog" do %>

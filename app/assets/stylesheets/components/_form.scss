@@ -34,3 +34,22 @@
   position: absolute;
   transform: scale(0);
 }
+
+.form-inputs{
+  text-align: center;
+}
+
+.upload-photo {
+  display: block;
+  width: 100%;
+  background-color: rgb(236, 234, 255);
+  color: rgb(126, 115, 255);
+  margin-right: 0.6rem;
+  margin-bottom: 0.4rem;
+  font-size: 17px;
+  border-radius: 50rem;
+  padding: 0.1rem 0.5rem;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(126, 115, 255);
+}
