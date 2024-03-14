@@ -77,10 +77,11 @@ dog4.photo.attach(io: file, filename: "dog.webp", content_type: "image/webp")
 
 walk = Walk.create!(name: "My favorite walk", starting_point: "45 rue Saint Antoine, 75004, Paris, France", duration: "30 min", start_time: DateTime.new(2024,03,25,12,30), difficulty: "Medium", description: "A cool walk! ", frequency: "Every other day", number_of_participant: "1", user_id: User.fourth.id)
 
-i = DateTime.new(2024,03,25,12,30)
+initial_start_time = DateTime.new(2024,03,25,12,30)
 6.times do
-  Walk.create!(name: "My favorite walk", starting_point: "45 rue Saint Antoine, 75004, Paris, France", duration: "30 min", start_time: i , difficulty: "Medium", description: "A cool walk! ", frequency: "Every other day", number_of_participant: "1", user_id: User.fourth.id, parent: walk)
-  i += 2.days
+  new_start_time = initial_start_time + 2.days
+  Walk.create!(name: "My favorite walk", starting_point: "45 rue Saint Antoine, 75004, Paris, France", duration: "30 min", start_time: new_start_time, difficulty: "Medium", description: "A cool walk! ", frequency: "Every other day", number_of_participant: "1", user_id: User.fourth.id, parent: walk)
+  initial_start_time = new_start_time
 end
 
 Walk.create!(name: "Walk in 75004", starting_point: "45 rue Saint Antoine, 75004, Paris, France", duration: "30 min", start_time: DateTime.new(2024,03,18,13,00), difficulty: "Medium", description: "A peaceful walk." , frequency: "Once",number_of_participant: "2", user_id: User.fourth.id)
@@ -180,5 +181,5 @@ p "You have created #{Tag.count} tags"
 UserTag.create!(user: User.first, tag: Tag.take)
 UserTag.create!(user: User.first, tag: Tag.take)
 
-#file = URI.open("https://www.rustica.fr/images/risques-si-je-possede-chien-dont-race-est-interdite-france-19189-l790-h526.jpg.webp")
-#dog.photo.attach(io: file, filename: "dog.webp", content_type: "image/webp")
+# #file = URI.open("https://www.rustica.fr/images/risques-si-je-possede-chien-dont-race-est-interdite-france-19189-l790-h526.jpg.webp")
+# #dog.photo.attach(io: file, filename: "dog.webp", content_type: "image/webp")
