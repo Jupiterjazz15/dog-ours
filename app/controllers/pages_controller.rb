@@ -27,7 +27,7 @@ class PagesController < ApplicationController
   def dashboard
     @created_walk = params[:created_walk] == "true"
     @created_booking = params[:created_booking] == "true"
-    @walks = current_user.walks
+    @walks = current_user.walks.order(start_time: :asc)
     @bookings = current_user.bookings
     @my_walks = Walk.where(user: current_user, parent_id: nil)
   end
