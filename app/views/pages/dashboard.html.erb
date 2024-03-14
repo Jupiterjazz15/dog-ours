@@ -36,6 +36,7 @@
         <div class="t-outer">
           <% @dashboard_walks.each do |walk| %>
           <p class="px-4 mb-0"> <%= walk.start_time.strftime("%e/%m - %H:%M") %> </p>
+          <%= link_to(walk_path(walk)) do %>
             <div class="t-card">
               <div class="t-info d-flex">
                 <div class="t-info-dog-pic">
@@ -44,7 +45,7 @@
                     <%= cl_image_tag walk.user.photo.key %>
                   </div>
                 </div>
-                <div class="t-content-info">
+                <div class="t-content-info py-2">
                   <h3 class="title"> <%= walk.name %> </h3>
                   <p><em><%= walk.starting_point %></em></p>
                   <p><%= walk.duration %></p>
@@ -55,11 +56,13 @@
               </div>
             </div>
           <% end %>
+          <% end %>
         </div>
+        <p class="text-center"><em>Waiting for other walks</em></p>
       </div>
 
     <!-- Infos des balades %> -->
-    <div class="d-flex justify-content-center align-items-center my-5">
+    <div class="d-flex justify-content-center align-items-center">
       <div class="text-center">
         <p><%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
         <i class="fa-solid fa-power-off"></i>

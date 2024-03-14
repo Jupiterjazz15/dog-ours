@@ -110,6 +110,8 @@
   padding: 20px;
   position: relative;
   top: -64px;
+  overflow-x: scroll;
+  height: 520px;
 }
 
 .t-outer {
@@ -118,10 +120,10 @@
 
 .t-card {
   position: relative;
-  margin: 0 0 20px 20px;
+  margin: 0 0 10px 20px;
   background: white;
   color: black;
-  border-radius: 8px;
+  border-radius: 12px;
   max-width: 400px;
   box-shadow: 0 0 2px grey;
 
@@ -139,9 +141,9 @@
 
   .arrow-show {
     position: absolute;
-    bottom: 4px;
-    right: 10px;
-    font-size: 21px;
+    bottom: 8px;
+    right: 20px;
+    font-size: 22px;
   }
 }
 
@@ -166,7 +168,7 @@
     width: 120px;
     height: 100%;
     object-fit: cover;
-    border-radius: 4px 0 0 4px;
+    border-radius: 12px 0 0 12px;
   }
 }
 
@@ -177,7 +179,7 @@
     border-radius: 50%;
     position: absolute;
     object-fit: cover;
-    top: 4px;
-    right: 4px;
+    top: 12px;
+    right: 12px;
   }
 }
