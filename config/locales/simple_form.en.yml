@@ -2,6 +2,10 @@ en:
   simple_form:
     "yes": 'Yes'
     "no": 'No'
+    labels:
+      defaults:
+        photo: "Select a file"
+        
     required:
       text: 'required'
       mark: '*'

@@ -44,4 +44,7 @@ class PagesController < ApplicationController
     @walks = current_user.walks
     @bookings = current_user.bookings
   end
+
+  def myprofile
+  end
 end
