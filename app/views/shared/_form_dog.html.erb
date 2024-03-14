@@ -16,9 +16,9 @@
     <%= f.input :photo, as: :file %>
 
     <% if local_assigns[:for_dog] %>
-      <%= f.submit class: "btn create-button" %>
+      <%= f.button :submit, "Update", class: "btn create-button" %>
     <% else %>
-      <%= f.submit class: "btn create-button" %>
+      <%= f.button :submit, "Update",class: "btn create-button" %>
     <% end %>
     <% if @dog.persisted? %>
         <%= link_to dog_path(@dog), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn delete-button-dog" do %>
