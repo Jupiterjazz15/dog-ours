@@ -1,5 +1,5 @@
 meta_product_name: "Dogours"
 meta_title: "Dogours - Never walk your dag alone again"
 meta_description: "Never walk your dag alone again"
-meta_image: "cover.png" # should exist in `app/assets/images/`
-twitter_account: "@product_twitter_account" # required for Twitter Cards
+meta_image: "cover.png"
+twitter_account: "@product_twitter_account"
