@@ -34,7 +34,7 @@
     <% end %>
       <div class="timeline">
         <div class="t-outer">
-          <% @dashboard_walks.each do |walk| %>
+          <% @dashboard_walks.uniq.each do |walk| %>
           <p class="px-4 mb-0"> <%= walk.start_time.strftime("%e/%m - %H:%M") %> </p>
           <%= link_to(walk_path(walk)) do %>
             <div class="t-card">
