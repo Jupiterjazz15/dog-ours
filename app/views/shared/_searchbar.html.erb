@@ -10,7 +10,9 @@
 
     <%= date_field_tag :start_time,
         params[:start_time],
-        class: "search-bar-date"%>
+        class: "search-bar-date",
+        placeholder: "When",
+        data: {controller: "datepicker"}%>
     <%= submit_tag "Search", name: "", class: "btn btn-secondary submit" %>
   <% end %>
 </div>

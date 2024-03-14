@@ -10,9 +10,10 @@ export default class extends Controller {
     flatpickr(this.element, {
       minDate: this.minDateValue,
       altFormat: format,
-      enableTime: true, 
+      enableTime: true,
       time_24hr: true,
       minuteIncrement: 15,
+      disableMobile: true
     });
   }
 }
