@@ -10,7 +10,7 @@
 </div>
 <div class="container">
   <div class="show-content">
-  <!-- AVATAR PROPRIETAIRE -->
+   <!-- AVATAR PROPRIETAIRE -->
     <div class="avatar-name-show avatar-name d-flex">
       <%= cl_image_tag @walk.user.photo.key %>
     </div>
@@ -38,7 +38,6 @@
     <!-- WALK DESCRIPTION -->
     <div class="walk-description">
       <p class="name-walk"><%= @walk.name %></p>
-      <p><i class="fa-solid fa-sheet-plastic"></i> Description :</p>
       <p><%= @walk.description %></i></p>
     </div>
     <!-- BOOKING REQUEST BUTTON -->
