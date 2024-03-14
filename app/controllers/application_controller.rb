@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   # # Pundit: allow-list approach
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
+  after_action :save_navigation_history
 
   # # Uncomment when you *really understand* Pundit!
   # # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
@@ -23,6 +24,16 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: user_params)
     devise_parameter_sanitizer.permit(:account_update, keys: user_params)
+  end
+
+  def save_navigation_history
+    return unless request.get?
+    return if request.xhr?
+
+    session[:history] ||= []
+    session[:history] << request.fullpath
+    session[:history].delete_at 0 if session[:history].size == 6
+    session[:history]
   end
 
   def user_params

@@ -1,5 +1,5 @@
 <div class="banner-index">
-<%= link_to walks_path do %>
+<%= link_to session[:history].reverse.find{ |path| path == "/walks" || path == "/dashboard" } do %>
   <button class="back-arrow-show"><i class="fa-solid fa-arrow-left"></i></button>
 <% end %>
   <!-- PHOTO DU CHIEN -->
