@@ -106,3 +106,80 @@
   color: white;
   border-radius: 50%;
 }
+.timeline {
+  padding: 20px;
+  position: relative;
+  top: -64px;
+  overflow-x: scroll;
+  height: 520px;
+}
+
+.t-outer {
+  border-left: 6px solid #5C6CFF;
+}
+
+.t-card {
+  position: relative;
+  margin: 0 0 10px 20px;
+  background: white;
+  color: black;
+  border-radius: 12px;
+  max-width: 400px;
+  box-shadow: 0 0 2px grey;
+
+  h3 {
+    margin-top: 0.5em;
+    font-size: 20px;
+    margin-bottom: 4px;
+  }
+
+  p {
+    padding-bottom: 0rem;
+    margin-bottom: 4px;
+    text-overflow: ellipsis;
+  }
+
+  .arrow-show {
+    position: absolute;
+    bottom: 8px;
+    right: 20px;
+    font-size: 22px;
+  }
+}
+
+.t-info {
+  display: flex;
+  gap: 10px;
+}
+
+.title::before {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: #FFFF82;
+  border-radius: 999px;
+  left: -35px;
+  border: 3px solid #5C6CFF;
+}
+
+.t-info-dog-pic {
+  img {
+    width: 120px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px 0 0 12px;
+  }
+}
+
+.avatar-dashcard {
+  img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    position: absolute;
+    object-fit: cover;
+    top: 12px;
+    right: 12px;
+  }
+}
