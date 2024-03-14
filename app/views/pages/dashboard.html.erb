@@ -32,14 +32,26 @@
         data-sweetalert-icon-value="success",>
       </span>
     <% end %>
-      <h4>Your next Walks</h4>
       <div class="timeline">
         <div class="t-outer">
-          <% @walks.each do |walk| %>
+          <% @dashboard_walks.each do |walk| %>
           <p class="px-4 mb-0"> <%= walk.start_time.strftime("%e/%m - %H:%M") %> </p>
             <div class="t-card">
-              <div class="t-info">
-                <h3 class="title"> <%= walk.name %> </h3>
+              <div class="t-info d-flex">
+                <div class="t-info-dog-pic">
+                  <%= cl_image_tag walk.user.dogs.first.photo.key %>
+                  <div class="avatar-dashcard">
+                    <%= cl_image_tag walk.user.photo.key %>
+                  </div>
+                </div>
+                <div class="t-content-info">
+                  <h3 class="title"> <%= walk.name %> </h3>
+                  <p><em><%= walk.starting_point %></em></p>
+                  <p><%= walk.duration %></p>
+                </div>
+                <div class="arrow-show">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </div>
               </div>
             </div>
           <% end %>
