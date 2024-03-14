@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  root to: "pages#welcome"
+  get "/home", to: "pages#home"
+
   devise_for :users, controllers: {
     registrations: "users/registrations"
   }
@@ -19,7 +22,6 @@ Rails.application.routes.draw do
   resources :user_tags, only: [:create, :destroy]
   resources :bookings, only: [:update]
     # A NESTER : resources :reviews, only [:create, :update, :destroy]
-  root to: "pages#home"
   resources :bookings, only: [:destroy, :index] do
     resources :messages, only: [:create, :destroy]
     member do

@@ -2,7 +2,8 @@
   <div class="d-flex justify-content-center container banner">
     <%= image_tag "logo.png" %>
   </div>
-  <h2 class="text-center">Messaging</h2>
+  <h2 class="text-center line-separator">Tchats</h2>
+
   <% @bookings.each do |booking| %>
   <%= link_to discussion_walk_path(booking.walk) do %>
     <div class="d-flex container-messages">
@@ -11,8 +12,8 @@
         <%= cl_image_tag booking.walk.user.photo.key %>
         </div>
         <div class="info-message">
-          <h4 class="walk-title">Walk : <%= booking.walk.name.capitalize %></h4>
-          <h2><%= booking.walk.user.first_name %> <em>& <%= booking.walk.user.dogs.first.name %></em></h2>
+          <h4 class="walk-title"> <%= booking.walk.name.capitalize %></h4>
+          <h5><%= booking.walk.user.first_name %> <em>& <%= booking.walk.user.dogs.first.name %></em></h5>
           <p><em><%= booking.walk.messages.last&.content %></em></p>
         </div>
       </div>
