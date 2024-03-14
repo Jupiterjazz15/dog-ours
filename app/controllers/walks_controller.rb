@@ -32,9 +32,7 @@ class WalksController < ApplicationController
   end
 
   def show
-    @walk = Walk.find(params[:id])
     @message = Message.new
-    @booking = current_user.bookings.find_by(walk: @walk)
     authorize @walk
     if @walk.geocoded?
       @markers = [
@@ -54,7 +52,7 @@ class WalksController < ApplicationController
     @message = Message.new
     authorize @walk
     if @walk.save
-  @booking = Booking.new(walk: @walk, user: current_user, status: "accepted")
+      @booking = Booking.new(walk: @walk, user: current_user, status: "accepted")
       create_dependent_walks_for(@walk)
       @booking = Booking.create(walk: @walk, user: current_user, status: "accepted")
       redirect_to dashboard_path

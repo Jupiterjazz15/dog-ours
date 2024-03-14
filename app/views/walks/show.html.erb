@@ -19,10 +19,28 @@
       <h2><%= @walk.user.dogs.first.name %></h2>
       <p class="px-1"><em>& <%= @walk.user.first_name %></em></p>
     </div>
+    <% if policy(@walk).edit? %>
     <!-- INFO DOG -->
-    <div class="info-dog">
-      <p class="dog-size"><i class="fa-solid fa-ruler-vertical"></i> <%= @walk.user.dogs.first.size %></p>
-      <p class="dog-breed"><i class="fa-solid fa-dog"></i> <%= @walk.user.dogs.first.breed.content %></p>
+    <div class="info-dog justify-content-between">
+      <div class="info-doggy d-flex">
+        <p class="dog-size"><i class="fa-solid fa-ruler-vertical"></i> <%= @walk.user.dogs.first.size %></p>
+        <p class="dog-breed"><i class="fa-solid fa-dog"></i> <%= @walk.user.dogs.first.breed.content %></p>
+      </div>
+      <div class="d-flex align-items-center justify-content-end">
+        <div class="icon-style">
+          <%= link_to edit_walk_path do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+        </div>
+        <% end %>
+        <% if policy(@walk).destroy? %>
+        <div class="icon-style">
+          <%= link_to walk_path(@walk), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do  %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
     </div>
     <!-- INFO WALK -->
     <div class="principals-info d-flex">
@@ -39,6 +57,23 @@
     <div class="walk-description">
       <p class="name-walk"><%= @walk.name %></p>
       <p><%= @walk.description %></i></p>
+       <% if @walk.participants.any? %>
+        <div class="d-flex align-items-center justify-content-start">
+          <% @walk.participants.where.not(id: @walk.user.id).each do |participant| %>
+            <% if participant.bookings.find_by(walk: @walk).status == 'pending' %>
+              <div class="d-flex flex-column align-items-center justify-content-center pe-3">
+                <%= cl_image_tag participant.photo.key, class:"avatar border-success-avatar" %>
+                <p><%= participant.first_name %></p>
+              </div>
+            <% else %>
+              <div class="d-flex flex-column align-items-center justify-content-center pe-3">
+                <%= cl_image_tag participant.photo.key, class:"avatar", style:"opacity:50%" %>
+                <p style="opacity:50%"><%= participant.first_name %></p>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
     <!-- BOOKING REQUEST BUTTON -->
     <div class="d-flex justify-content-center">
@@ -67,15 +102,3 @@
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
-<% if policy(@walk).edit? %>
-<div>
-  <%= link_to "Edit", edit_walk_path, class: "btn btn-outline-warning"%>
-</div>
-<% end %>
-<% if policy(@walk).destroy? %>
-<div>
-  <%= link_to walk_path(@walk), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-outline-danger" do  %>
-    <i class="fas fa-trash-alt"></i>
-  <% end %>
-</div>
-<% end %>
