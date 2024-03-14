@@ -2,7 +2,8 @@
   <div class="d-flex justify-content-center container banner">
     <%= image_tag "logo.png" %>
   </div>
-  <h2 class="text-center line-separator">Tchats</h2>
+  <h2 class="text-center line-separator">Chats with Dogbuddies </h2>
+
 
   <% @bookings.each do |booking| %>
   <%= link_to discussion_walk_path(booking.walk) do %>

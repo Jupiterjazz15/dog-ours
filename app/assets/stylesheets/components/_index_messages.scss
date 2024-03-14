@@ -8,10 +8,9 @@
 .container-messages {
   margin: 1em;
   padding: 1em;
-  color: black;
   background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   align-items: center;
   justify-content: space-between;
 
@@ -30,7 +29,7 @@
 
   i {
     font-size: 20px;
-    color: red;
+    color: black;
     margin-right: 1em;
   }
 
@@ -43,7 +42,7 @@
 .walk-title {
   font-weight: bold;
   font-weight: 16px;
-  color: #5C6CFF;
+  color: black;
   }
   h4 {
     text-decoration: none;
