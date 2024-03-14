@@ -190,3 +190,22 @@
     font-weight: normal;
   }
 }
+
+.icon-style {
+  border: none;
+  a {
+    color: black !important;
+  }
+
+  text-align: center;
+  font-size: 18px;
+  border-radius: 24px;
+  border: solid 1px black;
+  margin-right: 10px;
+  padding: 5px 5px 5px 5px;
+
+}
+
+.info-doggy {
+  align-items: baseline;
+}
