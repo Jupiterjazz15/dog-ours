@@ -1,9 +1,11 @@
-<div class="container">
+<div class="fix-padding-bottom">
+  <div class="mx-3">
+    <div class="banner text-center">
+      <%= image_tag "logo.png" %>
+      <h2>Edit my Profil</h2>
+    </div>
 
-  <div class="logo text-center">
-    <h2>Edit my Profil</h2>
+
+    <%= render "shared/user_form" %>
   </div>
-
-
-  <%= render "shared/user_form" %>
 </div>

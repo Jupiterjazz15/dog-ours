@@ -31,9 +31,9 @@
                 item_wrapper_class: 'tag-item',
                 collection: Walk::PARTICIPANTS%>
     <% if local_assigns[:for_walk] %>
-    <%= f.submit class: "btn btn-secondary" %>
+    <%= f.button :submit, "Publish", class: "btn create-button" %>
     <% else %>
-    <%= f.submit class: "btn btn-secondary" %>
+    <%= f.button :submit, "Update", class: "btn create-button" %>
     <% end %>
   </div>
 <% end  %>

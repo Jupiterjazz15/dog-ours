@@ -66,8 +66,8 @@
 
 .dog-size {
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-  padding-block: 1.25em;
-  padding-inline: 1.5em;
+  padding-block: 0.5em;
+  padding-inline: 0.5em;
   border-radius: 48px;
   background-color: #FFFF82;
 }
@@ -75,8 +75,8 @@
 .dog-breed {
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
   margin-left: 1em;
-  padding-block: 1.25em;
-  padding-inline: 1.5em;
+  padding-block: 0.5em;
+  padding-inline: 0.5em;
   border-radius: 48px;
   color: white;
   background-color: #5C6CFF;
@@ -115,7 +115,7 @@
 
 .wrapper-bkrequest-button {
   position: absolute;
-  left: -15px;
+  left: -10px;
   bottom: 90px;
   button {
     border: none;
@@ -140,4 +140,53 @@
   text-align: left;
   font-size: larger;
   font-weight: bold;
+}
+
+
+.cadre-jaune-on-show {
+  height: 70px;
+  width: 185px;
+  border-radius: 24px;
+  left: 122px;
+  top: 80px;
+  position:absolute;
+  background-color: #FFFF82;
+  padding-block: 1em;
+  padding-inline: 2em;
+}
+
+.cadre-violet-on-show {
+  border-radius: 24px;
+  width: 185px;
+  height: 70px;
+  right: 8px;
+  bottom: 14px;
+  position:absolute;
+  background-color: #5C6CFF;
+  padding-block: 1em;
+  padding-inline: 2em;
+}
+
+.cadre-noir-on-show {
+  border-radius: 24px;
+  position: absolute;
+  border: solid 3px black;
+  padding-block: 1em;
+  padding-inline: 2em;
+  text-align: center;
+  height: 70px;
+  width: 185px;
+  right: -4px;
+  top: 8px;
+
+  a {
+    text-decoration: none;
+    color: #F1EAFF;
+    font-size: 18px;
+  }
+
+  button {
+    font-size: 18px;
+    font-weight: normal;
+  }
 }
