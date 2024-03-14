@@ -41,7 +41,7 @@
 
   <body>
     <%= yield %>
-    <% unless action_name == "welcome" || controller_name == "devise" %>
+    <% unless action_name == "welcome" || controller_name.in?(%w[sessions registrations confirmations passwords]) %>
       <%= render "shared/navbar" %>
     <% end %>
   </body>
