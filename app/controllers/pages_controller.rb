@@ -1,11 +1,14 @@
 class PagesController < ApplicationController
+  def welcome
+  end
+
   def home
     if user_signed_in?
       walk_ids = Walk.select("user_id, min(id) as id").
         where(parent_id: nil).
         group(:user_id).
         order("RANDOM()").
-        limit(5).
+        limit(10).
         map(&:id)
 
       @walks   = Walk.where(id: walk_ids)
@@ -18,9 +21,6 @@ class PagesController < ApplicationController
           marker_html: render_to_string(partial: "marker", locals: { walk: walk })
         }
       end
-      render 'home'
-    else
-      render 'welcome'
     end
   end
 

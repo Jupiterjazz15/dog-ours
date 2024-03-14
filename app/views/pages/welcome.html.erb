@@ -20,7 +20,11 @@
   <div class="cadre-jaune">
     <div class="cadre-violet">
       <div class="cadre-noir">
-        <a href="<%= new_user_session_path %>">Discover</a>
+        <% if user_signed_in? %>
+          <%= link_to "Discover", home_path %>
+        <% else %>
+          <%= link_to "Discover", new_user_session_path %>
+        <% end %>
       </div>
     </div>
   </div>

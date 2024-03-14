@@ -23,8 +23,8 @@
 
   <body>
     <%= yield %>
-      <% if !(@is_welcome_page || !user_signed_in?) %>
-    <%= render "shared/navbar" %>
+    <% unless action_name == "welcome" || controller_name == "devise" %>
+      <%= render "shared/navbar" %>
     <% end %>
   </body>
 </html>
