@@ -28,8 +28,8 @@
   }
 
   i {
-    font-size: 30px;
-    color: red;
+    font-size: 20px;
+    color: black;
     margin-right: 1em;
   }
 
@@ -40,8 +40,24 @@
 }
 
 .walk-title {
-  font-size: bold !important;
-  font-weight: 20px !important;
+  font-weight: bold;
+  font-weight: 16px;
   color: black;
   }
+  h4 {
+    text-decoration: none;
+    color:#5C6CFF;
+  }
+  h5 {
+    text-decoration: none;
+    color:#5C6CFF;
+    margin-bottom: 0px !important;
+  }
+}
+
+.line-separator {
+  border-bottom: solid 1px #5C6CFF;
+  padding-bottom: 1em;
+  margin-left: 3em;
+  margin-right: 3em;
 }

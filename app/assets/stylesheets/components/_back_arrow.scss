@@ -1,14 +1,29 @@
 .back-arrow {
-  position: absolute;
-  top: 0;
   border: none;
   background-color: unset;
   font-size: 30px;
-  margin: 1em 1em 0 1em;
+  margin: 0 10px;
+}
+
+.back-arrow-show {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border: none;
+  background-color: unset;
+  font-size: 30px;
+  margin: 0 10px;
 }
 
 .bacground-back-arrow {
- background-color: #5C6CFF;
- border-radius: 10px;
- margin-top: 15px;
+  background-color: #5C6CFF;
+  border-radius: 10px;
+  max-width: 41px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa-solid.fa-arrow-left {
+  color: black !important;
 }

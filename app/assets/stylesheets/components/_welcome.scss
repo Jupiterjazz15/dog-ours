@@ -34,7 +34,7 @@
     animation-timing-function: linear;
     animation-duration: 0.5s;
     animation-name: glissement;
-    animation-iteration-count: 6;
+    animation-iteration-count: infinite;
   }
 
   .mithosis-black {
@@ -45,7 +45,7 @@
     animation-timing-function: linear;
     animation-duration: 0.5s;
     animation-name: glissement;
-    animation-iteration-count: 7;
+    animation-iteration-count: infinite;
   }
 
   @keyframes glissement {
