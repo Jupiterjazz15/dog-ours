@@ -19,7 +19,6 @@
       <h2><%= @walk.user.dogs.first.name %></h2>
       <p class="px-1"><em>& <%= @walk.user.first_name %></em></p>
     </div>
-    <% if policy(@walk).edit? %>
     <!-- INFO DOG -->
     <div class="info-dog justify-content-between">
       <div class="info-doggy d-flex">
@@ -28,11 +27,12 @@
       </div>
       <div class="d-flex align-items-center justify-content-end">
         <div class="icon-style">
-          <%= link_to edit_walk_path do %>
-            <i class="fas fa-edit"></i>
+          <% if policy(@walk).edit? %>
+            <%= link_to edit_walk_path do %>
+              <i class="fas fa-edit"></i>
+            <% end %>
           <% end %>
         </div>
-        <% end %>
         <% if policy(@walk).destroy? %>
         <div class="icon-style">
           <%= link_to walk_path(@walk), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do  %>
