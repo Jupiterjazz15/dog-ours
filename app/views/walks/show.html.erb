@@ -46,7 +46,7 @@
     <div class="principals-info d-flex">
       <div class="info-walk">
         <p><i class="fa-solid fa-location-pin"></i> <%= @walk.starting_point %></p>
-        <p><i class="fa-regular fa-clock"></i> <%= @walk.start_time %></p>
+        <p><i class="fa-regular fa-clock"></i> <%= @walk.start_time.strftime("%e/%m - %H:%M") %></p>
         <div class="d-flex justify-content-between">
           <p><i class="fa-solid fa-people-arrows"></i> <%= @walk.number_of_participant %></p>
           <p><i class="fa-solid fa-bolt"></i> <%= @walk.difficulty %></p>
