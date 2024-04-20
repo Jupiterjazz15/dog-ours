@@ -73,7 +73,7 @@ class WalksController < ApplicationController
     if @walk.save
       redirect_to dashboard_path
     else
-      render :edit, status: :unprocessable_entity # render the edit.html.erb determine the best path to take
+      render :edit, status: :unprocessable_entity 
     end
   end
 

@@ -11,7 +11,7 @@ class PagesController < ApplicationController
         limit(10).
         map(&:id)
 
-      @walks   = Walk.where(id: walk_ids)
+      @walks = Walk.where(id: walk_ids)
 
       @markers = @walks.geocoded.map do |walk|
         {
@@ -21,6 +21,8 @@ class PagesController < ApplicationController
           marker_html: render_to_string(partial: "marker", locals: { walk: walk })
         }
       end
+    else
+      @walks = [] # Initialisation avec une valeur vide
     end
   end
 
