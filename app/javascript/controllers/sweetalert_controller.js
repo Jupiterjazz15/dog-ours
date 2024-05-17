@@ -14,7 +14,7 @@ export default class extends Controller {
     Sweetalert2.fire({
       title: this.titleValue,
       text: this.textValue,
-      icon: this.iconValue,
+      icon:
       confirmButtonText: ' OK <i class="fa-solid fa-dog"></i>'
     })
 
