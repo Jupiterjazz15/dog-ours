@@ -2,17 +2,30 @@
   <div class="profile-icone-head">
 
     <%= link_to myprofile_path do %>
-      <p><%= cl_image_tag current_user.photo.key, class: "avatar profile" %></p>
+      <% if current_user.photo.attached? %>
+        <p><%= cl_image_tag current_user.photo.key, class: "avatar profile" %></p>
+      <% else %>
+        <p><%= image_tag "logo.png", class: "avatar profile" %></p>
+      <% end %>
     <% end %>
+
+    <% if current_user.has_a_dog? %>
       <%= link_to edit_dog_path(current_user.dogs.first.id) do %>
-        <% if current_user.has_a_dog? %>
         <p><%= cl_image_tag current_user.dogs.first.photo.key, class: "avatar dog" %></p>
-        <% end %>
+      <% end %>
+    <% else %>
+      <%= link_to myprofile_path do %>
+        <p><%= image_tag "logo.png", class: "avatar profile" %></p>
+      <% end %>
     <% end %>
+
   </div>
  <!-- PROFILE NAME -->
   <div class="user-info-dashboard d-flex">
-    <p class="dashboard-name"><%= "#{current_user.first_name} & #{current_user.dogs.first.name}" %></p>
+    <p class="dashboard-name"> <%= "#{current_user.first_name}" %> </p>
+      <% if current_user.has_a_dog? %>
+        <p class="dashboard-name"> <%= "#{current_user.dogs.first.name}" %> </p>
+      <% end %>
   </div>
 
     <!-- Avatar user & ses infos %> -->
