@@ -15,10 +15,10 @@ class DogsController < ApplicationController
     @dog = Dog.new(dog_params)
     @dog.user = current_user
     authorize @dog
-    if @dog.save!
+    if @dog.save
       redirect_to dashboard_path()
     else
-      render :new # render the new.html.erb
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -32,9 +32,9 @@ class DogsController < ApplicationController
     authorize @dog
     @dog.update(dog_params)
     if @dog.save
-      redirect_to dog_path(@dog) # redirect to the dog view page
+      redirect_to dog_path(@dog)
     else
-      render :edit, status: :unprocessable_entity # render the edit.html.erb determine the best path to take
+      render :edit, status: :unprocessable_entity
     end
   end
 

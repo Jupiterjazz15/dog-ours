@@ -4,4 +4,5 @@ class Dog < ApplicationRecord
   belongs_to :user
   has_one_attached :photo
   validates :size, inclusion: { in: SIZES }
+  validates :name, :description, :birth_date, :photo, :size, :breed, presence: true
 end
