@@ -19,6 +19,10 @@ class ApplicationController < ActionController::Base
     { host: ENV["DOMAIN"] || "localhost:3000" }
   end
 
+  def after_sign_in_path_for(resource)
+      home_path(resource)
+  end
+
   private
 
   def configure_permitted_parameters

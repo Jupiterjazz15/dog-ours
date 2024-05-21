@@ -2,9 +2,8 @@
 
 <%= simple_form_for @dog do |f| %>
 
-  <div class="form-inputs fix_padding_navbar_bottom" data-controller="autocomplete">
-
-  <%= f.error_notification %>
+  <div class="form-inputs fix_padding_navbar_bottom">
+    <%= f.error_notification %>
     <%= f.input :name,
                 placeholder: "Your dog's name" %>
 
@@ -19,7 +18,8 @@
 
       <%= f.input :photo,
                   as: :file,
-                  label_html: { class: 'upload-photo'}, label: "My dog's photo" %>
+                  label_html: { class: 'upload-photo'},
+                  label: "My dog's photo" %>
 
     <%= f.input :constraint, placeholder: "Your dog's constraint" %>
 
@@ -31,7 +31,9 @@
                 item_wrapper_class: 'tag-item',
                 collection: Dog::SIZES%>
 
-    <%= f.association :breed, collection: Breed.all, input_html: { data: { controller: "autocomplete" } } %>
+    <%= f.association :breed,
+                      collection: Breed.all,
+                      input_html: { data: { controller: "autocomplete" } } %>
 
     <div class="form-actions">
       <%= f.button :submit, "Save" %>
@@ -44,3 +46,8 @@
   </div>
  <% end %>
 <% end %>
+
+
+<%# <input class="form-control string optional flatpickr-input active" data-controller="datepicker" data-datepicker-min-date-value="today" type="text" name="walk[start_time]" id="walk_start_time" readonly="readonly">
+
+<input class="form-control string required flatpickr-input" data-controller="datepicker" type="text" name="user[birth_date]" id="user_birth_date" readonly="readonly"> %>
