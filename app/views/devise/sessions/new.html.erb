@@ -1,13 +1,13 @@
 <div class="container text-center">
-  <!-- LOGO -->
   <div class="logo">
     <%= image_tag "logo.png" %>
     <h2>Log in</h2>
   </div>
-  <!-- FORMULAIRE -->
+
   <div class="form-content">
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs">
+        <%= f.error_notification %>
         <%= f.input :email,
                     required: false,
                     autofocus: true,
@@ -19,17 +19,17 @@
           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
         </div>
       </div>
-      <!-- BOUTTON SUBMIT -->
+
       <div class="form-actions">
         <%= f.button :submit, "Log in" %>
       </div>
     <% end %>
-  <!-- LIEN INSCRIPTION -->
-  <div class="no-account">
-    <h2>Not registered ?</h2>
+
+    <div class="no-account">
+      <h2>Not registered ?</h2>
+    </div>
   </div>
-  </div>
-  <!-- LIEN MDP OUBLIE -->
+
   <div class="forgotten-element">
     <%= render "devise/shared/links" %>
   </div>
