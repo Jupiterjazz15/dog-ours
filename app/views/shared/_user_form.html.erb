@@ -6,23 +6,10 @@
       <%= f.input :email, required: true, autofocus: true %>
       <%= f.input :first_name %>
       <%= f.input :last_name %>
-      <%= f.input :photo, as: :file, label_html: { class: 'upload-photo'}, label: 'Change my photo', input_html: { class: 'd-none' } %>
+      <%= f.input :photo, as: :file, label_html: { class: 'upload-photo'}, label: 'My photo', input_html: { class: 'd-none' } %>
       <%= f.input :phone_number %>
       <%= f.input :description %>
-      <%= f.input :linkedin_profile %>
       <%= f.input :birth_date %>
-
-      <%= f.input :password,
-                  hint: "leave it blank if you don't want to change it",
-                  required: false,
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :password_confirmation,
-                  required: false,
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :current_password,
-                  hint: "we need your current password to confirm your changes",
-                  required: true,
-                  input_html: { autocomplete: "current-password" } %>
 
     <div class="form-actions">
       <%= f.button :submit, "Save" %>

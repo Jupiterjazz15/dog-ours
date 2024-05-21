@@ -1,11 +1,11 @@
 <div class= "fix_padding_navbar_bottom" >
   <div class="profile-icone-head">
 
-    <%= link_to myprofile_path do %>
+    <%= link_to edit_user_registration_path do %>
       <% if current_user.photo.attached? %>
         <p><%= cl_image_tag current_user.photo.key, class: "avatar profile" %></p>
       <% else %>
-        <p><%= image_tag "logo.png", class: "avatar profile" %></p>
+        <p><%= image_tag "logo_2.png", class: "avatar profile" %></p>
       <% end %>
     <% end %>
 
@@ -15,7 +15,7 @@
       <% end %>
     <% else %>
       <%= link_to myprofile_path do %>
-        <p><%= image_tag "logo.png", class: "avatar profile" %></p>
+        <p><%= image_tag "logo_1.png", class: "avatar profile" %></p>
       <% end %>
     <% end %>
 

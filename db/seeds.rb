@@ -134,7 +134,7 @@ file = URI.open("https://ca.slack-edge.com/T02NE0241-U06DUHU6VT4-cf7e45775c6c-51
 user9.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
 
 dog9 = Dog.create!(name: "Kiwi", description: "He is very kind and he loves to meet new dogs!", birth_date: Date.new(2022, 04, 03), constraint: "He is affraid of labradors", fun_fact: "He snores very loudly!", size: "Small", breed: Breed.find_by_content!("CAIRN TERRIER"), user_id: user9.id)
-file = URI.open("https://www.yorkshires.fr/wp-content/uploads/2023/09/cairn-terrier.jpg")
+file = URI.open("https://media-be.chewy.com/wp-content/uploads/2021/07/16074327/YorkshireTerrier-FeaturedImage.jpg")
 dog9.photo.attach(io: file, filename: "dog.jpg", content_type: "image/jpeg")
 
 Walk.create!(name: "Sqr Pablo-C", starting_point: "59 Rue de Lourmel, 75015, Paris, France", duration: "30 min", start_time: DateTime.new(2024,03,28,20,0), difficulty: "Low", description: "A walk in the Square Pablo-Casals" , frequency: "Once",number_of_participant: "1", user_id: user9.id)
