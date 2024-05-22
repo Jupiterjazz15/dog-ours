@@ -22,9 +22,10 @@
   </div>
  <!-- PROFILE NAME -->
   <div class="user-info-dashboard d-flex">
-    <p class="dashboard-name"> <%= "#{current_user.first_name}" %> </p>
       <% if current_user.has_a_dog? %>
-        <p class="dashboard-name"> <%= "#{current_user.dogs.first.name}" %> </p>
+        <p class="dashboard-name"> <%= "#{current_user.first_name} & #{current_user.dogs.first.name}"%></p>
+      <% else %>
+      <p class="dashboard-name"> <%= "#{current_user.first_name}"%></p>
       <% end %>
   </div>
 

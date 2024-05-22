@@ -13,6 +13,8 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, :email, :password, :phone_number, :birth_date, presence: true
 
+  validates :password, confirmation: true, length: { within: 6..128 }, allow_blank: true
+
   def has_a_dog?
     dogs.exists?
   end
