@@ -32,7 +32,7 @@ class DogsController < ApplicationController
     authorize @dog
     @dog.update(dog_params)
     if @dog.save
-      redirect_to dog_path(@dog)
+      redirect_to dashboard_path
     else
       render :edit, status: :unprocessable_entity
     end
