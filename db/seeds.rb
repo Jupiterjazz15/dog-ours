@@ -4,12 +4,6 @@ Message.destroy_all
 p "Messages deleted"
 Breed.destroy_all
 p "Breeds deleted"
-Message.destroy_all
-p "Messages deleted"
-Tag.destroy_all
-p "Tags deleted"
-UserTag.destroy_all
-p "UserTags deleted"
 Walk.destroy_all
 p "Walks deleted"
 Dog.destroy_all
@@ -25,7 +19,7 @@ end
 p "Breed #{Breed.count} created"
 
 ##### USER 1 ANTOINE L. ####
-user = User.create!(first_name: "Antoine", last_name: "Lebeau", phone_number: "123-456-7890", email: "antoine@test.com", password: "azerty")
+user = User.create!(first_name: "Antoine", last_name: "Lebeau", phone_number: "123-456-7890", email: "antoine@test.com", password: "azerty", birth_date: "1990-01-01")
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U06DG7195EE-41fa3d1f8d29-512")
 user.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
 
@@ -34,7 +28,6 @@ file = URI.open("https://img.passeportsante.net/1200x675/2021-05-06/i106625-sign
 dog1.photo.attach(io: file, filename: "dog.webp", content_type: "image/webp")
 
 p "#{User.first.first_name} has #{Walk.where(user_id: User.first.id).count} walk(s)"
-
 
 #### USER 2 CORALIE H. ####
 user = User.create!(first_name: "Coralie", last_name: "Haller", phone_number: "234-567-8901", email: "coralie@test.com", password: "azerty")

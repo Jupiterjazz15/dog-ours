@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :dogs
 
-  validates :first_name, :last_name, :email, :password, :phone_number, :birth_date, :photo, presence: true
+  validates :first_name, :last_name, :email, :password, :phone_number, :birth_date, presence: true
 
   def has_a_dog?
     dogs.exists?

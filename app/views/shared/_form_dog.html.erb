@@ -14,7 +14,7 @@
 
     <%= f.input :birth_date,
                 as: :string,
-                input_html: { data: { controller: "datepicker" } } %>
+                input_html: { data: { controller: "datepicker", datepicker_target: "date" } } %>
 
       <%= f.input :photo,
                   as: :file,
@@ -46,8 +46,3 @@
   </div>
  <% end %>
 <% end %>
-
-
-<%# <input class="form-control string optional flatpickr-input active" data-controller="datepicker" data-datepicker-min-date-value="today" type="text" name="walk[start_time]" id="walk_start_time" readonly="readonly">
-
-<input class="form-control string required flatpickr-input" data-controller="datepicker" type="text" name="user[birth_date]" id="user_birth_date" readonly="readonly"> %>
