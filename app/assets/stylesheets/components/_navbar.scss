@@ -5,22 +5,22 @@
   bottom: 0;
   width: 100%;
   background-color: #5C6CFF;
-  border-top: solid 1px white;/* Change the background color as needed */
+  border-top: solid 1px white;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /* This spreads out the logos evenly */
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   align-items: center;
-  height: 80px; /* Adjust height as needed */
+  height: 80px;
   z-index: 1000;
-  justify-items: center; /* Ensures navbar stays on top of other content */
+  justify-items: center;
 }
 
 .navbar-bottom a {
-  color: white; /* Change text color as needed */
-  text-decoration: none; /* Removes underline from links */
+  color: white;
+  text-decoration: none;
 }
 
 .navbar-bottom img {
-  width: 40px; /* Adjust the size of your logos as needed */
+  width: 40px;
   height: auto;
 }
 

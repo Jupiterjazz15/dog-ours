@@ -14,8 +14,8 @@
         <p><%= cl_image_tag current_user.dogs.first.photo.key, class: "avatar dog" %></p>
       <% end %>
     <% else %>
-      <%= link_to myprofile_path do %>
-        <p><%= image_tag "logo_1.png", class: "avatar profile" %></p>
+      <%= link_to new_dog_path do %>
+        <p><%= image_tag "logo_without_dog.png", class: "avatar dog" %></p>
       <% end %>
     <% end %>
 
