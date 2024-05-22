@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   end
   resources :user_tags, only: [:create, :destroy]
   resources :bookings, only: [:update]
-    # A NESTER : resources :reviews, only [:create, :update, :destroy]
+
   resources :bookings, only: [:destroy, :index] do
     resources :messages, only: [:create, :destroy]
     member do

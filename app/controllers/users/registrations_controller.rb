@@ -24,10 +24,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  #DELETE /resource
+  def destroy
+    super
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
@@ -42,14 +42,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :photo, :phone_number, :description, :birth_date])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :photo, :phone_number, :description, :birth_date])
    end
 
   # If you have extra params to permit, append them to the sanitizer.
-   def configure_account_update_params
-     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :photo, :phone_number, :description, :birth_date])
-   end
-
   def configure_account_update_params
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :photo, :phone_number, :description, :birth_date])
   end
