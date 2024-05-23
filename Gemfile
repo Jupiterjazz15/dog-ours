@@ -53,6 +53,7 @@ gem "sassc-rails"
 gem "devise"
 gem "cloudinary"
 gem "geocoder"
+gem 'open-uri'
 
 group :development, :test do
   gem "dotenv-rails"
