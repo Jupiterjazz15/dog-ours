@@ -11,7 +11,7 @@ export default class extends Controller {
       accessToken: this.apiKeyValue,
       types: "country,region,place,postcode,locality,neighborhood,address",
       countries: 'fr',
-      placeholder: 'Start of your walk'
+      placeholder: 'Arrondissement to start'
     })
     this.geocoder.addTo(this.element)
     this.geocoder.on("result", event => this.#setInputValue(event))
