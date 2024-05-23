@@ -1,18 +1,21 @@
 <div class="margin-bottom">
-<%= link_to home_path do %>
-<div>
-  <button class="back-arrow background-back-arrow py-1 mt-4" ><i class="fa-solid fa-arrow-left"></i></button>
-</div>
-<% end %>
-    <div class="container banner">
-      <div class="d-flex justify-content-center">
-        <%= image_tag "logo.png" %>
-      </div>
-    <!-- NAVBAR-->
+  <div class="container banner">
+    <!-- BACKARROW -->
+    <%= link_to home_path do %>
       <div>
-        <%= render "shared/searchbar" %>
+        <button class="back-arrow py-1" >
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
       </div>
+    <% end %>
+    <!-- LOGO -->
+    <div class="d-flex justify-content-center">
+      <%= image_tag "logo.png" %>
     </div>
-
+    <!-- SEARCHBAR-->
+    <div>
+      <%= render "shared/searchbar" %>
+    </div>
+  </div>
   <%= render "shared/walk_card_index" %>
 </div>

@@ -3,6 +3,9 @@
   background-color: unset;
   font-size: 30px;
   margin: 0 10px;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
 }
 
 .back-arrow-show {
@@ -13,18 +16,6 @@
   background-color: unset;
   font-size: 30px;
   margin: 0 10px;
-}
-
-.background-back-arrow {
-  background-color: #5C6CFF;
-  border-radius: 10px;
-  max-width: 41px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: -7px;
-  left: 10px
 }
 
 .bacground-back-arrow {
