@@ -42,7 +42,8 @@
 
       <%= f.input :birth_date,
                   as: :string,
-                  input_html: { data: { controller: "datepicker", datepicker_target: "date" } }%>
+                  input_html: { data: { controller: "datepicker", datepicker_target: "date" } },
+                  required: true %>
 
       <div class="form-actions">
         <%= f.button :submit, "Sign up" %>

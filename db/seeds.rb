@@ -1,4 +1,5 @@
 require 'csv'
+require 'open-uri'
 
 Message.destroy_all
 p "Messages deleted"
@@ -30,7 +31,7 @@ dog1.photo.attach(io: file, filename: "dog.webp", content_type: "image/webp")
 p "#{User.first.first_name} has #{Walk.where(user_id: User.first.id).count} walk(s)"
 
 #### USER 2 CORALIE H. ####
-user = User.create!(first_name: "Coralie", last_name: "Haller", phone_number: "234-567-8901", email: "coralie@test.com", password: "azerty")
+user = User.create!(first_name: "Coralie", last_name: "Haller", phone_number: "234-567-8901", email: "coralie@test.com", password: "azerty", birth_date: "1994-08-15")
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U06DG28K0CT-fafee26638ca-512")
 user.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
 
@@ -42,7 +43,7 @@ p "#{User.second.first_name} has #{Walk.where(user_id: User.second.id).count} wa
 
 
 #### USER 3 GUILLAUME D. ####
-user = User.create!(first_name: "Guillaume", last_name: "Dupuis", phone_number: "345-678-9012", email: "guillaume@test.com", password: "azerty" )
+user = User.create!(first_name: "Guillaume", last_name: "Dupuis", phone_number: "345-678-9012", email: "guillaume@test.com", password: "azerty", birth_date: "1998-03-14" )
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U06D6P7V0UX-2fe19bee1d04-512")
 user.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
 
@@ -54,7 +55,7 @@ p "#{User.third.first_name} has #{Walk.where(user_id: User.third.id).count} walk
 
 
 #### USER 4 ANTOINE C. ####
-user = User.create!(first_name: "Antoine", last_name: "Clavel", phone_number: "456-789-0123", email: "toto@test.com", password: "azerty")
+user = User.create!(first_name: "Antoine", last_name: "Clavel", phone_number: "456-789-0123", email: "toto@test.com", password: "azerty", birth_date: "1980-10-08")
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U06EKJ558NL-g43dd42946ee-512")
 user.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
 
@@ -66,7 +67,7 @@ p "#{User.fourth.first_name} has #{Walk.where(user_id: User.fourth.id).count} wa
 
 
 #### USER 5 CLOTHILDE S. ####
-user = User.create!(first_name: "Clothilde", last_name: "Scache", phone_number: "456-789-0123", email: "clothilde@test.com", password: "azerty")
+user = User.create!(first_name: "Clothilde", last_name: "Scache", phone_number: "456-789-0123", email: "clothilde@test.com", password: "azerty", birth_date: "1997-07-29")
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U06EHGW24V6-4177402b7800-512")
 user.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
 
@@ -80,7 +81,7 @@ p "#{User.fifth.first_name} has #{Walk.where(user_id: User.fifth.id).count} walk
 
 
 #### USER 6 GABRIELLE S. ####
-user6 = User.create!(first_name: "Gabrielle ", last_name: "Simha", phone_number: "456-789-0123", email: "gabrielle@test.com", password: "azerty")
+user6 = User.create!(first_name: "Gabrielle ", last_name: "Simha", phone_number: "456-789-0123", email: "gabrielle@test.com", password: "azerty", birth_date: "1991-01-09")
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U06E791DEU9-b543cb2a1db7-512")
 user6.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
 
@@ -94,7 +95,7 @@ p "#{user6.first_name} has #{Walk.where(user_id: user6.id).count} walk(s)"
 
 
 #### USER 7 PIERRE U. ####
-user7 = User.create!(first_name: "Pierre", last_name: "Urban", phone_number: "456-789-0123", email: "pierre@test.com", password: "azerty")
+user7 = User.create!(first_name: "Pierre", last_name: "Urban", phone_number: "456-789-0123", email: "pierre@test.com", password: "azerty", birth_date: "1989-03-21")
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U06DZJW1W68-82c2aa6b1622-512")
 user7.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
 
@@ -108,7 +109,7 @@ p "#{user7.first_name} has #{Walk.where(user_id: user7.id).count} walk(s)"
 
 
 #### USER 8 ANTONIN D. ####
-user8 = User.create!(first_name: "Antonin", last_name: "Danto", phone_number: "456-789-0123", email: "antonin@test.com", password: "azerty")
+user8 = User.create!(first_name: "Antonin", last_name: "Danto", phone_number: "456-789-0123", email: "antonin@test.com", password: "azerty", birth_date: "1999-01-05")
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U06DX3RAEAG-4e517ec9aca6-512")
 user8.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
 
@@ -122,7 +123,7 @@ p "#{user8.first_name} has #{Walk.where(user_id: user8.id).count} walk(s)"
 
 
 #### USER 9 AHMED B. ####
-user9 = User.create!(first_name: "Ahmed", last_name: "Boussaada", phone_number: "456-789-0123", email: "ahmed@test.com", password: "azerty")
+user9 = User.create!(first_name: "Ahmed", last_name: "Boussaada", phone_number: "456-789-0123", email: "ahmed@test.com", password: "azerty", birth_date: "1992-04-04")
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U06DUHU6VT4-cf7e45775c6c-512")
 user9.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
 
@@ -136,7 +137,7 @@ p "#{user9.first_name} has #{Walk.where(user_id: user9.id).count} walk(s)"
 
 
 #### USER 10 PEDRO G. ####
-user10 = User.create!(first_name: "Pedro", last_name: "Gomes Pinto", phone_number: "456-789-0123", email: "pedro@test.com", password: "azerty")
+user10 = User.create!(first_name: "Pedro", last_name: "Gomes Pinto", phone_number: "456-789-0123", email: "pedro@test.com", password: "azerty", birth_date: "1985-11-09")
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U06D0LP6407-46eab4608195-512")
 user10.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
 
