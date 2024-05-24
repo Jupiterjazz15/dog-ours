@@ -1,10 +1,18 @@
 <div id="message-<%= message.id %>">
   <small>
-    <div class="avatar-messaging <%= 'justify-content-end' if message.sender?(current_user) %>">
+  <% if message.sender?(current_user) && current_user.photo.attached? %>
+    <div class="avatar-messaging <%= 'justify-content-end' %>">
       <%= cl_image_tag message.user.photo.key %>
       <strong><%= message.user.first_name %></strong>
       <i><%= message.created_at.strftime("%a %e at %l:%M %p") %></i>
     </div>
+  <% else message.sender?(current_user) && current_user.photo.attached? == false %>
+    <div class="avatar-messaging <%= 'justify-content-end' %>">
+      <%= image_tag "logo_without_user.png"  %>
+        <strong><%= message.user.first_name %></strong>
+        <i><%= message.created_at.strftime("%a %e at %l:%M %p") %></i>
+      </div>
+  <% end %>
   </small>
   <p><%= message.content.capitalize %></p>
 </div>
