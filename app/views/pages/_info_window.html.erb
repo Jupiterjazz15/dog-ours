@@ -7,7 +7,11 @@
         <div class="walk-card-content">
           <div class="card-head">
             <div class="avatar-name-info">
-              <%= cl_image_tag walk.user.photo.key %>
+              <% if walk.user.photo.attached? %>
+               <%= cl_image_tag walk.user.photo.key %>
+              <% else %>
+                <%= image_tag "logo_without_user.png" %>
+              <% end %>
               <div class="d-flex">
                 <h2><%= walk.user.dogs.first.name %></h2>
                 <p class="dog-name"><em>& <%= walk.user.first_name %></em></p>

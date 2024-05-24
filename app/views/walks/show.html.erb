@@ -3,17 +3,31 @@
   <button class="back-arrow-show"><i class="fa-solid fa-arrow-left"></i></button>
 <% end %>
   <!-- PHOTO DU CHIEN -->
-  <div class="d-flex justify-content-center dog-pic">
-    <%= cl_image_tag @walk.user.dogs.first.photo.key %>
-  </div>
-  <p><i class="fa-solid fa-hourglass-start"></i> <%= @walk.duration %></p>
+  <% if current_user.dogs.first.photo.attached? %>
+    <div class="d-flex justify-content-center dog-pic">
+      <%= cl_image_tag @walk.user.dogs.first.photo.key %>
+    </div>
+    <p><i class="fa-solid fa-hourglass-start"></i> <%= @walk.duration %></p>
+  <% else %>
+    <div class="d-flex justify-content-center dog-pic">
+        <%= image_tag "logo_without_dog.png" %>
+    </div>
+    <p><i class="fa-solid fa-hourglass-start"></i> <%= @walk.duration %></p>
+  <% end %>
 </div>
+
 <div class="container">
   <div class="show-content">
    <!-- AVATAR PROPRIETAIRE -->
+    <% if current_user.photo.attached? %>
     <div class="avatar-name-show avatar-name d-flex">
       <%= cl_image_tag @walk.user.photo.key %>
     </div>
+    <% else %>
+      <div class="avatar-name-show avatar-name d-flex">
+        <%= image_tag "logo_without_user.png" %>
+      </div>
+    <% end %>
     <!-- NOM CHIEN ET PROPRIETAIRE -->
     <div class="name-dog-owner">
       <h2><%= @walk.user.dogs.first.name %></h2>

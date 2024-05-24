@@ -4,7 +4,11 @@
         <!-- WALK CARD -->
         <div class="walk-card home-index home">
           <div class="container-dog-photo">
-            <%= cl_image_tag(random_walk.user.dogs.first.photo.key) %>
+            <% if random_walk.user.dogs.first.photo.attached? %>
+             <%= cl_image_tag(random_walk.user.dogs.first.photo.key) %>
+            <% else %>
+              <%= image_tag("logo_without_dog.png") %>
+            <% end %>
             <div class="walk-card-stickers">
               <p><i class="fa-solid fa-hourglass-start"></i> <%= random_walk.duration %></p>
             </div>
@@ -12,7 +16,11 @@
           <div class="walk-card-content home-index home">
             <div class="card-head">
               <div class="avatar-name">
-                <%= cl_image_tag(random_walk.user.photo.key) %>
+                <% if random_walk.user.photo.attached? %>
+                    <%= cl_image_tag(random_walk.user.photo.key) %>
+                <% else %>
+                    <%= image_tag("logo_without_user.png") %>
+                <% end %>
                 <div class="d-flex">
                   <h2><%= random_walk.user.dogs.first.name %></h2>
                   <p class="dog-name"><em>& <%= random_walk.user.first_name %></em></p>

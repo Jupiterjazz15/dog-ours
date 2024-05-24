@@ -56,7 +56,11 @@
                 <div class="t-info-dog-pic">
                   <%= cl_image_tag walk.user.dogs.first.photo.key %>
                   <div class="avatar-dashcard">
-                    <%= cl_image_tag walk.user.photo.key %>
+                    <% if current_user.photo.attached? %>
+                      <p><%= cl_image_tag current_user.photo.key%></p>
+                    <% else %>
+                      <p><%= image_tag "logo_without_user.png" %></p>
+                    <% end %>
                   </div>
                 </div>
                 <div class="t-content-info py-2">
