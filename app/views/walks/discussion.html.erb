@@ -1,18 +1,24 @@
-<div class="messages" data-walk-subscription-target="messages"></div>
+<div class="messages" data-walk-subscription-target="messages">
+</div>
 
 <div class="mt-4">
   <div class="walk"
     data-controller="walk-subscription"
     data-walk-subscription-walk-id-value="<%= @walk.id %>"
     data-walk-subscription-current-user-id-value="<%= current_user.id %>">
+
     <div class="d-flex align-items-center background-color pb-2">
-      <%= link_to bookings_path do  %>
+      <%= link_to bookings_path do %>
         <div>
-          <button class="back-arrow bacground-back-arrow py-1" ><i class="fa-solid fa-arrow-left"></i></button>
+          <button class="back-arrow-msg py-1" >
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
         </div>
       <% end %>
       <h3 class="title-message"><%= @walk.name.upcase %></h3>
     </div>
+
+    <!-- ESPACE DISCUSSION -->
     <div class="messages background-color" data-walk-subscription-target="messages">
       <% @walk.messages.each do |message| %>
         <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
@@ -22,6 +28,8 @@
         </div>
       <% end %>
     </div>
+    
+    <!-- ESPACE ENVOI MSG-->
     <%= simple_form_for [@booking, @message], html: { data: { action: "turbo:submit-end->walk-subscription#resetForm" }, class: "d-flex" } do |f| %>
       <%= f.input :content, label: false, placeholder: "Message #", wrapper_html: {class: "flex-grow-1"} %>
       <%= f.submit "Wouff", class: "btn btn-secondary mb-3 mx-1 send-button" %>

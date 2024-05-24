@@ -11,7 +11,7 @@
 
     <% if current_user.dogs.first.photo.attached? %>
       <%= link_to edit_dog_path(current_user.dogs.first.id) do %>
-        <p><%= cl_image_tag current_user.dogs.photo.key, class: "avatar dog" %></p>
+        <p><%= cl_image_tag current_user.dogs.first.photo.key, class: "avatar dog" %></p>
       <% end %>
     <% else %>
       <%= link_to new_dog_path do %>

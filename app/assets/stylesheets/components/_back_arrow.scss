@@ -8,6 +8,13 @@
   position: absolute;
 }
 
+.back-arrow-msg {
+  border: none;
+  background-color: unset;
+  font-size: 30px;
+  margin: 0 10px;
+}
+
 .back-arrow-show {
   position: absolute;
   top: 10px;
@@ -16,18 +23,6 @@
   background-color: unset;
   font-size: 30px;
   margin: 0 10px;
-}
-
-.bacground-back-arrow {
-  background-color: #5C6CFF;
-  border-radius: 10px;
-  max-width: 41px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  // position: absolute;
-  // top: -7px;
-  // left: 10px
 }
 
 .fa-solid.fa-arrow-left {
