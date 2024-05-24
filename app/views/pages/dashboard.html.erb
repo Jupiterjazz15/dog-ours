@@ -9,14 +9,18 @@
       <% end %>
     <% end %>
 
-    <% if current_user.dogs.first.photo.attached? %>
-      <%= link_to edit_dog_path(current_user.dogs.first.id) do %>
-        <p><%= cl_image_tag current_user.dogs.first.photo.key, class: "avatar dog" %></p>
-      <% end %>
-    <% else %>
+    <% if current_user.dogs.first == nil %>
       <%= link_to new_dog_path do %>
         <p><%= image_tag "logo_without_dog.png", class: "avatar dog" %></p>
       <% end %>
+    <% elsif current_user.dogs.first != nil && current_user.dogs.first.photo.attached? %>
+      <%= link_to edit_dog_path(current_user.dogs.first.id) do %>
+        <p><%= cl_image_tag current_user.dogs.first.photo.key, class: "avatar dog" %></p>
+      <% end %>
+      <% else %>
+        <%= link_to new_dog_path do %>
+          <p><%= image_tag "logo_without_dog.png", class: "avatar dog" %></p>
+       <% end %>
     <% end %>
 
   </div>
@@ -54,7 +58,19 @@
             <div class="t-card">
               <div class="t-info d-flex">
                 <div class="t-info-dog-pic">
-                  <%= cl_image_tag walk.user.dogs.first.photo.key %>
+                  <% if current_user.dogs.first == nil %>
+                    <%= link_to new_dog_path do %>
+                      <p><%= image_tag "logo_without_dog.png", class: "avatar dog" %></p>
+                    <% end %>
+                  <% elsif current_user.dogs.first != nil && current_user.dogs.first.photo.attached? %>
+                    <%= link_to edit_dog_path(current_user.dogs.first.id) do %>
+                      <p><%= cl_image_tag current_user.dogs.first.photo.key, class: "avatar dog" %></p>
+                    <% end %>
+                  <% else %>
+                    <%= link_to new_dog_path do %>
+                      <p><%= image_tag "logo_without_dog.png", class: "avatar dog" %></p>
+                    <% end %>
+                  <% end %>
                   <div class="avatar-dashcard">
                     <% if current_user.photo.attached? %>
                       <p><%= cl_image_tag current_user.photo.key%></p>
@@ -62,6 +78,7 @@
                       <p><%= image_tag "logo_without_user.png" %></p>
                     <% end %>
                   </div>
+
                 </div>
                 <div class="t-content-info py-2">
                   <h3 class="title"> <%= walk.name %> </h3>
@@ -87,4 +104,4 @@
         <% end %></p>
       </div>
     </div>
-  </div>
+</div>

@@ -1,18 +1,21 @@
 <%= link_to walk_path(walk), class: "info-window-content" do %>
       <div class="walk-card">
         <div class="container-dog-photo">
-         <% if walk.user.dogs.first.photo.attached? %>
+         <% if walk.user.dogs.first != nil && walk.user.dogs.first.photo.attached? %>
+          <%= cl_image_tag walk.user.dogs.first.photo.key %>
             <%= cl_image_tag walk.user.dogs.first.photo.key %>
           <% else %>
-            <%= image_tag "default_dog_photo.png" %>
+            <%= image_tag "logo_without_dog.png" %>
           <% end %>
 
         <div class="walk-card-content">
           <div class="card-head">
               <div class="avatar-name-info">
                 <div class="d-flex">
+                 <% if walk.user.dogs.first != nil %>
                   <h2><%= walk.user.dogs.first.name %></h2>
                   <p class="dog-name"><em>& <%= walk.user.first_name %></em></p>
+                  <% end %>
                 </div>
               </div>
 

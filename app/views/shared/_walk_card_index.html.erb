@@ -6,7 +6,11 @@
       <!-- WALK CARDS -->
       <div class="walk-card home-index">
         <div class="container-dog-photo">
+        <% if walk.user.dogs.first != nil && walk.user.dogs.first.photo.attached? %>
           <%= cl_image_tag walk.user.dogs.first.photo.key %>
+        <% else %>
+          <%= image_tag "logo_without_dog.png", class: "avatar dog" %>
+        <% end %>
           <div class="walk-card-stickers">
             <p><i class="fa-solid fa-hourglass-start"></i> <%= walk.duration %></p>
           </div>
@@ -20,7 +24,9 @@
               <%= image_tag "logo_without_user.png" %>
             <% end %>
               <div class="d-flex">
+               <% if walk.user.dogs.first != nil %>
                 <h2><%= walk.user.dogs.first.name %></h2>
+                <% end %>
                 <p class="dog-name"><em>& <%= walk.user.first_name %></em></p>
               </div>
             </div>

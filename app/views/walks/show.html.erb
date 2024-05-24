@@ -3,7 +3,7 @@
   <button class="back-arrow-show"><i class="fa-solid fa-arrow-left"></i></button>
 <% end %>
   <!-- PHOTO DU CHIEN -->
-  <% if current_user.dogs.first.photo.attached? %>
+  <% if @walk.user.dogs.first != nil && @walk.user.dogs.first.photo.attached? %>
     <div class="d-flex justify-content-center dog-pic">
       <%= cl_image_tag @walk.user.dogs.first.photo.key %>
     </div>
@@ -19,10 +19,10 @@
 <div class="container">
   <div class="show-content">
    <!-- AVATAR PROPRIETAIRE -->
-    <% if current_user.photo.attached? %>
-    <div class="avatar-name-show avatar-name d-flex">
-      <%= cl_image_tag @walk.user.photo.key %>
-    </div>
+    <% if @walk.user.photo.attached? %>
+      <div class="avatar-name-show avatar-name d-flex">
+        <%= cl_image_tag @walk.user.photo.key %>
+      </div>
     <% else %>
       <div class="avatar-name-show avatar-name d-flex">
         <%= image_tag "logo_without_user.png" %>
@@ -30,15 +30,19 @@
     <% end %>
     <!-- NOM CHIEN ET PROPRIETAIRE -->
     <div class="name-dog-owner">
+    <% if @walk.user.dogs.first != nil %>
       <h2><%= @walk.user.dogs.first.name %></h2>
       <p class="px-1"><em>& <%= @walk.user.first_name %></em></p>
+    <% end %>
     </div>
     <!-- INFO DOG -->
     <div class="info-dog justify-content-between">
       <div class="info-doggy d-flex">
+      <% if @walk.user.dogs.first != nil %>
         <p class="dog-size"><i class="fa-solid fa-ruler-vertical"></i> <%= @walk.user.dogs.first.size %></p>
         <p class="dog-breed"><i class="fa-solid fa-dog"></i> <%= @walk.user.dogs.first.breed.content %></p>
       </div>
+      <% end %>
       <div class="d-flex align-items-center justify-content-end">
         <div class="icon-style">
           <% if policy(@walk).edit? %>

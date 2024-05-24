@@ -4,7 +4,7 @@
         <!-- WALK CARD -->
         <div class="walk-card home-index home">
           <div class="container-dog-photo">
-            <% if random_walk.user.dogs.first.photo.attached? %>
+            <% if random_walk.user.dogs.first != nil && random_walk.user.dogs.first.photo.attached? %>
              <%= cl_image_tag(random_walk.user.dogs.first.photo.key) %>
             <% else %>
               <%= image_tag("logo_without_dog.png") %>
@@ -22,8 +22,10 @@
                     <%= image_tag("logo_without_user.png") %>
                 <% end %>
                 <div class="d-flex">
+                 <% if random_walk.user.dogs.first != nil %>
                   <h2><%= random_walk.user.dogs.first.name %></h2>
                   <p class="dog-name"><em>& <%= random_walk.user.first_name %></em></p>
+                <% end %>
                 </div>
               </div>
             </div>

@@ -1,7 +1,11 @@
 <%= link_to walk_path(walk) do %>
       <div class="walk-card">
         <div class="container-dog-photo">
+        <% if current_user.dogs.first != nil && walk.user.dogs.first.photo.attached? %>
           <%= cl_image_tag walk.user.dogs.first.photo.key %>
+        <% else %>
+          <%= image_tag "logo_without_dog.png"%>
+        <% end %>
           <p><i class="fa-solid fa-hourglass-start"></i> <%= walk.duration %></p>
         </div>
         <div class="walk-card-content">
@@ -13,8 +17,10 @@
                 <%= image_tag "logo_without_user.png" %>
               <% end %>
               <div class="d-flex">
+              <% if current_user.dogs.first != nil %>
                 <h2><%= walk.user.dogs.first.name %></h2>
                 <p class="dog-name"><em>& <%= walk.user.first_name %></em></p>
+              <% end %>
               </div>
             </div>
           </div>

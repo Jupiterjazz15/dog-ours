@@ -1,6 +1,7 @@
 class WalksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_walk, only: %i[show edit update destroy]
+  before_action :check_user_has_dog, only: %i[new create]
 
   def index
     @walks = Walk.all
@@ -73,7 +74,7 @@ class WalksController < ApplicationController
     if @walk.save
       redirect_to dashboard_path
     else
-      render :edit, status: :unprocessable_entity 
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -94,6 +95,14 @@ class WalksController < ApplicationController
 
   def set_walk
     @walk = Walk.find(params[:id])
+  end
+
+  def check_user_has_dog
+    @user_has_dog = user_has_dog?
+  end
+
+  def user_has_dog?
+    current_user.dogs.any?
   end
 
   def walk_params
