@@ -24,6 +24,7 @@
     <% end %>
 
   </div>
+
  <!-- PROFILE NAME -->
   <div class="user-info-dashboard d-flex">
       <% if current_user.has_a_dog? %>
@@ -56,38 +57,36 @@
           <p class="px-4 mb-0"> <%= walk.start_time.strftime("%e/%m - %H:%M") %> </p>
           <%= link_to(walk_path(walk)) do %>
             <div class="t-card">
-              <div class="t-info d-flex">
-                <div class="t-info-dog-pic">
-                  <% if current_user.dogs.first == nil %>
-                    <%= link_to new_dog_path do %>
-                      <p><%= image_tag "logo_without_dog.png", class: "avatar dog" %></p>
-                    <% end %>
-                  <% elsif current_user.dogs.first != nil && current_user.dogs.first.photo.attached? %>
-                    <%= link_to edit_dog_path(current_user.dogs.first.id) do %>
-                      <p><%= cl_image_tag current_user.dogs.first.photo.key, class: "avatar dog" %></p>
-                    <% end %>
-                  <% else %>
-                    <%= link_to new_dog_path do %>
-                      <p><%= image_tag "logo_without_dog.png", class: "avatar dog" %></p>
-                    <% end %>
-                  <% end %>
-                  <div class="avatar-dashcard">
-                    <% if current_user.photo.attached? %>
-                      <p><%= cl_image_tag current_user.photo.key%></p>
-                    <% else %>
-                      <p><%= image_tag "logo_without_user.png" %></p>
-                    <% end %>
-                  </div>
+              <div class="t-info">
 
+                <div class="t-info-dog-pic">
+                  <% if walk.user.dogs.first == nil %>
+                    <%= image_tag "logo_without_dog.png", class: "avatar dog" %>
+                  <% elsif walk.user.dogs.first != nil && walk.user.dogs.first.photo.attached? %>
+                    <%= cl_image_tag walk.user.dogs.first.photo.key%>
+                  <% else %>
+                      <%= image_tag "logo_without_dog.png", class: "avatar dog" %>
+                  <% end %>
                 </div>
+
+                 <div class="avatar-dashcard">
+                  <% if walk.user.photo.attached? %>
+                    <%= cl_image_tag  walk.user.photo.key%>
+                  <% else %>
+                    <%= image_tag "logo_without_user.png" %>
+                  <% end %>
+                </div>
+
                 <div class="t-content-info py-2">
                   <h3 class="title"> <%= walk.name %> </h3>
                   <p><em><%= walk.starting_point %></em></p>
                   <p><%= walk.duration %></p>
                 </div>
+
                 <div class="arrow-show">
                   <i class="fa-solid fa-arrow-right"></i>
                 </div>
+
               </div>
             </div>
           <% end %>
