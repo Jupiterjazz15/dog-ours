@@ -18,7 +18,7 @@
       <h3 class="title-message"><%= @walk.name.upcase %></h3>
     </div>
 
-    <!-- ESPACE DISCUSSION -->
+    <!-- ESPACE AVEC BULLES DE DISCUSSION -->
     <div class="messages background-color" data-walk-subscription-target="messages">
       <% @walk.messages.each do |message| %>
         <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
@@ -28,7 +28,7 @@
         </div>
       <% end %>
     </div>
-    
+
     <!-- ESPACE ENVOI MSG-->
     <%= simple_form_for [@booking, @message], html: { data: { action: "turbo:submit-end->walk-subscription#resetForm" }, class: "d-flex" } do |f| %>
       <%= f.input :content, label: false, placeholder: "Message #", wrapper_html: {class: "flex-grow-1"} %>
