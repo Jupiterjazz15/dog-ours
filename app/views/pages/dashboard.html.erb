@@ -58,7 +58,6 @@
           <%= link_to(walk_path(walk)) do %>
             <div class="t-card">
               <div class="t-info">
-
                 <div class="t-info-dog-pic">
                   <% if walk.user.dogs.first == nil %>
                     <%= image_tag "logo_without_dog.png", class: "avatar dog" %>
@@ -68,7 +67,6 @@
                       <%= image_tag "logo_without_dog.png", class: "avatar dog" %>
                   <% end %>
                 </div>
-
                  <div class="avatar-dashcard">
                   <% if walk.user.photo.attached? %>
                     <%= cl_image_tag  walk.user.photo.key%>
@@ -76,17 +74,14 @@
                     <%= image_tag "logo_without_user.png" %>
                   <% end %>
                 </div>
-
                 <div class="t-content-info py-2">
                   <h3 class="title"> <%= walk.name %> </h3>
                   <p><em><%= walk.starting_point %></em></p>
                   <p><%= walk.duration %></p>
+                  <% if walk.user == current_user %>
+                    <p><%= walk.frequency %></p>
+                  <% end %>
                 </div>
-
-                <div class="arrow-show">
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-
               </div>
             </div>
           <% end %>
