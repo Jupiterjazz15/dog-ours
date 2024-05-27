@@ -1,7 +1,8 @@
 <%= simple_form_for (@walk) do |f| %>
   <div class="form-inputs fix_padding_navbar_bottom">
     <%= f.input :name, label: false, placeholder: "Name of your walk" %>
-    <%= f.input :starting_point, placeholder: "From"%>
+    <%= f.input :starting_point,
+                placeholder: "Arrondissement is mandatory"%>
 
     <%= f.input :duration,
                 as: :radio_buttons,
@@ -9,7 +10,10 @@
                 item_wrapper_class: 'tag-item',
                 collection: Walk::DURATIONS%>
 
-    <%= f.input :start_time, as: :string, input_html: { data: { controller: "datepicker", datepicker_min_date_value: "today" } } %>
+    <%= f.input :start_time,
+                as: :string,
+                input_html: { data: { controller: "datepicker",
+                datepicker_target: "dateTime" } } %>
 
     <%= f.input :difficulty,
                 as: :radio_buttons,
@@ -31,10 +35,9 @@
                 input_html: { class: "tag-selector" },
                 item_wrapper_class: 'tag-item',
                 collection: Walk::PARTICIPANTS%>
-    <% if local_assigns[:for_walk] %>
-    <%= f.button :submit, "Publish", class: "btn create-button" %>
-    <% else %>
-    <%= f.button :submit, "Update", class: "btn create-button" %>
-    <% end %>
-  </div>
+
+    <div class="mt-2">
+      <%= f.button :submit, !for_walk ? "Update" : "Publish", class: "btn create-button" %>
+    </div>
+
 <% end  %>
