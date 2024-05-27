@@ -9,7 +9,7 @@
       <% end %>
     <% end %>
 
-    <% if current_user.dogs.first == nil %>
+    <% if current_user.dogs.first.nil? %>
       <%= link_to new_dog_path do %>
         <p><%= image_tag "logo_without_dog.png", class: "avatar dog" %></p>
       <% end %>
@@ -17,10 +17,10 @@
       <%= link_to edit_dog_path(current_user.dogs.first.id) do %>
         <p><%= cl_image_tag current_user.dogs.first.photo.key, class: "avatar dog" %></p>
       <% end %>
-      <% else %>
-        <%= link_to new_dog_path do %>
-          <p><%= image_tag "logo_without_dog.png", class: "avatar dog" %></p>
-       <% end %>
+    <% else %>
+      <%= link_to edit_dog_path(current_user.dogs.first.id) do %>
+        <p><%= image_tag "logo_without_dog.png", class: "avatar dog" %></p>
+      <% end %>
     <% end %>
 
   </div>
