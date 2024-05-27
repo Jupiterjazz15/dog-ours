@@ -20,11 +20,6 @@
                   hint: "MANDATORY to confirm any of your changes",
                   input_html: { autocomplete: "new-password" } %>
 
-      <%= f.input :password_confirmation,
-                  required: true,
-                  hint: "MANDATORY to confirm any of your changes",
-                  input_html: { autocomplete: "new-password" } %>
-
       <%= f.input :current_password,
                 hint: "MANDATORY to confirm any of your changes",
                 required: true,
@@ -54,10 +49,6 @@
       </div>
     </div>
     <% end %>
-  </div>
-
-  <div class="mt-4">
-    <%= link_to "Change my password", edit_user_password_path %>
   </div>
 
   <div class="mt-2">
