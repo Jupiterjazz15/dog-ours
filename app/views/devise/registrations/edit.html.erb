@@ -49,8 +49,8 @@
                   as: :string,
                   input_html: { data: { controller: "datepicker", datepicker_target: "date" } }%>
 
-      <div class="form-actions">
-        <%= f.button :submit, "Update" %>
+      <div class="mt-2">
+        <%= f.button :submit, "Update", class: "btn create-button" %>
       </div>
     </div>
     <% end %>
@@ -60,8 +60,8 @@
     <%= link_to "Change my password", edit_user_password_path %>
   </div>
 
-  <div>
-    <%= link_to "Cancel your account", user_registration_path, method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure? It is irreversible" }, class: "btn delete-button-dog" %>
+  <div class="mt-2">
+    <%= link_to "Cancel your account", user_registration_path, method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure? It is irreversible" } %>
   </div>
 
   <div class="mt-2">
