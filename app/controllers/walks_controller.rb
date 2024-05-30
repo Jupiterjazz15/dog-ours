@@ -106,7 +106,7 @@ class WalksController < ApplicationController
   end
 
   def walk_params
-    params.require(:walk).permit(:starting_point, :difficulty, :description, :start_time, :duration, :frequency, :number_of_participant, :name)
+    params.require(:walk).permit(:starting_point, :difficulty, :description, :start_time, :duration, :frequency, :number_of_participant, :name, :dog_id)
   end
 
   def create_dependent_walks_for(walk)
@@ -124,7 +124,8 @@ class WalksController < ApplicationController
           longitude: walk.longitude,
           latitude: walk.latitude,
           user: walk.user,
-          parent: walk
+          parent: walk,
+          dog: walk.dog
         )
       end
     when "Every other day"
@@ -140,7 +141,8 @@ class WalksController < ApplicationController
           longitude: walk.longitude,
           latitude: walk.latitude,
           user: walk.user,
-          parent: walk
+          parent: walk,
+          dog: walk.dog
         )
       end
     else

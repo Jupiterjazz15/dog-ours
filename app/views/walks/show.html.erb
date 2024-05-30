@@ -75,18 +75,19 @@
     <div class="walk-description">
       <p class="name-walk"><%= @walk.name %></p>
       <p><%= @walk.description %></i></p>
+      <!-- INFOS PARTICIPANT DE LA WALK -->
        <% if @walk.participants.any? %>
         <div class="d-flex align-items-center justify-content-start">
           <% @walk.participants.where.not(id: @walk.user.id).each do |participant| %>
-            <% if participant.bookings.find_by(walk: @walk).status == 'pending' %>
+            <% if participant.bookings.find_by(walk: @walk).status == 'pending' && participant.photo.key? %>
               <div class="d-flex flex-column align-items-center justify-content-center pe-3">
                 <%= cl_image_tag participant.photo.key, class:"avatar border-success-avatar" %>
                 <p><%= participant.first_name %></p>
               </div>
             <% else %>
               <div class="d-flex flex-column align-items-center justify-content-center pe-3">
-                <%= cl_image_tag participant.photo.key, class:"avatar", style:"opacity:50%" %>
-                <p style="opacity:50%"><%= participant.first_name %></p>
+                <%= image_tag "logo_without_user.png", class:"avatar border-success-avatar" %>
+                <p><%= participant.first_name %></p>
               </div>
             <% end %>
           <% end %>
