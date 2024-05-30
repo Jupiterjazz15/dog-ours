@@ -30,9 +30,12 @@ class PagesController < ApplicationController
     @created_walk = params[:created_walk] == "true"
     @created_booking = params[:created_booking] == "true"
     @walks = current_user.walks.order(start_time: :asc)
-    @bookings = current_user.bookings.map(&:walk)
+    @my_bookings = current_user.bookings.map(&:walk)
+    if params[:id].present?
+      @booking = Booking.find(params[:id])
+    end
     @my_walks = Walk.where(user: current_user, parent_id: nil)
-    @dashboard_walks = (@my_walks + @bookings).sort_by(&:start_time)
+    @dashboard_walks = (@my_walks + @my_bookings).sort_by(&:start_time)
   end
 
   def mywalks

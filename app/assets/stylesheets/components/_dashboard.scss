@@ -128,21 +128,23 @@
   box-shadow: 0 0 2px grey;
 
   h3 {
+    color: black;
     margin-top: 0.5em;
     font-size: 20px;
     margin-bottom: 4px;
   }
 
   p {
+    color: black;
     padding-bottom: 0rem;
     margin-bottom: 4px;
     text-overflow: ellipsis;
   }
 
-  .arrow-show {
+  .trash-dashboard {
     position: absolute;
-    bottom: 8px;
-    right: 20px;
+    bottom: 6px;
+    right: 12px;
     font-size: 22px;
   }
 }
@@ -164,6 +166,8 @@
 }
 
 .t-info-dog-pic {
+  height: 100%;
+
   img {
     width: 120px;
     height: 100%;

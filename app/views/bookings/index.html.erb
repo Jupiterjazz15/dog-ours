@@ -4,28 +4,24 @@
   </div>
   <h2 class="text-center line-separator">Chats with Dogbuddies </h2>
 
-
   <% @bookings.each do |booking| %>
-  <%= link_to discussion_walk_path(booking.walk) do %>
-    <div class="d-flex container-messages">
-      <div class="d-flex" style="align-items: center;">
-        <div class="avatar-name-messagerie">
-          <% if booking.walk.user.photo.attached? %>
-            <%= cl_image_tag booking.walk.user.photo.key %>
-          <% else %>
-            <%= image_tag "logo_without_user.png" %>
-          <% end %>
-        </div>
-        <div class="info-message">
-          <h4 class="walk-title"> <%= booking.walk.name.capitalize %></h4>
-          <h5><%= booking.walk.user.first_name %> <em>& <%= booking.walk.user.dogs.first.name %></em></h5>
-          <p><em><%= booking.walk.messages.last&.content %></em></p>
+    <%= link_to discussion_walk_path(booking.walk) do %>
+      <div class="d-flex container-messages">
+        <div class="d-flex" style="align-items: center;">
+          <div class="avatar-name-messagerie">
+            <% if booking.walk.user.photo.attached? %>
+              <%= cl_image_tag booking.walk.user.photo.key %>
+            <% else %>
+              <%= image_tag "logo_without_user.png" %>
+            <% end %>
+          </div>
+          <div class="info-message">
+            <h4 class="walk-title"> <%= booking.walk.name.capitalize %></h4>
+            <h5><%= booking.walk.user.first_name %> <em>& <%= booking.walk.user.dogs.first.name %></em></h5>
+            <p><em><%= booking.walk.messages.last&.content %></em></p>
+          </div>
         </div>
       </div>
-      <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} do %>
-      <i class="fa-solid fa-trash-can"></i>
-      <% end %>
-    </div>
-  <% end %>
+     <% end %>
   <% end %>
 </div>
