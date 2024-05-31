@@ -12,7 +12,7 @@
 }
 
 .walk-card {
-  height: 300px;
+  height: 275px;
   margin-top: 20px;
   margin-bottom: 1em;
   margin-inline: 3px;
@@ -84,7 +84,7 @@
   background: #F4F4F9;
   border-radius: 20px;
   position: relative;
-  height: 140px;
+  height: 114px;
 }
 
 .walk-card-content.home-index {
@@ -137,6 +137,8 @@
   height: auto;
   overflow: auto;
   padding-top: 0.5em;
+  padding-right: 0.75em;
+
 
   .info-walk-address {
     width: 160px;
