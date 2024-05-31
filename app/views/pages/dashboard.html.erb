@@ -25,10 +25,10 @@
     <% end %>
   </div>
 
-  <!-- NOMS CURRENT USER & DE SON CHIEN -->
+  <!-- NOM CURRENT USER & DE SON CHIEN -->
   <div class="user-info-dashboard d-flex">
       <% if current_user.has_a_dog? %>
-        <p class="dashboard-name"> <%= "#{current_user.first_name} & #{current_user.dogs.first.name}"%></p>
+        <h2 class="dashboard-name"><%= "#{current_user.first_name} & #{current_user.dogs.first.name}"%></h2>
       <% else %>
       <p class="dashboard-name"> <%= "#{current_user.first_name}"%></p>
       <% end %>
