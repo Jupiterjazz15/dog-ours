@@ -40,8 +40,8 @@ class WalksController < ApplicationController
         {
           lat: @walk.latitude,
           lng: @walk.longitude,
-          marker_html: render_to_string(partial: "marker", locals: { walk: @walk }),
-          info_window_html: render_to_string(partial: "info_window", locals: { walk: @walk })
+          info_window_html: render_to_string(partial: "info_window", locals: { walk: @walk }),
+          marker_html: render_to_string(partial: "marker", locals: { walk: @walk })
         }
       ]
     end
