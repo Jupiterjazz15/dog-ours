@@ -3,6 +3,7 @@
       <%= link_to walk_path(random_walk) do %>
         <!-- WALK CARD -->
         <div class="walk-card home-index home">
+          <!-- HAUT DE LA CARD -->
           <div class="container-dog-photo">
             <% if random_walk.user.dogs.first != nil && random_walk.user.dogs.first.photo.attached? %>
              <%= cl_image_tag(random_walk.user.dogs.first.photo.key) %>
@@ -13,13 +14,15 @@
               <p><i class="fa-solid fa-hourglass-start"></i> <%= random_walk.duration %></p>
             </div>
           </div>
+          <!-- BAS DE LA CARD -->
           <div class="walk-card-content home-index home">
+            <!-- AVATAR & NOMS -->
             <div class="card-head">
               <div class="avatar-name">
                 <% if random_walk.user.photo.attached? %>
-                    <%= cl_image_tag(random_walk.user.photo.key) %>
+                  <%= cl_image_tag(random_walk.user.photo.key) %>
                 <% else %>
-                    <%= image_tag("logo_without_user.png") %>
+                  <%= image_tag("logo_without_user.png") %>
                 <% end %>
                 <div class="d-flex">
                  <% if random_walk.user.dogs.first != nil %>
@@ -29,6 +32,7 @@
                 </div>
               </div>
             </div>
+            <!-- INFOS DE LA WALK -->
             <div class="info-walk-card">
               <p class="info-walk-address"><i class="fa-solid fa-location-pin"></i> <%= random_walk.starting_point %></p>
               <p><i class="fa-regular fa-clock"></i> <%= random_walk.start_time.strftime("%e/%m - %H:%M") %></p>
