@@ -1,6 +1,10 @@
 <%= simple_form_for (@walk) do |f| %>
+
   <div class="form-inputs fix_padding_navbar_bottom">
-    <%= f.input :name, label: false, placeholder: "Name of your walk" %>
+    <%= f.input :name,
+                label: false,
+                placeholder: "Name of your walk" %>
+
     <%= f.input :starting_point,
                 placeholder: "Arrondissement is mandatory"%>
 
@@ -21,7 +25,9 @@
                 item_wrapper_class: 'tag-item',
                 collection: Walk::DIFFICULTIES%>
 
-    <%= f.input :description, label: false, placeholder: "Description" %>
+    <%= f.input :description,
+                label: false,
+                placeholder: "Description" %>
 
     <%= f.input :frequency,
                 as: :radio_buttons,
@@ -41,5 +47,5 @@
     <div class="mt-2">
       <%= f.button :submit, !for_walk ? "Update" : "Publish", class: "btn create-button" %>
     </div>
-
+  </div>
 <% end  %>
