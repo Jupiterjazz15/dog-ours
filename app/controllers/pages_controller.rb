@@ -2,6 +2,13 @@ class PagesController < ApplicationController
   def welcome
   end
 
+  def error
+    render file: "#{Rails.root}/public/error.html", layout: false
+  end
+
+  def timeout
+  end
+
   def home
     if user_signed_in?
       walk_ids = Walk.select("user_id, min(id) as id").

@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get "/myprofile", to: "pages#myprofile"
   get "/mywalks", to: "pages#mywalks"
   get "/myrequest", to: "pages#myrequest"
+  get '/error', to: 'pages#error'
+  get '/timeout', to: 'pages#timeout'
 
   resources :dogs
 
