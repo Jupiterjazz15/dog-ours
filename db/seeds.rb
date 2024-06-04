@@ -73,7 +73,7 @@ dog5 = Dog.create!(name: "Mac", description: "A kind and joyful dog!", birth_dat
 file = URI.open("https://www.animaleco.com/wp-content/uploads/2023/03/175023298_m.jpg")
 dog5.photo.attach(io: file, filename: "dog.jpg", content_type: "image/jpeg")
 
-Walk.create!(name: "Walk in 75017", starting_point: "175 Avenue de Wagram, 75017, Paris, France", duration: "1 h", start_time: DateTime.new(2024,03,18,13,00), difficulty: "Medium", description: "A long walk to expend energy" , frequency: "Once",number_of_participant: "3", user_id: User.fifth.id, dog_id: dog5.id)
+Walk.create!(name: "Walk in 75017", starting_point: "175 Avenue de Wagram, 75017, Paris, France", duration: "1 h", start_time: DateTime.new(2024,07,18,13,00), difficulty: "Medium", description: "A long walk to expend energy" , frequency: "Once",number_of_participant: "3", user_id: User.fifth.id, dog_id: dog5.id)
 
 p "#{User.fifth.first_name} has #{Walk.where(user_id: User.fifth.id).count} walk(s)"
 
@@ -87,7 +87,7 @@ dog6 = Dog.create!(name: "Will", description: "The best dog!", birth_date: Date.
 file = URI.open("https://lemagduchien.ouest-france.fr/images/dossiers/2018-10/kangal-1-134823.jpg")
 dog6.photo.attach(io: file, filename: "dog.jpg", content_type: "image/jpeg")
 
-Walk.create!(name: "Walk in 75020", starting_point: "16 Rue Ramponeau, 75020, Paris, France", duration: "30 min", start_time: DateTime.new(2024,03,20,17,30), difficulty: "Medium", description: "A long walk with special spot to play" , frequency: "Once",number_of_participant: "2", user_id: user6.id, dog_id: dog6.id)
+Walk.create!(name: "Walk in 75020", starting_point: "16 Rue Ramponeau, 75020, Paris, France", duration: "30 min", start_time: DateTime.new(2024,07,02,17,30), difficulty: "Medium", description: "A long walk with special spot to play" , frequency: "Once",number_of_participant: "2", user_id: user6.id, dog_id: dog6.id)
 
 p "#{user6.first_name} has #{Walk.where(user_id: user6.id).count} walk(s)"
 
@@ -101,7 +101,7 @@ dog7 = Dog.create!(name: "Bretzel", description: "She has so much energy!", birt
 file = URI.open("https://www.kingpet.fr/ph/u/766721643537408/6401019845823116/be3bff0c84db51867cdc5a58996262031.jpg?align=54,43&v=31&fm=webp&w=1080&h=810&q=35")
 dog7.photo.attach(io: file, filename: "dog.webp", content_type: "image/webp")
 
-Walk.create!(name: "B. Vincennes ", starting_point: "26 Rue du Rendez-Vous, 75012, Paris, France", duration: "1 h", start_time: DateTime.new(2024,03,18,19,0), difficulty: "Medium", description: "A walk around the lac Daumesnil" , frequency: "Once",number_of_participant: "1", user_id: user7.id, dog_id: dog7.id)
+Walk.create!(name: "B. Vincennes ", starting_point: "26 Rue du Rendez-Vous, 75012, Paris, France", duration: "1 h", start_time: DateTime.new(2024,07,03,19,00), difficulty: "Medium", description: "A walk around the lac Daumesnil" , frequency: "Once",number_of_participant: "1", user_id: user7.id, dog_id: dog7.id)
 
 p "#{user7.first_name} has #{Walk.where(user_id: user7.id).count} walk(s)"
 
@@ -115,7 +115,7 @@ dog8 = Dog.create!(name: "Pirouette", description: "A very fun buddy!", birth_da
 file = URI.open("https://www.zooplus.fr/magazine/wp-content/uploads/2023/03/pinscher-nain-sur-une-couverture.jpg")
 dog8.photo.attach(io: file, filename: "dog.jpg", content_type: "image/jpeg")
 
-Walk.create!(name: "J. Luxembourg", starting_point: "9 Rue Férou, 75006, Paris, France", duration: "15 min", start_time: DateTime.new(2024,03,22,18,0), difficulty: "Low", description: "A walk in the jardin du Luxembourg", frequency: "Once",number_of_participant: "2", user_id: user8.id, dog_id: dog8.id)
+Walk.create!(name: "J. Luxembourg", starting_point: "9 Rue Férou, 75006, Paris, France", duration: "15 min", start_time: DateTime.new(2024,07,22,18,0), difficulty: "Low", description: "A walk in the jardin du Luxembourg", frequency: "Once",number_of_participant: "2", user_id: user8.id, dog_id: dog8.id)
 
 p "#{user8.first_name} has #{Walk.where(user_id: user8.id).count} walk(s)"
 
@@ -129,7 +129,7 @@ dog9 = Dog.create!(name: "Kiwi", description: "He is very kind and he loves to m
 file = URI.open("https://media-be.chewy.com/wp-content/uploads/2021/07/16074327/YorkshireTerrier-FeaturedImage.jpg")
 dog9.photo.attach(io: file, filename: "dog.jpg", content_type: "image/jpeg")
 
-Walk.create!(name: "Sqr Pablo-C", starting_point: "59 Rue de Lourmel, 75015, Paris, France", duration: "30 min", start_time: DateTime.new(2024,03,28,20,0), difficulty: "Low", description: "A walk in the Square Pablo-Casals" , frequency: "Once",number_of_participant: "1", user_id: user9.id, dog_id: dog9.id)
+Walk.create!(name: "Sqr Pablo-C", starting_point: "59 Rue de Lourmel, 75015, Paris, France", duration: "30 min", start_time: DateTime.new(2024,07,28,20,0), difficulty: "Low", description: "A walk in the Square Pablo-Casals" , frequency: "Once",number_of_participant: "1", user_id: user9.id, dog_id: dog9.id)
 
 p "#{user9.first_name} has #{Walk.where(user_id: user9.id).count} walk(s)"
 
@@ -143,7 +143,7 @@ dog10 = Dog.create!(name: "Pepito", description: "He is so fun and full of energ
 file = URI.open("https://www.chien.fr/assets/img/000/074/og-image/jack-russell-terrier.jpg")
 dog10.photo.attach(io: file, filename: "dog.jpg", content_type: "image/jpeg")
 
-Walk.create!(name: "P. G.Brassens", starting_point: "33 Rue de Cronstadt, 75015, Paris, France", duration: "15 min", start_time: DateTime.new(2024,03,23,13,0), difficulty: "Low", description: "A walk in the park Georges Brassens" , frequency: "Once", number_of_participant: "2", user_id: user10.id, dog_id: dog10.id)
+Walk.create!(name: "P. G.Brassens", starting_point: "33 Rue de Cronstadt, 75015, Paris, France", duration: "15 min", start_time: DateTime.new(2024,07,01,13,00), difficulty: "Low", description: "A walk in the park Georges Brassens" , frequency: "Once", number_of_participant: "2", user_id: user10.id, dog_id: dog10.id)
 
 p "#{user10.first_name} has #{Walk.where(user_id: user10.id).count} walk(s)"
 
