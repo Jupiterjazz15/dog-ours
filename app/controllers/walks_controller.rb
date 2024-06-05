@@ -6,7 +6,6 @@ class WalksController < ApplicationController
   def index
     @walks = Walk.all
     @walks = policy_scope(Walk)
-    # @walks = Walk.all # select * from walks
 
     if params[:query].present?
       @walks = @walks.where("starting_point ILIKE :query", query: "%#{params[:query]}%")

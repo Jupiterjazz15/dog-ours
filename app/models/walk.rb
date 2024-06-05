@@ -1,4 +1,6 @@
 class Walk < ApplicationRecord
+  validate :check_starting_point_format
+
   DURATIONS = ["15 min", "30 min", "1 h", "More than 1 h"]
   DIFFICULTIES = ["Low", "Medium", "Intense"]
   FREQUENCIES = ["Once", "Every day", "Every other day"]
@@ -22,11 +24,18 @@ class Walk < ApplicationRecord
   validates :number_of_participant, inclusion: { in: PARTICIPANTS }
   validates :name, length: { maximum: 16 }
   validates :starting_point, length: { maximum: 43 }
-  # GeoCoder
+
   geocoded_by :starting_point
   after_validation :geocode, if: :will_save_change_to_starting_point?
-  # Methode pour pour gérer une walk réucrrente ou non cad frequency = nil
+
   def recurring?
     frequency != nil
   end
+
+  def check_starting_point_format
+    unless starting_point.match?(/.*\d{5},\s*Paris,\s*France\z/)
+      errors.add(:starting_point, "should MANDATORY ends with a '5-digit postal code, followed by Paris, France' format. Example: '1 rue de Rivoli, 75001, Paris, France'")
+    end
+  end
+
 end
