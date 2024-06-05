@@ -114,6 +114,7 @@ class WalksController < ApplicationController
     when "Every day"
       13.times do |number|
         Walk.create(
+          name: walk.name,
           start_time: walk.start_time + (number + 1).days,
           starting_point: walk.starting_point,
           duration: walk.duration,
@@ -131,6 +132,7 @@ class WalksController < ApplicationController
     when "Every other day"
       6.times do |number|
         Walk.create(
+          name: walk.name,
           start_time: walk.start_time + (number + 2).days,
           starting_point: walk.starting_point,
           duration: walk.duration,
