@@ -34,7 +34,7 @@ class Walk < ApplicationRecord
 
   def check_starting_point_format
     unless starting_point.match?(/.*\d{5},\s*Paris,\s*France\z/)
-      errors.add(:starting_point, "should MANDATORY ends with a '5-digit postal code, followed by Paris, France' format. Example: '1 rue de Rivoli, 75001, Paris, France'")
+      errors.add(:starting_point, "should MANDATORY end like this example: 'address, 75001, Paris, France'")
     end
   end
 
