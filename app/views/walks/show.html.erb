@@ -1,6 +1,6 @@
 <div class="fix_padding_navbar_bottom">
   <div class="banner-index">
-    <%= link_to session[:history].reverse.find{ |path| path == "/walks" || path == "/dashboard" } do %>
+    <%= link_to session[:history].reverse.find{ |path| path == "/walks" || path == "/dashboard" || path == "/home" } do %>
       <button class="back-arrow-show"><i class="fa-solid fa-arrow-left"></i></button>
     <% end %>
       <!-- PHOTO DU CHIEN -->
