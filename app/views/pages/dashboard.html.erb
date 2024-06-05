@@ -70,13 +70,13 @@
                 <div class="trash-dashboard">
                   <% if walk.user == current_user %>
                     <%= link_to walk_path(walk), data: { turbo_method: :delete, turbo_confirm: "Do you really want to delete your walk?" } do %>
-                      <i class="fa-solid fa-trash-can"></i>
+                      <i class="fa-solid fa-trash-can", style="color: #5C6CFF"></i>
                     <% end %>
                   <% else %>
                     <% booking = walk.bookings.find_by(user: current_user) %>
                     <% if booking.present? %>
                       <%= link_to booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Do you really want to delete this booking?" } do %>
-                        <i class="fa-solid fa-trash-can"></i>
+                        <i class="fa-solid fa-trash-can", style="color: #5C6CFF"></i>
                       <% end %>
                     <% end %>
                   <% end %>
