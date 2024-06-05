@@ -100,6 +100,7 @@
   </div>
 </div>
 
+<!-- SWEETALERT -->
 <% case %>
 <% when @created_walk %>
   <span
@@ -111,8 +112,8 @@
 <% when @created_booking %>
   <span
     data-controller="sweetalert"
-    data-sweetalert-title-value="Your request is sent",
-    data-sweetalert-text-value="Wait for your confirmation",
+    data-sweetalert-title-value= "Well done!",
+    data-sweetalert-text-value= "Your booking is created",
     data-sweetalert-icon-value="success",>
   </span>
 <% end %>

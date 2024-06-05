@@ -56,7 +56,7 @@ class WalksController < ApplicationController
       @booking = Booking.new(walk: @walk, user: current_user, status: "accepted")
       create_dependent_walks_for(@walk)
       @booking = Booking.create(walk: @walk, user: current_user, status: "accepted")
-      redirect_to dashboard_path
+      redirect_to dashboard_path(created_walk: true)
     else
       render :new, status: :unprocessable_entity
     end
