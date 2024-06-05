@@ -38,12 +38,18 @@
       </div>
       <!-- INFO DOG -->
       <div class="info-dog justify-content-between">
-        <div class="info-doggy d-flex">
+
         <% if @walk.user.dogs.first != nil %>
-          <p class="dog-size"><i class="fa-solid fa-ruler-vertical"></i> <%= @walk.user.dogs.first.size %></p>
-          <p class="dog-breed"><i class="fa-solid fa-dog"></i> <%= @walk.user.dogs.first.breed.content %></p>
-        </div>
-        <% end %>
+          <div class="dog-size">
+            <i class="fa-solid fa-ruler-vertical"></i>
+            <p><%= @walk.user.dogs.first.size %></p>
+          </div>
+          <div class="dog-breed">
+            <i class="fa-solid fa-dog"></i>
+            <p> <%= truncate(@walk.user.dogs.first.breed.content)%> </p>
+          </div>
+
+
         <div class="d-flex align-items-center justify-content-end">
           <div class="icon-style">
             <% if policy(@walk).edit? %>
@@ -60,6 +66,8 @@
           </div>
           <% end %>
         </div>
+
+        <% end %>
       </div>
       <!-- INFO WALK -->
       <div class="principals-info d-flex">

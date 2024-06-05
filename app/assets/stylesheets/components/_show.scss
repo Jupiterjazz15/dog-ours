@@ -22,6 +22,7 @@
 .avatar-name-show {
   position: relative;
   img {
+    object-fit: cover;
     position: absolute;
     height: 5em;
     width: 5em;
@@ -55,7 +56,7 @@
   .info-dog {
     display: flex;
     font-size: 14px;
-    align-items: baseline;
+    margin-bottom: 7px;
   }
 }
 .map-vision {
@@ -67,21 +68,36 @@
 }
 
 .dog-size {
+  height: 70px;
+  width: 75px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
   padding-block: 0.5em;
-  padding-inline: 0.5em;
   border-radius: 48px;
   background-color: #FFFF82;
+  i {
+    margin-left: 1em;
+  }
+  p {
+    margin-left: 1em;
+  }
 }
 
 .dog-breed {
+  height: 70px;
+  width: 180px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-  margin-left: 1em;
   padding-block: 0.5em;
   padding-inline: 0.5em;
+  padding-right: 11px;
   border-radius: 48px;
   color: white;
   background-color: #5C6CFF;
+  i {
+    margin-left: 1em;
+  }
+  p {
+    margin-left: 1em;
+  }
 }
 
 .walk {
@@ -204,8 +220,4 @@
   border-radius: 24px;
   padding-inline: 4px;
 
-}
-
-.info-doggy {
-  align-items: baseline;
 }
