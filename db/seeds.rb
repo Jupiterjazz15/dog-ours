@@ -20,62 +20,64 @@ end
 p "Breed #{Breed.count} created"
 
 ##### USER 1 ANTOINE L. ####
-user = User.create!(first_name: "Antoine", last_name: "Lebeau", phone_number: "123-456-7890", email: "antoine@test.com", password: "azerty", birth_date: "1990-01-01")
+user1 = User.create!(first_name: "Antoine", last_name: "Lebeau", phone_number: "123-456-7890", email: "antoine@test.com", password: "azerty", birth_date: "1990-01-01")
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U06DG7195EE-41fa3d1f8d29-512")
-user.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
+user1.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
 
 dog1 = Dog.create!(name: "Charlie", description: "The funniest dog in the world", birth_date: Date.new(2020, 8, 15), constraint: "Doesn't like small dogs", fun_fact: "The best swimmer you have ever seen !!",size: "Large", breed: Breed.find_by_content!("COLLIE ROUGH"), user_id: User.first.id)
 file = URI.open("https://img.passeportsante.net/1200x675/2021-05-06/i106625-signes-bonne-sante-chien.webp")
 dog1.photo.attach(io: file, filename: "dog.webp", content_type: "image/webp")
 
-p "#{User.first.first_name} has #{Walk.where(user_id: User.first.id).count} walk(s)"
+p "#{User.first.first_name} has #{Walk.where(user_id: user1.id).count} walk(s)"
 
 #### USER 2 CORALIE H. ####
-user = User.create!(first_name: "Coralie", last_name: "Haller", phone_number: "234-567-8901", email: "coralie@test.com", password: "azerty", birth_date: "1994-08-15")
+user2 = User.create!(first_name: "Coralie", last_name: "Haller", phone_number: "234-567-8901", email: "coralie@test.com", password: "azerty", birth_date: "1994-08-15")
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U06DG28K0CT-fafee26638ca-512")
-user.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
+user2.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
 
 dog2 = Dog.create!(name: "Molly", description: "Lovely, cute and very friendly", birth_date: Date.new(2022, 10, 10), constraint: "None", fun_fact: "She loves to wear costume",size: "Small", breed: Breed.find_by_content!("PUG"), user_id: User.second.id)
 file =  URI.open("https://cdn.britannica.com/35/233235-050-8DED07E3/Pug-dog.jpg")
 dog2.photo.attach(io: file, filename: "dog.webp", content_type: "image/webp")
 
-p "#{User.second.first_name} has #{Walk.where(user_id: User.second.id).count} walk(s)"
+p "#{User.second.first_name} has #{Walk.where(user_id: user2.id).count} walk(s)"
 
 #### USER 3 GUILLAUME D. ####
-user = User.create!(first_name: "Guillaume", last_name: "Dupuis", phone_number: "345-678-9012", email: "guillaume@test.com", password: "azerty", birth_date: "1998-03-14" )
+user3 = User.create!(first_name: "Guillaume", last_name: "Dupuis", phone_number: "345-678-9012", email: "guillaume@test.com", password: "azerty", birth_date: "1998-03-14" )
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U06D6P7V0UX-2fe19bee1d04-512")
-user.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
+user3.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
 
 dog3 = Dog.create!(name: "Sam", description: "The funniest dog in the world", birth_date: Date.new(2020, 8, 15), constraint: "No constraint", fun_fact: "Loves cats", size: "Large", breed: Breed.find_by_content!("AUSTRALIAN SHEPHERD"), user_id: User.third.id)
 file = URI.open("https://img.20mn.fr/2c2xoZqdQhu84Dmhb8ci9Sk/1444x920_media")
 dog3.photo.attach(io: file, filename: "dog.webp", content_type: "image/webp")
 
-p "#{User.third.first_name} has #{Walk.where(user_id: User.third.id).count} walk(s)"
+p "#{User.third.first_name} has #{Walk.where(user_id: user3.id).count} walk(s)"
 
 #### USER 4 ANTOINE C. ####
-user = User.create!(first_name: "Antoine", last_name: "Clavel", phone_number: "456-789-0123", email: "toto@test.com", password: "azerty", birth_date: "1980-10-08")
+user4 = User.create!(first_name: "Antoine", last_name: "Clavel", phone_number: "456-789-0123", email: "toto@test.com", password: "azerty", birth_date: "1980-10-08")
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U06EKJ558NL-g43dd42946ee-512")
-user.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
+user4.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
 
 dog4 = Dog.create!(name: "Jimy", description: "The funniest dog in the world", birth_date: Date.new(2018, 10, 10), constraint: "Doesn't like small dogs", fun_fact: "The best swimmer you have ever seen !!", size: "Large", breed: Breed.find_by_content!("AMERICAN STAFFORDSHIRE TERRIER"), user_id: User.fourth.id)
 file = URI.open("https://www.rustica.fr/images/risques-si-je-possede-chien-dont-race-est-interdite-france-19189-l790-h526.jpg.webp")
 dog4.photo.attach(io: file, filename: "dog.webp", content_type: "image/webp")
 
-p "#{User.fourth.first_name} has #{Walk.where(user_id: User.fourth.id).count} walk(s)"
+p "#{User.fourth.first_name} has #{Walk.where(user_id: user4.id).count} walk(s)"
 
 
 #### USER 5 CLOTHILDE S. ####
-user = User.create!(first_name: "Clothilde", last_name: "Scache", phone_number: "456-789-0123", email: "clothilde@test.com", password: "azerty", birth_date: "1997-07-29")
+user5 = User.create!(first_name: "Clothilde", last_name: "Scache", phone_number: "456-789-0123", email: "clothilde@test.com", password: "azerty", birth_date: "1997-07-29")
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U06EHGW24V6-4177402b7800-512")
-user.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
+user5.photo.attach(io: file, filename: "user.jpg", content_type: "image/jpeg")
 
 dog5 = Dog.create!(name: "Mac", description: "A kind and joyful dog!", birth_date: Date.new(2019, 05, 10), constraint: "He has no constraint", fun_fact: "He helps me to be motivated to run!", size: "Large", breed: Breed.find_by_content!("GERMAN SHORT- HAIRED POINTING DOG"), user_id: User.fifth.id)
 file = URI.open("https://www.animaleco.com/wp-content/uploads/2023/03/175023298_m.jpg")
 dog5.photo.attach(io: file, filename: "dog.jpg", content_type: "image/jpeg")
 
-Walk.create!(name: "Walk in 75017", starting_point: "175 Avenue de Wagram, 75017, Paris, France", duration: "1 h", start_time: DateTime.new(2024,07,18,13,00), difficulty: "Medium", description: "A long walk to expend energy" , frequency: "Once",number_of_participant: "3", user_id: User.fifth.id, dog_id: dog5.id)
+walk5 = Walk.create!(name: "Walk in 75017", starting_point: "175 Avenue de Wagram, 75017, Paris, France", duration: "1 h", start_time: DateTime.new(2024,07,18,13,00), difficulty: "Medium", description: "A long walk to expend energy" , frequency: "Once",number_of_participant: "3", user_id: User.fifth.id, dog_id: dog5.id)
 
-p "#{User.fifth.first_name} has #{Walk.where(user_id: User.fifth.id).count} walk(s)"
+Booking.create!(walk: walk5, user: user5, status: 'accepted')
+
+p "#{User.fifth.first_name} has #{Walk.where(user_id: user5.id).count} walk(s)"
 
 
 #### USER 6 GABRIELLE S. ####
@@ -87,7 +89,9 @@ dog6 = Dog.create!(name: "Will", description: "The best dog!", birth_date: Date.
 file = URI.open("https://lemagduchien.ouest-france.fr/images/dossiers/2018-10/kangal-1-134823.jpg")
 dog6.photo.attach(io: file, filename: "dog.jpg", content_type: "image/jpeg")
 
-Walk.create!(name: "Walk in 75020", starting_point: "16 Rue Ramponeau, 75020, Paris, France", duration: "30 min", start_time: DateTime.new(2024,07,02,17,30), difficulty: "Medium", description: "A long walk with special spot to play" , frequency: "Once",number_of_participant: "2", user_id: user6.id, dog_id: dog6.id)
+walk6 = Walk.create!(name: "Walk in 75020", starting_point: "16 Rue Ramponeau, 75020, Paris, France", duration: "30 min", start_time: DateTime.new(2024,07,02,17,30), difficulty: "Medium", description: "A long walk with special spot to play" , frequency: "Once",number_of_participant: "2", user_id: user6.id, dog_id: dog6.id)
+
+Booking.create!(walk: walk6, user: user6, status: 'accepted')
 
 p "#{user6.first_name} has #{Walk.where(user_id: user6.id).count} walk(s)"
 
@@ -101,7 +105,9 @@ dog7 = Dog.create!(name: "Bretzel", description: "She has so much energy!", birt
 file = URI.open("https://www.kingpet.fr/ph/u/766721643537408/6401019845823116/be3bff0c84db51867cdc5a58996262031.jpg?align=54,43&v=31&fm=webp&w=1080&h=810&q=35")
 dog7.photo.attach(io: file, filename: "dog.webp", content_type: "image/webp")
 
-Walk.create!(name: "B. Vincennes ", starting_point: "26 Rue du Rendez-Vous, 75012, Paris, France", duration: "1 h", start_time: DateTime.new(2024,07,03,19,00), difficulty: "Medium", description: "A walk around the lac Daumesnil" , frequency: "Once",number_of_participant: "1", user_id: user7.id, dog_id: dog7.id)
+walk7 = Walk.create!(name: "B. Vincennes ", starting_point: "26 Rue du Rendez-Vous, 75012, Paris, France", duration: "1 h", start_time: DateTime.new(2024,07,03,19,00), difficulty: "Medium", description: "A walk around the lac Daumesnil" , frequency: "Once",number_of_participant: "1", user_id: user7.id, dog_id: dog7.id)
+
+Booking.create!(walk: walk7, user: user7, status: 'accepted')
 
 p "#{user7.first_name} has #{Walk.where(user_id: user7.id).count} walk(s)"
 
@@ -115,7 +121,9 @@ dog8 = Dog.create!(name: "Pirouette", description: "A very fun buddy!", birth_da
 file = URI.open("https://www.zooplus.fr/magazine/wp-content/uploads/2023/03/pinscher-nain-sur-une-couverture.jpg")
 dog8.photo.attach(io: file, filename: "dog.jpg", content_type: "image/jpeg")
 
-Walk.create!(name: "J. Luxembourg", starting_point: "9 Rue Férou, 75006, Paris, France", duration: "15 min", start_time: DateTime.new(2024,07,22,18,0), difficulty: "Low", description: "A walk in the jardin du Luxembourg", frequency: "Once",number_of_participant: "2", user_id: user8.id, dog_id: dog8.id)
+walk8 = Walk.create!(name: "J. Luxembourg", starting_point: "9 Rue Férou, 75006, Paris, France", duration: "15 min", start_time: DateTime.new(2024,07,22,18,0), difficulty: "Low", description: "A walk in the jardin du Luxembourg", frequency: "Once",number_of_participant: "2", user_id: user8.id, dog_id: dog8.id)
+
+Booking.create!(walk: walk8, user: user8, status: 'accepted')
 
 p "#{user8.first_name} has #{Walk.where(user_id: user8.id).count} walk(s)"
 
@@ -129,7 +137,9 @@ dog9 = Dog.create!(name: "Kiwi", description: "He is very kind and he loves to m
 file = URI.open("https://media-be.chewy.com/wp-content/uploads/2021/07/16074327/YorkshireTerrier-FeaturedImage.jpg")
 dog9.photo.attach(io: file, filename: "dog.jpg", content_type: "image/jpeg")
 
-Walk.create!(name: "Sqr Pablo-C", starting_point: "59 Rue de Lourmel, 75015, Paris, France", duration: "30 min", start_time: DateTime.new(2024,07,28,20,0), difficulty: "Low", description: "A walk in the Square Pablo-Casals" , frequency: "Once",number_of_participant: "1", user_id: user9.id, dog_id: dog9.id)
+walk9 = Walk.create!(name: "Sqr Pablo-C", starting_point: "59 Rue de Lourmel, 75015, Paris, France", duration: "30 min", start_time: DateTime.new(2024,07,28,20,0), difficulty: "Low", description: "A walk in the Square Pablo-Casals" , frequency: "Once",number_of_participant: "1", user_id: user9.id, dog_id: dog9.id)
+
+Booking.create!(walk: walk9, user: user9, status: 'accepted')
 
 p "#{user9.first_name} has #{Walk.where(user_id: user9.id).count} walk(s)"
 
@@ -143,10 +153,11 @@ dog10 = Dog.create!(name: "Pepito", description: "He is so fun and full of energ
 file = URI.open("https://www.chien.fr/assets/img/000/074/og-image/jack-russell-terrier.jpg")
 dog10.photo.attach(io: file, filename: "dog.jpg", content_type: "image/jpeg")
 
-Walk.create!(name: "P. G.Brassens", starting_point: "33 Rue de Cronstadt, 75015, Paris, France", duration: "15 min", start_time: DateTime.new(2024,07,01,13,00), difficulty: "Low", description: "A walk in the park Georges Brassens" , frequency: "Once", number_of_participant: "2", user_id: user10.id, dog_id: dog10.id)
+walk10 = Walk.create!(name: "P. G.Brassens", starting_point: "33 Rue de Cronstadt, 75015, Paris, France", duration: "15 min", start_time: DateTime.new(2024,07,01,13,00), difficulty: "Low", description: "A walk in the park Georges Brassens" , frequency: "Once", number_of_participant: "2", user_id: user10.id, dog_id: dog10.id)
+
+Booking.create!(walk: walk10, user: user10, status: 'accepted')
 
 p "#{user10.first_name} has #{Walk.where(user_id: user10.id).count} walk(s)"
-
 
 ####  Message de confirmation de la création des users ####
 p "You have created #{User.count} users"

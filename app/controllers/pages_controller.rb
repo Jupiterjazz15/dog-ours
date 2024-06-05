@@ -29,14 +29,13 @@ class PagesController < ApplicationController
         }
       end
     else
-      @walks = [] # Initialisation avec une valeur vide
+      @walks = []
     end
   end
 
   def dashboard
     @created_walk = params[:created_walk] == "true"
     @created_booking = params[:created_booking] == "true"
-    @walks = current_user.walks.order(start_time: :asc)
     @my_bookings = current_user.bookings.map(&:walk)
     if params[:id].present?
       @booking = Booking.find(params[:id])
