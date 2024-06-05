@@ -78,7 +78,7 @@
     border: 2px solid #FFF;
     position: relative;
     top: -25px;
-    left: 168px;
+    left: 130px;
 }
 
 .walk-card-content {
@@ -88,16 +88,14 @@
   height: 125px;
 }
 
-.walk-card-content.home-index {
-  height: 116px;
-}
-
 .walk-card-content.home {
   max-width: 172px;
 }
 
 .walk-card.home-index {
-  height: 276px;
+  height: 254px;
+  width: 175px;
+  background: #F4F4F9;
 }
 
 .walk-card.home {

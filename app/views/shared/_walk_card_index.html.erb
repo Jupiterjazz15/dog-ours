@@ -1,44 +1,43 @@
-<div class="fix_padding_navbar_bottom">
-  <div class="container-index">
-    <div class="wrapper-index">
-      <% @walks.each do |walk| %>
-      <%= link_to(walk_path(walk)) do %>
-      <!-- WALK CARDS -->
-      <div class="walk-card home-index">
-        <div class="container-dog-photo">
-        <% if walk.user.dogs.first != nil && walk.user.dogs.first.photo.attached? %>
-          <%= cl_image_tag walk.user.dogs.first.photo.key %>
-        <% else %>
-          <%= image_tag "logo_without_dog.png", class: "avatar dog" %>
-        <% end %>
-          <div class="walk-card-stickers">
-            <p><i class="fa-solid fa-hourglass-start"></i> <%= walk.duration %></p>
-          </div>
-        </div>
-        <div class="walk-card-content home-index">
-          <div class="card-head">
-            <div class="avatar-name">
-             <% if walk.user.photo.attached? %>
-              <%= cl_image_tag walk.user.photo.key %>
-            <% else %>
-              <%= image_tag "logo_without_user.png" %>
-            <% end %>
-              <div class="d-flex">
-               <% if walk.user.dogs.first != nil %>
-                <h2><%= walk.user.dogs.first.name %></h2>
-                <% end %>
-                <p class="dog-name"><em>& <%= walk.user.first_name %></em></p>
-              </div>
-            </div>
-          </div>
-          <div class="info-walk-card">
-            <p><i class="fa-solid fa-location-pin"></i> <%= walk.starting_point %></p>
-            <p><i class="fa-regular fa-clock"></i> <%= walk.start_time.strftime("%e/%m - %H:%M") %></p>
-          </div>
+<div class="container fix_padding_navbar_bottom">
+  <div class="wrapper-index">
+    <% @walks.each do |walk| %>
+    <%= link_to(walk_path(walk)) do %>
+    <!-- WALK CARDS -->
+    <div class="walk-card home-index">
+      <div class="container-dog-photo">
+      <% if walk.user.dogs.first != nil && walk.user.dogs.first.photo.attached? %>
+        <%= cl_image_tag walk.user.dogs.first.photo.key %>
+      <% else %>
+        <%= image_tag "logo_without_dog.png", class: "avatar dog" %>
+      <% end %>
+        <div class="walk-card-stickers">
+          <p><i class="fa-solid fa-hourglass-start"></i> <%= walk.duration %></p>
         </div>
       </div>
-      <% end %>
-    <% end %>
+      <div class="walk-card-content home-index">
+        <div class="card-head">
+          <div class="avatar-name">
+            <% if walk.user.photo.attached? %>
+            <%= cl_image_tag walk.user.photo.key %>
+          <% else %>
+            <%= image_tag "logo_without_user.png" %>
+          <% end %>
+            <div class="d-flex">
+              <% if walk.user.dogs.first != nil %>
+              <h2><%= walk.user.dogs.first.name %></h2>
+              <% end %>
+              <p class="dog-name"><em>& <%= walk.user.first_name %></em></p>
+            </div>
+          </div>
+        </div>
+        <div class="info-walk-card">
+          <p><i class="fa-solid fa-location-pin"></i> <%= walk.starting_point %></p>
+          <p><i class="fa-regular fa-clock"></i> <%= walk.start_time.strftime("%e/%m - %H:%M") %></p>
+        </div>
+      </div>
     </div>
+    <% end %>
+  <% end %>
   </div>
+
 </div>
